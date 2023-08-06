@@ -35,10 +35,9 @@ const CashDesk = ({
 };
 
 const MainPage = () => {
-  const [queueItemsForEachDesk, setQueueItemsForEachDesk] = useState([
-    0, 0, 0, 0, 0,
-  ]);
   const CASH_DESKS = 5;
+  const [queueItemsForEachDesk, setQueueItemsForEachDesk] =
+    Array(CASH_DESKS).fill(0);
 
   return (
     <>
@@ -51,7 +50,7 @@ const MainPage = () => {
         </div>
 
         <div className="grid grid-cols-5 gap-2 py-4">
-          {queueItemsForEachDesk.map((item, index) => (
+          {queueItemsForEachDesk.map((item: number, index: number) => (
             <CashDesk
               key={index}
               deskNumber={index + 1}
