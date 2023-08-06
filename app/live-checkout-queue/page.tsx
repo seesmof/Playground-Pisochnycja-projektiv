@@ -1,7 +1,7 @@
 // Given a number of cash desks and a live queue of people with their number of items, make user be able to enter a number and add that number to the queue with the least amount of items in it. Additionally, on each cash desk make it so each second or half a second the amount of items is decremented live.
 
 "use client";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 // input box with button to add
 
@@ -11,52 +11,41 @@ import { useEffect, useState } from "react";
 
 // a function that fires on items add and looks for a cash desk with the least amount of items in its queue
 
-interface CashDeskProps {
-  deskNumber: number;
-  itemsInQueue: number;
-  setItemsInQueue: any;
-}
-
-const CashDesk = ({
-  deskNumber,
-  itemsInQueue,
-  setItemsInQueue,
-}: CashDeskProps) => {
-  return (
-    <>
-      <div className="w-full flex items-center justify-center rounded-md p-4 font-medium border-2">
-        <div className="flex flex-col items-center gap-1">
-          <h2>Number: {deskNumber}</h2>
-          <p>Queue: {itemsInQueue}</p>
-        </div>
-      </div>
-    </>
-  );
-};
-
 const MainPage = () => {
-  const CASH_DESKS = 5;
-  const [queueItemsForEachDesk, setQueueItemsForEachDesk] =
-    Array(CASH_DESKS).fill(0);
+  const [newCart, setNewCart] = useState(0);
+  const [cashDesks, setCashDesks] = useState<number[][]>([[], [], [], [], []]);
+
+  const addNewItemsToQueue = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    cashDesks.forEach((cashDesk) => {
+      cashDesk.push(newCart);
+    });
+  };
 
   return (
     <>
-      <div className="flex flex-col p-4 md:p-6 max-w-4xl mx-auto">
-        <div className="flex flex-row items-center gap-2">
-          <input type="number" className="p-2 rounded-md border-2 w-full" />
-          <button className="p-2 px-4 rounded-md bg-blue-500 border-2 border-blue-500 text-white font-medium">
-            checkout
+      <div className="bg-slate-900 text-slate-50 p-4 min-h-screen flex flex-col items-center justify-center">
+        <form
+          onSubmit={addNewItemsToQueue}
+          className="flex flex-row items-center gap-2"
+        >
+          <input
+            type="number"
+            onChange={(e) => setNewCart(e.currentTarget.valueAsNumber)}
+            value={newCart}
+            className="rounded-md bg-slate-200 p-2 text-slate-900"
+            required
+          />
+          <button type="submit" className="rounded-md bg-slate-700 p-2">
+            Checkout
           </button>
-        </div>
+        </form>
 
-        <div className="grid grid-cols-5 gap-2 py-4">
-          {queueItemsForEachDesk.map((item: number, index: number) => (
-            <CashDesk
-              key={index}
-              deskNumber={index + 1}
-              itemsInQueue={item}
-              setItemsInQueue={setQueueItemsForEachDesk}
-            />
+        <div className="flex flex-row items-center py-4 gap-2">
+          {cashDesks.map((cashDesk, index) => (
+            <div key={index} className="p-4 rounded-md border-2">
+              {cashDesk}
+            </div>
           ))}
         </div>
       </div>
