@@ -14,7 +14,7 @@ const Card = ({ link, name, isDarkMode }: CardProps) => {
   return (
     <>
       <Link
-        href={`/modern-js-from-beginning-traversy-media/${link}`}
+        href={`/modern-js-from-beginning-traversy-media/pages/${link}`}
         className={`flex flex-row rounded-md items-center justify-between ${
           isDarkMode
             ? "bg-slate-800"
