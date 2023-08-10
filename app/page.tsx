@@ -3,6 +3,10 @@ import Gallery from "@/components/Gallery";
 export default function Home() {
   const Projects = [
     {
+      name: "Modern JS from Beginning",
+      link: "modern-js-from-beginning-traversy-media",
+    },
+    {
       name: "Regex Golf",
       link: "/regex-golf",
     },

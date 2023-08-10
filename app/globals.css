@@ -4,6 +4,6 @@
 
 @layer components {
   .layout {
-    @apply max-w-6xl w-11/12 mx-auto;
+    @apply max-w-6xl w-11/12 mx-auto flex flex-col;
   }
 }
