@@ -14,6 +14,30 @@ export default function Home() {
       name: "Live Checkout Queue",
       link: "/live-checkout-queue",
     },
+    {
+      name: "Social Media Feed",
+      link: "/social-media-feed",
+    },
+    {
+      name: "ToDo App",
+      link: "/todo-app",
+    },
+    {
+      name: "Chuck Norris Quote Generator",
+      link: "/chuck-norris-quote-generator",
+    },
+    {
+      name: "Shopping Cart with useReducer",
+      link: "/shopping-cart-with-useReducer",
+    },
+    {
+      name: "AI Greeting Generator",
+      link: "/ai-greeting-generator",
+    },
+    {
+      name: "Memory Cards Game",
+      link: "/memory-cards-game",
+    },
   ];
 
   return (
