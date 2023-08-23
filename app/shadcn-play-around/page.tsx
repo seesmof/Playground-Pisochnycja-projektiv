@@ -111,6 +111,22 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -436,6 +452,49 @@ export default function Home() {
           <DropdownMenuItem>Log out</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <Button variant="default" className="w-max self-center">
+            Show Hover Card
+          </Button>
+        </HoverCardTrigger>
+        <HoverCardContent>
+          <p>
+            opinion carry bush gain foreign known title end thrown level natural
+            hurried ride storm of distance addition national card stared noon
+            announced brother bill
+          </p>
+          <p className="mt-2">
+            exciting definition pretty manner spend funny tall nine deal solid
+            say whole joy sink belong hair birthday leaving pleasant deep
+            husband two soldier bus
+          </p>
+        </HoverCardContent>
+      </HoverCard>
+
+      <div className="grid gap-2">
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" id="email" placeholder="Email" />
+      </div>
+
+      <Label htmlFor="email">Your email address</Label>
+
+      <Menubar>
+        <MenubarMenu>
+          <MenubarTrigger>File</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              New Tab
+              <MenubarShortcut>Ctrl+T</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>New Window</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Share</MenubarItem>
+            <MenubarItem>Print</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
     </main>
   );
 }
