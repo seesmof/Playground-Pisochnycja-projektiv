@@ -1,11 +1,11 @@
-import "./globals.css";
+import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NextJS APP",
+  title: "ShadCN Testing Playground",
   description:
-    "This is my NextJS app built with TailwindCSS, ShadCN, TypeScript and React.",
+    "A space to explore and experiment with ShadCN, enhancing my coding skills and creativity.",
 };
 
 export default function RootLayout({

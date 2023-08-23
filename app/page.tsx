@@ -3,6 +3,10 @@ import Gallery from "@/components/Gallery";
 export default function Home() {
   const Projects = [
     {
+      name: "ShadCN Play Around",
+      link: "/shadcn-play-around",
+    },
+    {
       name: "Modern JS from Beginning",
       link: "modern-js-from-beginning-traversy-media",
     },
@@ -46,7 +50,7 @@ export default function Home() {
 
   return (
     <>
-      <Gallery Projects={Projects} projectName="Codewell" />
+      <Gallery Projects={Projects} projectName="Code Doodles" />
     </>
   );
 }
