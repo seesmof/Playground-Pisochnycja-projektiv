@@ -21,7 +21,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import {
   Terminal,
   FileWarning,
