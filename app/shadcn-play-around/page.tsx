@@ -137,10 +137,38 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { Progress } from "@/components/ui/progress";
+import { clear } from "console";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [datePickerDate, setDatePickerDate] = React.useState<Date>();
+  const [progressValue, setProgressValue] = React.useState(0);
+
+  React.useEffect(() => {
+    const stageOne = setTimeout(() => {
+      setProgressValue(10);
+    }, 500);
+    const stageTwo = setTimeout(() => {
+      setProgressValue(46);
+    }, 2600);
+    const stageThree = setTimeout(() => {
+      setProgressValue(61);
+    }, 2900);
+    const stageFour = setTimeout(() => {
+      setProgressValue(85);
+    }, 3500);
+    const stageFive = setTimeout(() => {
+      setProgressValue(100);
+    }, 4200);
+    return () => {
+      clearTimeout(stageOne);
+      clearTimeout(stageTwo);
+      clearTimeout(stageThree);
+      clearTimeout(stageFour);
+      clearTimeout(stageFive);
+    };
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col p-4 gap-4 max-w-6xl mx-auto">
@@ -554,6 +582,8 @@ export default function Home() {
           </div>
         </PopoverContent>
       </Popover>
+
+      <Progress value={progressValue} />
     </main>
   );
 }
