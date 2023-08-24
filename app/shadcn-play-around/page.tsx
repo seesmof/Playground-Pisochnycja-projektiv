@@ -151,21 +151,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [datePickerDate, setDatePickerDate] = React.useState<Date>();
   const [progressValue, setProgressValue] = React.useState(0);
   const [resetProgress, setResetProgress] = React.useState(0);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setResetProgress(resetProgress + 1);
-    }, 6000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   React.useEffect(() => {
     const stageNull = setTimeout(() => {
@@ -193,7 +194,7 @@ export default function Home() {
       clearTimeout(stageFour);
       clearTimeout(stageFive);
     };
-  }, [resetProgress]);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col p-4 gap-4 max-w-6xl mx-auto">
@@ -715,6 +716,40 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="default" className="w-max">
+            Open Sheet
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Brain is consist hay recently</SheetTitle>
+            <SheetDescription>
+              Wall setting yesterday pen additional problem wool told grabbed
+              fine structure spell
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-2 py-4">
+            <p>
+              gasoline introduced must kids chamber typical rice modern hundred
+              trunk bare rocket colony experiment silence respect shallow best
+              weak bell understanding inside film flight
+            </p>
+            <p>
+              dish create journey scientific fish lead herd screen strong broad
+              great kill bill health nervous evidence or bent dress dried stuck
+              organization famous court
+            </p>
+          </div>
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button type="button">Close</Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </main>
   );
 }
