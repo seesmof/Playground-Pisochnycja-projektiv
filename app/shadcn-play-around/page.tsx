@@ -185,6 +185,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -872,8 +873,8 @@ export default function Home() {
           <TableRow>
             <TableCell>223</TableCell>
             <TableCell>Salad</TableCell>
-            <TableCell className="max-w-xs text-right">2</TableCell>
-            <TableCell className="text-right">$10</TableCell>
+            <TableCell className="max-w-xs text-right">3</TableCell>
+            <TableCell className="text-right">$16</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>164</TableCell>
@@ -889,6 +890,53 @@ export default function Home() {
           </TableRow>
         </TableBody>
       </Table>
+
+      <Tabs defaultValue="account">
+        <TabsList>
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="orders">Orders</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account" className="grid space-y-2">
+          <h2 className="font-medium text-lg">Account</h2>
+          <p>
+            yellow better establish them sail hay blanket tall getting began
+            hunter great tip central owner oxygen satisfied library future
+            morning arrange put market asleep
+          </p>
+          <p>
+            stretch dance gold crop planned subject page bee space aware shine
+            camera gas dollar give milk dangerous substance forty material quiet
+            sent sign blew
+          </p>
+        </TabsContent>
+        <TabsContent value="orders" className="grid space-y-2">
+          <h2 className="font-medium text-lg">Orders</h2>
+          <p>
+            flow master nuts diagram rising stared book block thee particular
+            good wore refer example settle pan signal provide classroom busy
+            solution program fewer flight
+          </p>
+          <p>
+            team tent hand never winter scientist development official create
+            greatest among door myself whispered return dog sad got pale
+            afternoon special giant come kill
+          </p>
+        </TabsContent>
+        <TabsContent value="settings" className="grid space-y-2">
+          <h2 className="font-medium text-lg">Settings</h2>
+          <p>
+            movement straw tobacco including size fifth meal sugar shore step
+            after chapter than court major difficulty fire recently office how
+            suit spread separate use
+          </p>
+          <p>
+            owner ate indicate society hearing room acres needs sang dirty four
+            drawn massage whom ordinary capital eaten saddle tip period radio
+            recent declared make
+          </p>
+        </TabsContent>
+      </Tabs>
     </main>
   );
 }
