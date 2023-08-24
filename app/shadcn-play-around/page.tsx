@@ -176,6 +176,15 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Switch } from "@/components/ui/switch";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -840,6 +849,46 @@ export default function Home() {
         <Switch id="airplane-mode" />
         <Label htmlFor="airplane-mode">Airplane Mode </Label>
       </div>
+
+      <Table>
+        <TableCaption>
+          Your shopping list for {new Date().toLocaleDateString()}
+        </TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">№</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead className="max-w-xs text-right">Amount</TableHead>
+            <TableHead className="text-right">Price</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>185</TableCell>
+            <TableCell>Cheese</TableCell>
+            <TableCell className="max-w-xs text-right">1</TableCell>
+            <TableCell className="text-right">$8</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>223</TableCell>
+            <TableCell>Salad</TableCell>
+            <TableCell className="max-w-xs text-right">2</TableCell>
+            <TableCell className="text-right">$10</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>164</TableCell>
+            <TableCell>Tomatoes</TableCell>
+            <TableCell className="max-w-xs text-right">6</TableCell>
+            <TableCell className="text-right">$14</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>44</TableCell>
+            <TableCell>Milk</TableCell>
+            <TableCell className="max-w-xs text-right">1</TableCell>
+            <TableCell className="text-right">$4</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </main>
   );
 }
