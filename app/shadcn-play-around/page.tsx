@@ -161,6 +161,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -723,7 +724,7 @@ export default function Home() {
             Open Sheet
           </Button>
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent side="top">
           <SheetHeader>
             <SheetTitle>Brain is consist hay recently</SheetTitle>
             <SheetDescription>
@@ -750,6 +751,14 @@ export default function Home() {
           </SheetFooter>
         </SheetContent>
       </Sheet>
+
+      <div className="flex items-center space-x-2">
+        <Skeleton className="h-12 w-12 rounded-full" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-32" />
+          <Skeleton className="h-4 w-20" />
+        </div>
+      </div>
     </main>
   );
 }
