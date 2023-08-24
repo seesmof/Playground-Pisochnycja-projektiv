@@ -186,6 +186,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -937,6 +938,14 @@ export default function Home() {
           </p>
         </TabsContent>
       </Tabs>
+
+      <div className="grid space-y-2">
+        <Label htmlFor="your-message">Your message</Label>
+        <Textarea
+          id="your-message"
+          placeholder="Please enter your message here..."
+        />
+      </div>
     </main>
   );
 }
