@@ -226,6 +226,25 @@ export default function Home() {
     <main className="flex min-h-screen flex-col p-4 gap-4 max-w-6xl mx-auto">
       <ThemeToggle />
 
+      <Alert variant="default">
+        <Mail className="w-4 h-4" />
+        <AlertTitle>Alert</AlertTitle>
+        <AlertDescription>
+          This is a default alert. It can be dismissed. Please pay attention to
+          it. Use it whenever you feel like. Usage is not limited to just places
+          where you need it, but also to the places where you don't.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="destructive">
+        <AlertCircle size={16} strokeWidth={1.3} />
+        <AlertTitle>Uh-oh... Something went wrong</AlertTitle>
+        <AlertDescription>
+          What hardly stage can so volume uncle knew be wire find bone faster
+          said tin control instrument once half save ice front keep thing cover
+        </AlertDescription>
+      </Alert>
+
       <Accordion type="single" collapsible>
         <AccordionItem value="1">
           <AccordionTrigger>Do we have a main office?</AccordionTrigger>
