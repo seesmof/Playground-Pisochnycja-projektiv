@@ -44,6 +44,9 @@ import {
   User,
   UserPlus,
   Users,
+  Italic,
+  Bold,
+  Pilcrow,
 } from "lucide-react";
 import { AvatarFallback, AvatarImage, Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -164,6 +167,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/components/ui/use-toast";
+import { Toggle } from "@/components/ui/toggle";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -781,6 +785,34 @@ export default function Home() {
         >
           Add to Cart
         </Button>
+      </div>
+
+      <h4 className="font-medium text-lg">Toggle some stuff</h4>
+      <div className="flex items-center space-x-2">
+        <Toggle
+          variant="outline"
+          aria-label="Toggle italic"
+          className="flex items-center"
+        >
+          <Italic className="h-4 w-4 mr-2" />
+          Italic
+        </Toggle>
+        <Toggle
+          variant="outline"
+          aria-label="Toggle bold"
+          className="flex items-center"
+        >
+          <Bold className="h-4 w-4 mr-2" />
+          Bold
+        </Toggle>
+        <Toggle
+          variant="outline"
+          aria-label="Toggle whatever that is"
+          className="flex items-center"
+        >
+          <Pilcrow className="h-4 w-4 mr-2" />
+          Whatever this is
+        </Toggle>
       </div>
     </main>
   );
