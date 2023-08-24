@@ -140,6 +140,16 @@ import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { clear } from "console";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -596,6 +606,71 @@ export default function Home() {
           <Label htmlFor="different">Different</Label>
         </div>
       </RadioGroup>
+
+      <ScrollArea className="h-32 border rounded-lg w-full max-w-sm">
+        <div className="grid gap-2 p-4">
+          <h4 className="font-medium text-lg">
+            Muscle year fairly till however
+          </h4>
+          <p>
+            Fact fruit ago nor blood task fear brush clay smoke bark parent
+            season ever mean pot mark tip light present somehow hay simple thy
+            constantly soon nervous mice probably trouble so wonder arrive
+            notice around nuts aboard table period wagon faster soldier every
+            local thing surface what voice
+          </p>
+          <p>
+            Pressure room cow fought character forth ocean lot compound learn
+            truth grade claws population machinery industrial began felt member
+            label clay missing express aloud
+          </p>
+          <blockquote className="border-l-2 pl-2">
+            Activity complex eat visitor rest ranch lying lesson two mail
+            principal been whole vertical still spirit cave unless actually said
+            education to his experiment
+          </blockquote>
+          <p>
+            Found shirt among thou against basic fireplace will quickly
+            impossible village happened ran wish corn cover ill wild was
+            themselves earlier change magic or flame difficulty known fix engine
+            important consider stock saved mirror mysterious disease unit gun
+            dig diagram view character running typical nothing experiment food
+            remove
+          </p>
+          <h4 className="font-medium text-lg">
+            Wing carry finest mark syllable
+          </h4>
+          <p>
+            Electric which agree crop shake feed wrapped shown desert curve
+            introduced here visit flame gold morning shelf wash simplest goose
+            yesterday go shoulder deep alone successful month appropriate away
+            rod win closer therefore became return mark tide flat its indeed
+            clean keep exact butter flight obtain bent system
+          </p>
+          <p>
+            Week customs asleep practical copper fly remove may wet lucky
+            distance throw detail lay seeing function whale rest at later
+            comfortable strength recent nails
+          </p>
+        </div>
+      </ScrollArea>
+
+      <Select>
+        <SelectTrigger>
+          <SelectValue placeholder="Select a system" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Public Transport</SelectLabel>
+            <SelectItem value="bus">Bus</SelectItem>
+            <SelectItem value="tram">Tram</SelectItem>
+            <SelectItem value="metro">Metro</SelectItem>
+            <SelectItem value="trolleybus">Trolley Bus</SelectItem>
+            <SelectItem value="monorail">Monorail</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </main>
   );
 }
