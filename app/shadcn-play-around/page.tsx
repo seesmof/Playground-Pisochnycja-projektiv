@@ -768,20 +768,19 @@ export default function Home() {
           <p className="font-medium">Vegies</p>
           <p className="font-medium">Fastfood</p>
         </div>
-        <Slider defaultValue={[50]} min={0} max={100} step={50} />
-        <Button className="self-end w-max mt-4">Add to Cart</Button>
-      </div>
-
-      <div className="flex flex-col">
-        <h2 className="font-medium text-lg">
-          How much are you loving this site?
-        </h2>
-        <div className="flex items-center justify-between mb-3">
-          <p className="font-medium">0</p>
-          <p className="font-medium">100</p>
-        </div>
-        <Slider defaultValue={[50]} min={0} max={100} step={1} />
-        <Button className="self-end w-max mt-4">Add to Cart</Button>
+        <Slider defaultValue={[2]} min={1} max={3} step={1} />
+        <Button
+          onClick={() => {
+            toast({
+              title: "Item added to cart",
+              description:
+                "The selected item has successfully been added to your cart",
+            });
+          }}
+          className="self-end w-max mt-4"
+        >
+          Add to Cart
+        </Button>
       </div>
     </main>
   );
