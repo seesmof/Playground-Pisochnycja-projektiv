@@ -536,6 +536,24 @@ export default function Home() {
         dozen calm according somehow mental railroad increase closer pound story
         ought knew name battle
       </p>
+
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="default" className="w-max">
+            Open Popover
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <div className="grid gap-2">
+            <p className="font-medium">Place content in here</p>
+            <p>
+              Familiar stage did when exercise author those people closer
+              operation grandfather useful sell heat burn this word want free
+              coal plain finger drew thick
+            </p>
+          </div>
+        </PopoverContent>
+      </Popover>
     </main>
   );
 }
