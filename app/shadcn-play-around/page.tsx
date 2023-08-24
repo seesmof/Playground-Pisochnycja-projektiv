@@ -47,6 +47,7 @@ import {
   Italic,
   Bold,
   Pilcrow,
+  Plane,
 } from "lucide-react";
 import { AvatarFallback, AvatarImage, Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -174,6 +175,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Switch } from "@/components/ui/switch";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -833,6 +835,11 @@ export default function Home() {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
+
+      <div className="flex items-center space-x-2">
+        <Switch id="airplane-mode" />
+        <Label htmlFor="airplane-mode">Airplane Mode </Label>
+      </div>
     </main>
   );
 }
