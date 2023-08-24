@@ -162,12 +162,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Slider } from "@/components/ui/slider";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [datePickerDate, setDatePickerDate] = React.useState<Date>();
   const [progressValue, setProgressValue] = React.useState(0);
-  const [resetProgress, setResetProgress] = React.useState(0);
+  const { toast } = useToast();
 
   React.useEffect(() => {
     const stageNull = setTimeout(() => {
@@ -758,6 +760,28 @@ export default function Home() {
           <Skeleton className="h-4 w-32" />
           <Skeleton className="h-4 w-20" />
         </div>
+      </div>
+
+      <div className="flex flex-col">
+        <div className="flex items-center justify-between mb-3">
+          <p className="font-medium">Fruits</p>
+          <p className="font-medium">Vegies</p>
+          <p className="font-medium">Fastfood</p>
+        </div>
+        <Slider defaultValue={[50]} min={0} max={100} step={50} />
+        <Button className="self-end w-max mt-4">Add to Cart</Button>
+      </div>
+
+      <div className="flex flex-col">
+        <h2 className="font-medium text-lg">
+          How much are you loving this site?
+        </h2>
+        <div className="flex items-center justify-between mb-3">
+          <p className="font-medium">0</p>
+          <p className="font-medium">100</p>
+        </div>
+        <Slider defaultValue={[50]} min={0} max={100} step={1} />
+        <Button className="self-end w-max mt-4">Add to Cart</Button>
       </div>
     </main>
   );
