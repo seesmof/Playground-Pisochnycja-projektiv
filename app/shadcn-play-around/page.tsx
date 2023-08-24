@@ -156,8 +156,21 @@ export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
   const [datePickerDate, setDatePickerDate] = React.useState<Date>();
   const [progressValue, setProgressValue] = React.useState(0);
+  const [resetProgress, setResetProgress] = React.useState(0);
 
   React.useEffect(() => {
+    const interval = setInterval(() => {
+      setResetProgress(resetProgress + 1);
+    }, 6000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const stageNull = setTimeout(() => {
+      setProgressValue(0);
+    }, 0);
     const stageOne = setTimeout(() => {
       setProgressValue(10);
     }, 500);
@@ -180,7 +193,7 @@ export default function Home() {
       clearTimeout(stageFour);
       clearTimeout(stageFive);
     };
-  }, []);
+  }, [resetProgress]);
 
   return (
     <main className="flex min-h-screen flex-col p-4 gap-4 max-w-6xl mx-auto">
