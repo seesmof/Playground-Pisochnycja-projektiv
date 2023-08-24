@@ -168,6 +168,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/components/ui/use-toast";
 import { Toggle } from "@/components/ui/toggle";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -814,6 +820,19 @@ export default function Home() {
           Whatever this is
         </Toggle>
       </div>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button className="w-max" variant={"default"}>
+              Open Tooltip
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="right">
+            <p>Tooltip text</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </main>
   );
 }
