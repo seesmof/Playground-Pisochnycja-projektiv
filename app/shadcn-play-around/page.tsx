@@ -134,7 +134,9 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -508,12 +510,32 @@ export default function Home() {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent className="p-2 grid gap-2">
+              <NavigationMenuLink>Link</NavigationMenuLink>
+              <NavigationMenuLink>Link</NavigationMenuLink>
               <NavigationMenuLink>Link</NavigationMenuLink>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Documentation
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+
+      <p>
+        ate eleven couple won anywhere bark rule anyone mix read present perfect
+        lady thick spell on pay calm chapter paragraph rice fort nervous
+        gasoline
+      </p>
+      <p>
+        universe remember cutting useful typical depth fruit plant low whale
+        dozen calm according somehow mental railroad increase closer pound story
+        ought knew name battle
+      </p>
     </main>
   );
 }
