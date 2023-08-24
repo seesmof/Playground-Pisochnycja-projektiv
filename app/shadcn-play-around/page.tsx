@@ -139,6 +139,7 @@ import {
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { clear } from "console";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -584,6 +585,17 @@ export default function Home() {
       </Popover>
 
       <Progress value={progressValue} />
+
+      <RadioGroup defaultValue="default">
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="default" id="default" />
+          <Label htmlFor="default">Default</Label>
+        </div>
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="different" id="different" />
+          <Label htmlFor="different">Different</Label>
+        </div>
+      </RadioGroup>
     </main>
   );
 }
