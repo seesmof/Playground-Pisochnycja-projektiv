@@ -150,6 +150,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
@@ -671,6 +672,36 @@ export default function Home() {
           </SelectGroup>
         </SelectContent>
       </Select>
+
+      <div className="grid space-y-4">
+        <div className="grid">
+          <h2 className="font-medium text-lg">Closely bag connected exist</h2>
+          <p className="text-muted-foreground">
+            account way morning shot though shake care sound column successful
+            cost breath second market
+          </p>
+        </div>
+        <Separator />
+        <div className="flex justify-between space-x-4">
+          <p>
+            city finally meant large nuts sunlight club identity view grain
+            shore if turn lose change sing then engine course seldom begun ball
+            stranger rose
+          </p>
+          <Separator orientation="vertical" />
+          <p>
+            note golden invented feet magic sign fine essential exclaimed window
+            suddenly place possible having shape planet column nice generally
+            characteristic faster today inch plant
+          </p>
+          <Separator orientation="vertical" />
+          <p>
+            soil cool among continent major political bridge bright speed swept
+            key sun measure therefore damage species hall greatest whole lack
+            hardly went dress fur
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
