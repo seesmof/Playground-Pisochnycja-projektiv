@@ -1,21 +1,33 @@
+from spotipy.oauth2 import SpotifyOAuth
+import spotipy
 from env import *
 import re
 
-def parseSpotifyTable(markdown_table):
-    extracted_data = []
+# STEP 1: Parse markdown table with song names and authors
+
+
+def parseSpotifyTable(markdownTable):
+    extractedData = []
     pattern = r"\| (.+?)\s*\| (.+?)\s*\|"
-    matches = re.findall(pattern, markdown_table)
+    matches = re.findall(pattern, markdownTable)
     for match in matches:
         song_name = match[0]
         artist = match[1]
-        extracted_data.append(
+        extractedData.append(
             {
                 "song": song_name,
                 "artist": artist
             }
         )
-    return extracted_data
+    return extractedData
 
-spotifyPlaylistData = parseSpotifyTable(markdown_table)
-for song in spotifyPlaylistData:
-    print(f"{song['song']} by {song['artist']}")
+
+spotifyPlaylistData = parseSpotifyTable(markdownTable)
+
+# STEP 2: Authenticate with Spotify with my credentials
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=clientID,
+                                               client_secret=clientSecret,
+                                               redirect_uri=redirectURL))
+user = sp.current_user()
+username = user['display_name']
