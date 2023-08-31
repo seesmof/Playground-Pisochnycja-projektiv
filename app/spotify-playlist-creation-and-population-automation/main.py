@@ -28,6 +28,24 @@ spotifyPlaylistData = parseSpotifyTable(markdownTable)
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=clientID,
                                                client_secret=clientSecret,
-                                               redirect_uri=redirectURL))
+                                               redirect_uri=redirectURL, scope="playlist-modify-public"))
 user = sp.current_user()
 username = user['display_name']
+userID = user['id']
+
+# STEP 3: Create a playlist on Spotify
+
+playlistName = username + " Playlist"
+playlistDescription = "Created by " + username
+
+playlist = sp.user_playlist_create(
+    user=userID, name=playlistName, description=playlistDescription)
+playlistID = playlist['id']
+
+playlistContents = sp.playlist_items(playlistID)
+if len(playlistContents['items']) == 0:
+    print("Playlist is empty")
+else:
+    for item in playlistContents['items']:
+        track = item['track']
+        print(track['artists'][0]['name'] + " - " + track['name'])
