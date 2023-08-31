@@ -7,6 +7,10 @@ export default function Home() {
       link: "/shadcn-play-around",
     },
     {
+      name: "Spotify playlist creation and population automation",
+      link: "/spotify-playlist-creation-and-population-automation",
+    },
+    {
       name: "Modern JS from Beginning",
       link: "modern-js-from-beginning-traversy-media",
     },
