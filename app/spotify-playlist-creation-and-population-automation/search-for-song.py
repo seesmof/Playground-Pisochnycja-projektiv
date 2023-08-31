@@ -33,39 +33,18 @@ user = sp.current_user()
 username = user['display_name']
 userID = user['id']
 
-# STEP 3: Create a playlist on Spotify
-
-playlistName = username + " Playlist"
-playlistDescription = "Created by " + username
-
-playlist = sp.user_playlist_create(
-    user=userID, name=playlistName, description=playlistDescription)
-playlistID = playlist['id']
-
-
-def seePlaylistContents(playlistID):
-    playlistContents = sp.playlist_items(playlistID)
-    if len(playlistContents['items']) == 0:
-        print("Playlist is empty")
-    else:
-        for item in playlistContents['items']:
-            track = item['track']
-            author = track['artists'][0]['name']
-            print(author + " - " + track['name'])
-
-# STEP 4: Look for songs
-
+# LOOK FOR SONGS
 
 for song in spotifyPlaylistData:
     track = song['song']
     artist = song['artist']
+    print(track)
 
-    results = sp.search(q=track, type='track')
+    results = sp.search(q=f"track:{track}", type='track')
 
     if results["tracks"]["total"] > 0:
         songUrl = results["tracks"]["items"][0]["uri"]
         songName = results["tracks"]["items"][0]["name"]
-        sp.playlist_add_items(playlistID, [songUrl])
-        print(songName + " added to " + playlistName)
+        print(songUrl)
     else:
-        print("No mathces found")
+        print("No results")
