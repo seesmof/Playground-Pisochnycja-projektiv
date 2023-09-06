@@ -61,7 +61,7 @@ ul > li {
 }
 
 ul > li:first-child {
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.5rem;
 }
 
 ol {
