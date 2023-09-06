@@ -1,3 +1,10 @@
+:root {
+  --background: #eee;
+  --white: #fff;
+  --foreground: #212121;
+  --link-hover: #0269d1;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,8 +13,8 @@
 
 body {
   min-height: 100vh;
-  background-color: #eee;
-  color: #212121;
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -22,7 +29,7 @@ main {
 }
 
 header {
-  background-color: #fff;
+  background-color: var(--white);
   padding: 0.6rem 1rem;
   border-radius: 1rem;
   display: flex;
@@ -50,7 +57,7 @@ header > nav a {
 }
 
 header > nav a:hover {
-  background-color: #eee;
+  background-color: var(--background);
 }
 
 header > nav img {
@@ -60,7 +67,7 @@ header > nav img {
 
 main > article {
   display: grid;
-  background-color: #fff;
+  background-color: var(--white);
   padding: 1rem;
   border-radius: 1rem;
   gap: 1rem;
