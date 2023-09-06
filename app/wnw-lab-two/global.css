@@ -155,3 +155,49 @@ ul > li:first-child {
 ol {
   padding-left: 1rem;
 }
+
+form {
+  display: grid;
+  gap: 0.6rem;
+  padding-top: 0.3rem;
+}
+
+input,
+select,
+textarea {
+  border: transparent;
+  background-color: var(--background);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.6rem;
+}
+
+label {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.input-group {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+#form-grouping {
+  display: grid;
+  gap: 0.6rem;
+}
+
+@media screen and (min-width: 1024px) {
+  #form-grouping {
+    display: flex;
+  }
+}
+
+.required-label::after {
+  content: "*";
+  color: #cc1313;
+}
