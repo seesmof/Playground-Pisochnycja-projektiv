@@ -22,7 +22,7 @@ main {
 }
 
 header {
-  background-color: white;
+  background-color: #fff;
   padding: 0.6rem 1rem;
   border-radius: 1rem;
   display: flex;
@@ -30,18 +30,17 @@ header {
   align-items: center;
 }
 
-#header-links {
+header > h1 a {
+  text-decoration: none;
+}
+
+header > nav {
   display: flex;
   align-items: center;
   gap: 0.1rem;
 }
 
-#header-links img {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-#header-links a {
+header > nav a {
   padding: 0.5rem;
   transition-duration: 300ms;
   border-radius: 0.5rem;
@@ -50,11 +49,16 @@ header {
   justify-content: center;
 }
 
-#header-links a:hover {
+header > nav a:hover {
   background-color: #eee;
 }
 
-#main-grid {
+header > nav img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+main > article {
   display: grid;
   background-color: #fff;
   padding: 1rem;
@@ -63,7 +67,7 @@ header {
 }
 
 @media (min-width: 1024px) {
-  #main-grid {
+  main > article {
     padding: 1.5rem;
     gap: 1.3rem;
   }
