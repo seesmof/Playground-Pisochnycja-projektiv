@@ -75,15 +75,28 @@ main > div {
   border-radius: 1rem;
   gap: 1rem;
   overflow: hidden;
+  padding-bottom: 1rem;
 }
 
-main > div:not(:has(img)) {
-  padding: 1rem;
+main > div > img {
+  max-height: 16rem;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+main > div > section {
+  padding: 0 1rem;
 }
 
 @media (min-width: 1024px) {
+  main > div > img {
+    max-height: 20rem;
+  }
+  main > div > section {
+    padding: 0 1.5rem;
+  }
   main > div {
-    padding: 1.5rem;
     gap: 1.3rem;
   }
   header {
