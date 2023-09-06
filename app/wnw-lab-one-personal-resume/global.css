@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   background-color: var(--background);
@@ -65,7 +69,7 @@ header > nav img {
   height: 1.5rem;
 }
 
-main > article {
+main > div {
   display: grid;
   background-color: var(--white);
   padding: 1rem;
@@ -74,7 +78,7 @@ main > article {
 }
 
 @media (min-width: 1024px) {
-  main > article {
+  main > div {
     padding: 1.5rem;
     gap: 1.3rem;
   }
