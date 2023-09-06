@@ -103,6 +103,7 @@ main > div > section {
   }
   main > div > section {
     padding: 0 1.5rem;
+    padding-bottom: 0.5rem;
   }
   main > div {
     gap: 1.3rem;
@@ -195,9 +196,17 @@ textarea {
   #form-grouping {
     display: flex;
   }
+
+  section:last-of-type > article {
+    padding-top: 1rem;
+  }
 }
 
 .required-label::after {
   content: "*";
   color: #cc1313;
+}
+
+section:last-of-type > article {
+  padding-top: 0.6rem;
 }
