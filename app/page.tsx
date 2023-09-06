@@ -7,6 +7,10 @@ export default function Home() {
       link: "/shadcn-play-around",
     },
     {
+      name: "Personal Resume - Web Dev Lab One",
+      link: "/wnw-lab-one-personal-resume",
+    },
+    {
       name: "Spotify playlist creation and population automation",
       link: "/spotify-playlist-creation-and-population-automation",
     },
