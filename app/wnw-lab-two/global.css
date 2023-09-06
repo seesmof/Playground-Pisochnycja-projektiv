@@ -1,0 +1,136 @@
+:root {
+  --background: #eee;
+  --white: #fff;
+  --foreground: #212121;
+  --link-hover: #0269d1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  max-width: 60rem;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+header {
+  background-color: var(--white);
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > h1 a {
+  text-decoration: none;
+}
+
+header > nav {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+header > nav a {
+  padding: 0.5rem;
+  transition-duration: 300ms;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > nav a:hover {
+  background-color: var(--background);
+}
+
+header > nav img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+main > div {
+  display: grid;
+  background-color: var(--white);
+  border-radius: 1rem;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+main > div:not(:has(img)) {
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  main > div {
+    padding: 1.5rem;
+    gap: 1.3rem;
+  }
+  header {
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+h2 {
+  padding-bottom: 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.1rem;
+}
+
+a {
+  color: inherit;
+  transition-duration: 300ms;
+  text-decoration-line: underline;
+  text-underline-offset: 0.17rem;
+}
+
+a:hover {
+  color: #0269d1;
+}
+
+ul > li {
+  display: grid;
+  gap: 0.1rem;
+}
+
+ul > li:first-child {
+  padding-bottom: 0.5rem;
+}
+
+ol {
+  padding-left: 1rem;
+}
