@@ -21,6 +21,11 @@ main {
   gap: 1rem;
 }
 
+#main-grid {
+  display: grid;
+  gap: 1rem;
+}
+
 header {
   background-color: white;
   padding: 0.6rem 1rem;
@@ -61,41 +66,36 @@ section {
   background-color: white;
   padding: 1rem;
   border-radius: 1rem;
-  height: max-content;
 }
 
 @media (min-width: 1024px) {
   section {
     padding: 1.5rem;
   }
-  main {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(4, minmax(0, 1fr));
+  #main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
-  header {
-    grid-row: span 1 / span 1;
-    grid-column: span 2 / span 2;
-    order: 1;
-  }
-  #skills {
-    order: 2;
-    grid-row: span 2 / span 2;
-    grid-column: span 1 / span 1;
-  }
-  #personal-data {
-    order: 3;
-    grid-row: span 1 / span 1;
-    grid-column: span 1 / span 1;
-  }
-  #education {
+  section:nth-of-type(1) {
     order: 4;
     grid-row: span 1 / span 1;
     grid-column: span 1 / span 1;
+    height: max-content;
   }
-  #contacts {
-    order: 5;
+  section:nth-of-type(2) {
+    order: 2;
     grid-row: span 1 / span 1;
-    grid-column: span 2 / span 2;
+    grid-column: span 1 / span 1;
+  }
+  section:nth-of-type(3) {
+    order: 1;
+    grid-row: span 3 / span 3;
+    grid-column: span 1 / span 1;
+  }
+  section:nth-of-type(4) {
+    order: 3;
+    grid-row: span 1 / span 1;
+    grid-column: span 1 / span 1;
   }
 }
 
