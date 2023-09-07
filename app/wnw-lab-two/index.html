@@ -130,9 +130,15 @@
             <a href="https://github.com/seesmof">seesmof</a>
           </p>
           <article>
-            <h3 style="padding-bottom: 0.2rem">Соціальні мережі</h3>
+            <h3 style="padding-bottom: 0.2rem; padding-top: 0.5rem">
+              Соціальні мережі
+            </h3>
             <div id="social">
-              <a href="https://github.com/seesmof" title="Open Twitter profile">
+              <a
+                href="https://github.com/seesmof"
+                title="Open Twitter profile"
+                target="_self"
+              >
                 <img
                   src="https://www.svgrepo.com/show/11841/twitter.svg"
                   alt="Twitter icon"
@@ -161,69 +167,56 @@
               </a>
             </div>
           </article>
-          <article>
-            <h3 style="padding-bottom: 0.2rem">Контактна форма</h3>
-            <form method="post">
-              <div id="form-grouping">
-                <div class="input-group">
-                  <label for="name" class="required-label"> Ім&#39;я </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="John Doe"
-                    name="name"
-                    required
-                  />
-                </div>
-                <div class="input-group">
-                  <label for="email" class="required-label">
-                    Електронна пошта
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="example@company.com"
-                    name="email"
-                    required
-                  />
-                </div>
-              </div>
+        </section>
+        <section>
+          <h2>Контактна форма</h2>
+          <form method="post">
+            <div id="form-grouping">
               <div class="input-group">
-                <label for="phone"> Телефон </label>
+                <label for="name" class="required-label"> Ім&#39;я </label>
                 <input
-                  type="tel"
-                  id="phone"
-                  placeholder="+13544110833"
-                  name="phone"
+                  type="text"
+                  id="name"
+                  placeholder="John Doe"
+                  name="name"
+                  required
                 />
               </div>
               <div class="input-group">
-                <label for="message" class="required-label">
-                  Повідомлення
+                <label for="email" class="required-label">
+                  Електронна пошта
                 </label>
-                <textarea
-                  name="message"
-                  id="message"
-                  rows="4"
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@company.com"
+                  name="email"
                   required
-                ></textarea>
+                />
               </div>
-              <button
-                type="submit"
-                style="
-                  padding: 0.6rem;
-                  background-color: var(--link-hover);
-                  font-weight: bolder;
-                  color: var(--white);
-                  border-radius: 0.6rem;
-                  border: transparent;
-                  cursor: pointer;
-                "
-              >
-                Відправити
-              </button>
-            </form>
-          </article>
+            </div>
+            <div class="input-group">
+              <label for="phone"> Телефон </label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+13544110833"
+                name="phone"
+              />
+            </div>
+            <div class="input-group">
+              <label for="message" class="required-label"> Повідомлення </label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                placeholder="Введіть ваше повідомлення тут..."
+                style="font-family: inherit"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Відправити</button>
+          </form>
         </section>
       </div>
     </main>

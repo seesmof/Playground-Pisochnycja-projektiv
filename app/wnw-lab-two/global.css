@@ -3,6 +3,8 @@
   --white: #fff;
   --foreground: #212121;
   --link-hover: #0269d1;
+  --button-hover: #027cf7;
+  --background-hover: #dfdfdf;
 }
 
 * {
@@ -164,17 +166,23 @@ form {
 }
 
 input,
-select,
 textarea {
   border: transparent;
   background-color: var(--background);
   padding: 0.6rem 0.8rem;
   border-radius: 0.6rem;
+  transition-duration: 300ms;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: transparent;
+  background-color: var(--background-hover);
 }
 
 label {
   cursor: pointer;
-  font-weight: 500;
 }
 
 .input-group {
@@ -207,6 +215,17 @@ textarea {
   color: #cc1313;
 }
 
-section:last-of-type > article {
-  padding-top: 0.6rem;
+button {
+  padding: 0.6rem;
+  background-color: var(--link-hover);
+  font-weight: bolder;
+  color: var(--white);
+  border-radius: 0.6rem;
+  border: transparent;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+button:hover {
+  background-color: var(--button-hover);
 }
