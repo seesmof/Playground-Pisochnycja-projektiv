@@ -1,0 +1,208 @@
+<!-- table.html -->
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+    <title>Таблиця - Онищенко Олег</title>
+    <meta
+      name="description"
+      content="Це сторінка таблиці мого особистого резюме."
+    />
+    <meta
+      name="keywords"
+      content="таблиця резюме, онищенко олег, олег онищенко, олег онищенко таблиця резюме,"
+    />
+
+    <style>
+      :root {
+        --background: #eee;
+        --white: #fff;
+        --foreground: #212121;
+        --link-hover: #0269d1;
+        --button-hover: #027cf7;
+        --background-hover: #dfdfdf;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--background);
+        color: var(--foreground);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+      }
+
+      main {
+        max-width: 60rem;
+        display: grid;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      header {
+        background-color: var(--white);
+        padding: 0.6rem 1rem;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header > h1 a {
+        text-decoration: none;
+      }
+
+      header > nav {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+      }
+
+      header > nav a {
+        padding: 0.5rem;
+        transition-duration: 300ms;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header > nav a:hover {
+        background-color: var(--background);
+      }
+
+      header > nav img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      main > div {
+        display: grid;
+        gap: 1rem;
+        background-color: var(--white);
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+
+      @media (min-width: 1024px) {
+        header {
+          padding: 0.6rem 1.5rem;
+        }
+        main > div {
+          padding: 1.5rem;
+        }
+        h2 {
+          margin-bottom: 0.2rem;
+        }
+      }
+
+      h2 {
+        padding-bottom: 0.5rem;
+      }
+
+      h1,
+      h2 {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      a {
+        color: inherit;
+        transition-duration: 300ms;
+        text-decoration-line: underline;
+        text-underline-offset: 0.17rem;
+      }
+
+      a:hover {
+        color: #0269d1;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        font-size: 0.9rem;
+      }
+
+      table td,
+      table th {
+        padding: 0.5rem;
+        border: 1.4px solid var(--foreground);
+      }
+
+      thead {
+        background-color: var(--background-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>
+          <a href="./index.html">Резюме</a>
+        </h1>
+        <nav>
+          <a href="https://github.com/seesmof" title="Open Github profile">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/37/37819.png"
+              alt="github icon"
+            />
+          </a>
+          <a href="mailto:seesmwork@gmail.com" title="Send an email">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Envelope_font_awesome.svg/1200px-Envelope_font_awesome.svg.png"
+              alt="email icon"
+            />
+          </a>
+        </nav>
+      </header>
+      <div>
+        <section style="width: 200%">
+          <h2>Таблиця з варіанту 12</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>anyway parts</th>
+                <th>ocean size equator</th>
+                <th>day in century</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">fell trail task store physical steam verb</td>
+                <td>soldier above population figure basket soft compound</td>
+                <td>after saddle once wish fox announced think thin bit</td>
+              </tr>
+              <tr>
+                <td>spell attached happened look local coal blanket</td>
+                <td>cow rough cut high nor broke bad than stock safe dry</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
