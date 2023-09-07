@@ -229,3 +229,14 @@ button {
 button:hover {
   background-color: var(--button-hover);
 }
+
+#contacts {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  #contacts > article:last-of-type h3 {
+    display: none;
+  }
+}
