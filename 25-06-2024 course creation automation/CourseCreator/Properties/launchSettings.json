@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CourseCreator (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CourseCreator (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
