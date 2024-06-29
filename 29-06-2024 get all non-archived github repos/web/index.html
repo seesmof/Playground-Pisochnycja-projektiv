@@ -15,20 +15,79 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="p-4 gap-4 h-screen flex flex-col items-center justify-center">
-      <div class="join">
-        <input
-          type="text"
-          placeholder="GitHub username..."
-          class="input input-bordered join-item"
-        />
-        <input
-          type="text"
-          class="input input-bordered join-item"
-          placeholder="Access token..."
-        />
-        <button class="btn btn-info text-white join-item">Amen</button>
+    <div class="p-4 gap-4 h-screen flex flex-col">
+      <div class="join w-full flex">
+        <label
+          class="input input-bordered flex items-center gap-2 join-item grow"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="h-4 w-4 opacity-70"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
+            />
+          </svg>
+          <input type="text" placeholder="GitHub username" />
+        </label>
+        <label
+          class="input input-bordered flex items-center gap-2 join-item grow"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="h-4 w-4 opacity-70"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <input type="password" placeholder="Access token" />
+        </label>
+        <a
+          href="https://github.com/settings/tokens"
+          class="btn btn-accent text-white join-item max-w-max"
+          >What is a token?</a
+        >
+        <button class="btn btn-info text-white join-item max-w-max">
+          Amen
+        </button>
       </div>
+
+      <main class="w-full flex-1 overflow-x-auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Repository Name</th>
+              <th>Repository Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Python Automations</td>
+              <td>
+                <a
+                  class="btn btn-ghost"
+                  href="https://github.com/seesmof/python-automations"
+                >
+                  Go
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Repository Name</th>
+              <th>Repository Link</th>
+            </tr>
+          </tfoot>
+        </table>
+      </main>
     </div>
   </body>
 </html>
