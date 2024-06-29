@@ -3,6 +3,7 @@ import requests
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.traceback import install
+from rich.markdown import Markdown as md
 
 install()
 load_dotenv()
@@ -28,7 +29,6 @@ def get_repos(uri: str) -> dict:
     if repos_amount < 2:
         console.print("[red]No repos found![/]")
         return {}
-    console.print(f"[green]Found {repos_amount} repos[/]")
     return repos
 
 
@@ -42,6 +42,12 @@ with console.status("[yellow]Getting repos...[/]"):
 if not repos:
     exit()
 non_archived_repos: list[dict] = [repo for repo in repos if not repo["archived"]]
+non_archived_repos.sort(key=lambda repo: repo["name"])
+
 console.print(
-    f"Found {len(non_archived_repos)} non-archived repos among {len(repos)} repos: {[repo['name'] for repo in non_archived_repos]}"
+    f"[green bold]Found {len(non_archived_repos)} repos, praise Jesus Christ our Holy Lord GOD Almighty[/]"
 )
+for repo in non_archived_repos:
+    repo_name: str = repo["name"]
+    repo_url: str = repo["html_url"]
+    console.print(md(f"[{repo_name}]({repo_url})"))
