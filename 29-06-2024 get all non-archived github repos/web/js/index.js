@@ -1,43 +1,63 @@
-const getAccessToken = () => {
-  const accessToken = document.getElementById("token_input").value;
-  return accessToken;
-};
-const getUsername = () => {
-  const username = document.getElementById("username_input").value;
-  return username;
-};
-const headers = {
-  Authorization: `token ${getAccessToken()}`,
-};
-const uri = `https://api.github.com/users/${getUsername()}/repos`;
-
 document.getElementById("get_repos").addEventListener("click", () => {
-  const username = getUsername();
-  const accessToken = getAccessToken();
-  console.log(username, accessToken);
+  const username = document.getElementById("username_input").value;
+  const accessToken = document.getElementById("token_input").value;
+  const dataContainer = document.getElementById("data_container");
+
   if (!username || !accessToken) {
     console.log("Missing username or access token");
+    dataContainer.innerHTML =
+      '<div class="self-center">Missing username or access token ✝️💞 please check your inputs once again</div>';
     return;
   }
-  const dataContainer = document.getElementById("data_container");
-  dataContainer.innerHTML = "";
-  getRepos(uri, headers).then((repos) => {
-    console.log(repos);
-    const table = document.createElement("table");
-    const tbody = document.createElement("tbody");
-    repos.forEach((repo) => {
-      const row = document.createElement("tr");
-      const nameCell = document.createElement("td");
-      const linkCell = document.createElement("td");
-      nameCell.textContent = repo.name;
-      linkCell.innerHTML = `<a class="btn btn-ghost" href="${repo.html_url}">Go</a>`;
-      row.appendChild(nameCell);
-      row.appendChild(linkCell);
-      tbody.appendChild(row);
+  dataContainer.innerHTML =
+    '<div class="loading loading-spinner loading-lg self-center"></div>';
+
+  const uri = `https://api.github.com/users/${username}/repos`;
+  const headers = {
+    Authorization: `token ${accessToken}`,
+  };
+
+  getRepos(uri, headers)
+    .then((repos) => {
+      dataContainer.innerHTML = `
+    <table class="table table-pin-rows self-start">
+      <thead>
+        <tr>
+          <th>Repository Name</th>
+          <th>Repository Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${repos
+          .map(
+            (repo) => `
+          <tr>
+            <td>${repo.name.replace(/-/g, " ")}</td>
+            <td>
+              <a
+                class="btn btn-ghost"
+                href="${repo.html_url}"
+              >
+                Visit Repository
+              </a>
+            </td>
+          </tr>
+        `
+          )
+          .join("")}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Total Repos: ${repos.length}</td>
+        </tr>
+      </tfoot>
+    </table>
+  `;
+    })
+    .catch((error) => {
+      console.log(error);
+      dataContainer.innerHTML = `<div class="self-center">${error.message} ✝️💖 double-check your inputs, maybe you misspelled a username or the token</div>`;
     });
-    table.appendChild(tbody);
-    dataContainer.appendChild(table);
-  });
 
   console.log("clicked");
 });
@@ -57,6 +77,16 @@ const getRepos = async (uri, headers) => {
       page++;
     }
   }
+  repos = repos.filter((repo) => !repo.archived);
+  repos.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 
   const reposAmount = repos.length;
 
