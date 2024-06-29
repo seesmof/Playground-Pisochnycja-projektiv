@@ -24,11 +24,11 @@ def get_repos(uri: str) -> dict:
         repos.extend(data)
         page += 1
     repos_amount: int = len(repos)
-    console.print(f"[green]Found {repos_amount} repos[/]")
 
     if repos_amount < 2:
         console.print("[red]No repos found![/]")
         return {}
+    console.print(f"[green]Found {repos_amount} repos[/]")
     return repos
 
 
