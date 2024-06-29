@@ -30,7 +30,11 @@
               d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
             />
           </svg>
-          <input type="text" placeholder="GitHub username" />
+          <input
+            type="text"
+            id="username_input"
+            placeholder="GitHub username"
+          />
         </label>
         <label
           class="input input-bordered flex items-center gap-2 join-item grow"
@@ -47,14 +51,17 @@
               clip-rule="evenodd"
             />
           </svg>
-          <input type="password" placeholder="Access token" />
+          <input type="password" id="token_input" placeholder="Access token" />
         </label>
         <a
           href="./token_info.html"
           class="btn btn-accent text-white join-item max-w-max"
           >What is a token?</a
         >
-        <button class="btn btn-info text-white join-item max-w-max">
+        <button
+          id="get_repos"
+          class="btn btn-info text-white join-item max-w-max"
+        >
           Amen
         </button>
       </div>
@@ -84,5 +91,7 @@
         </table>
       </main>
     </div>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
