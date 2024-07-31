@@ -19,13 +19,13 @@ class Reader:
             self.names[count] = name
 
 
-def get_abbreviations(path):
+def load_abbreviations(path):
     reader = Reader(path)
     reader.read_abbreviations()
     return reader.abbreviations
 
 
-def get_names(path):
+def load_names(path):
     reader = Reader(path)
     reader.read_names()
     return reader.names
