@@ -28,18 +28,6 @@ def see_names():
         print(f"{name.abbreviation} - {name.full_name}")
 
 
-def get_count():
-    session = get_session()
-    count = session.query(Names).count()
-    return count
-
-
-def delete_names():
-    session = get_session()
-    session.query(Names).delete()
-    session.commit()
-
-
 def add_name(full_name, abbreviation):
     session = get_session()
     name = Names(full_name=full_name, abbreviation=abbreviation)
@@ -51,3 +39,9 @@ def get_name(full_name):
     session = get_session()
     name = session.query(Names).filter_by(full_name=full_name).first()
     return name
+
+
+def get_count():
+    session = get_session()
+    count = session.query(Names).count()
+    return count
