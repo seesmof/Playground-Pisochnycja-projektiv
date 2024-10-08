@@ -5,6 +5,8 @@
 3. Zrobyty BOZHE Im'ja malen'kym kapsom (ND tegy)
 4. Zrobyty cytaty zi Starogo Zavitu u Novomy malen'kym kapsom (QT tegy)
 
+> Dlja tegiv WJ, ND, QT mozhna vykorystaty Bibliju NASB na BibleGateway
+
 ##### Nova Biblija Kulisha (NBK):
 
 Na osnovi FBK zrobyty taki zminy:
