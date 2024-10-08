@@ -1,8 +1,0 @@
-- three elements on the main page
-  - input for username
-  - input for access token
-  - button to the page on how to get the access token
-- dont show the table initially
-  - when the data is being loaded, show a spinner
-  - when the data is loaded, only then show the filled-table
-- replace dashes in repo names with spaces
