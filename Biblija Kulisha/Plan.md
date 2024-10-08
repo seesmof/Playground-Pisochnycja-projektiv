@@ -9,6 +9,15 @@
 
 > Dlja tegiv WJ, ND, QT mozhna vykorystaty Bibliju NASB na BibleGateway
 
+###### Komu pysaty aby poshyryty Bibliju
+
+Pislja dodannja vsyh tegiv roby:
+
+- BibleGateway
+- Blue Letter Bible 
+- YouVersion 
+- Bible Hub 
+
 ##### Biblija Kulisha Formatovana BKF
 
 > Na osnovi SBK zrobyty ci vsi zminy
