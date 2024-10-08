@@ -17,3 +17,5 @@ Na osnovi FBK zrobyty taki zminy:
 6. Dodaty nomera Stronga (W tegy)
 7. Dodaty krashche formatuvannja spyskiv (LI tegy)
 8. Konvertuvaty na latynky z diaktrykamy (NBKL - Nova Biblija Kulisha Latynkoju)
+
+> Mozhlyvo navit' zrobyty te same dlja Biblij Homenka ta Ogijenka
