@@ -15,3 +15,4 @@ Na osnovi FBK zrobyty taki zminy:
 
 1. Kapitalizuvaty BOZHI zajmennyky
 2. Vykorystaty Bibliju Homenka ta jakus' Anglis'ku bukval'nu Bibliju (KJV abo NASB) dlja vypravlen' movy na suchasnu
+3. Perestavyty virshi u Psalmah na pershyj a zagolovky zrobyty svojim tegom
