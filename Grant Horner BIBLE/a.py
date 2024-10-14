@@ -27,13 +27,6 @@ Acts
 lists=[[n for n in l.split(", ")] for l in plan.split("\n") if l]
 lists_cycle=cycle(lists)
 
-with open(BooksDataFile,encoding="utf-8",mode="r") as f: BooksData=json.load(f)
-print(BooksData)
-print(next(lists_cycle))
-
-class BooksGroup:
-    name:str
-    Books:list[Book]
 
 class Book:
     num:int 
@@ -44,3 +37,16 @@ class Book:
         self.num=id 
         self.name=name 
         self.chapters=chapters 
+
+def loadBooksData():
+    a:list[Book]=[]
+    with open(BooksDataFile,encoding="utf-8",mode="r") as f: data=json.load(f)
+    for B in data: a.append(Book(B["id"],B["name"],B["chapters"]))
+    return a
+
+class BooksGroup:
+    name:str
+    Books:list[Book]
+
+BooksList=loadBooksData()
+for B in BooksList: print(B.name,B.chapters)
