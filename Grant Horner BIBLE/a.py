@@ -1,10 +1,83 @@
-import os 
-import json 
-
-teka=os.path.dirname(os.path.abspath(__file__))
-data=os.path.join(teka,"data")
-BooksDataFile=os.path.join(data,"BooksData.json")
-ListsDataFile=os.path.join(data,"Lists.json")
+chapters={
+  "Genesis": 50,
+  "Exodus": 40,
+  "Leviticus": 27,
+  "Numbers": 36,
+  "Deuteronomy": 34,
+  "Joshua": 24,
+  "Judges": 21,
+  "Ruth": 4,
+  "1 Samuel": 31,
+  "2 Samuel": 24,
+  "1 Kings": 22,
+  "2 Kings": 25,
+  "1 Chronicles": 29,
+  "2 Chronicles": 36,
+  "Ezra": 10,
+  "Nehemiah": 13,
+  "Esther": 10,
+  "Job": 42,
+  "Psalm": 150,
+  "Proverbs": 31,
+  "Ecclesiastes": 12,
+  "Song of Solomon": 8,
+  "Isaiah": 66,
+  "Jeremiah": 52,
+  "Lamentations": 5,
+  "Ezekiel": 48,
+  "Daniel": 12,
+  "Hosea": 14,
+  "Joel": 3,
+  "Amos": 9,
+  "Obadiah": 1,
+  "Jonah": 4,
+  "Micah": 7,
+  "Nahum": 3,
+  "Habakkuk": 3,
+  "Zephaniah": 3,
+  "Haggai": 2,
+  "Zechariah": 14,
+  "Malachi": 4,
+  "Matthew": 28,
+  "Mark": 16,
+  "Luke": 24,
+  "John": 21,
+  "Acts": 28,
+  "Romans": 16,
+  "1 Corinthians": 16,
+  "2 Corinthians": 13,
+  "Galatians": 6,
+  "Ephesians": 6,
+  "Philippians": 4,
+  "Colossians": 4,
+  "1 Thessalonians": 5,
+  "2 Thessalonians": 3,
+  "1 Timothy": 6,
+  "2 Timothy": 4,
+  "Titus": 3,
+  "Philemon": 1,
+  "Hebrews": 13,
+  "James": 5,
+  "1 Peter": 5,
+  "2 Peter": 3,
+  "1 John": 5,
+  "2 John": 1,
+  "3 John": 1,
+  "Jude": 1,
+  "Revelation": 22
+}
+lists={
+  1:["Matthew", "Mark", "Luke", "John"],
+  2:["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
+  3:["Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "Hebrews"],
+  4:["1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"],
+  5:["Job", "Ecclesiastes", "Song of Songs"],
+  6:["Psalms"],
+  7:["Proverbs"],
+  8:["Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther"],
+  9:["Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"],
+  10:["Acts"]
+}
 
 def cycle(a,start=0):
     start=0 if not start else a.index(start)
@@ -12,51 +85,4 @@ def cycle(a,start=0):
         yield a[start]
         start=(start+1)%len(a)
 
-plan='''
-Matthew, Mark, Luke, John
-Genesis, Exodus, Leviticus, Numbers, Deuteronomy
-Romans, 1 Corinthians, 2 Corinthians, Galatians, Ephesians, Philippians, Colossians, Hebrews
-1 Thessalonians, 2 Thessalonians, 1 Timothy, 2 Timothy, Titus, Philemon, James, 1 Peter, 2 Peter, 1 John, 2 John, 3 John, Jude, Revelation
-Job, Ecclesiastes, Song of Songs
-Psalms
-Proverbs
-Joshua, Judges, Ruth, 1 Samuel, 2 Samuel, 1 Kings, 2 Kings, 1 Chronicles, 2 Chronicles, Ezra, Nehemiah, Esther
-Isaiah, Jeremiah, Lamentations, Ezekiel, Daniel, Hosea, Joel, Amos, Obadiah, Jonah, Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi
-Acts
-'''
-lists=[[n for n in l.split(", ")] for l in plan.split("\n") if l]
-lists_cycle=cycle(lists)
-
-
-class Book:
-    num:int 
-    name:str 
-    chapters:int 
-
-    def __init__(self,id:int,name:str,chapters:int):
-        self.num=id 
-        self.name=name 
-        self.chapters=chapters 
-
-def loadBooksData():
-    res:list[Book]=[]
-    with open(BooksDataFile,encoding="utf-8",mode="r") as f: data=json.load(f)
-    for B in data: res.append(Book(B["id"],B["name"],B["chapters"]))
-    return res
-
-BooksList=loadBooksData()
-
-class List:
-    num:int 
-    parts:list[str]
-    days:int 
-
-    def __init__(self,num:int,parts:str,days:int):
-        self.num=num
-        self.parts=[n for n in parts.split(", ") if n]
-        self.days=days 
-
-with open(ListsDataFile,encoding="utf-8",mode="r") as f: data=json.load(f)
-for l in data:
-    L=List(l["id"],l["parts"],l["days"])
-    print(L.num,L.parts)
+print(lists[10])
