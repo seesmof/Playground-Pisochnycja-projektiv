@@ -39,14 +39,24 @@ class Book:
         self.chapters=chapters 
 
 def loadBooksData():
-    a:list[Book]=[]
+    res:list[Book]=[]
     with open(BooksDataFile,encoding="utf-8",mode="r") as f: data=json.load(f)
-    for B in data: a.append(Book(B["id"],B["name"],B["chapters"]))
-    return a
-
-class BooksGroup:
-    name:str
-    Books:list[Book]
+    for B in data: res.append(Book(B["id"],B["name"],B["chapters"]))
+    return res
 
 BooksList=loadBooksData()
-for B in BooksList: print(B.name,B.chapters)
+
+class List:
+    num:int 
+    parts:list[str]
+    days:int 
+
+    def __init__(self,num:int,parts:str,days:int):
+        self.num=num
+        self.parts=[n for n in parts.split(", ") if n]
+        self.days=days 
+
+with open(ListsDataFile,encoding="utf-8",mode="r") as f: data=json.load(f)
+for l in data:
+    L=List(l["id"],l["parts"],l["days"])
+    print(L.num,L.parts)
