@@ -79,10 +79,7 @@ lists={
   10:["Acts"]
 }
 
-def cycle(a,start=0):
-    start=0 if not start else a.index(start)
-    while 1:
-        yield a[start]
-        start=(start+1)%len(a)
-
-print(lists[10])
+next_list=1
+for _ in range(12):
+    print(lists[next_list])
+    next_list=next_list+1 if next_list<10 else 1
