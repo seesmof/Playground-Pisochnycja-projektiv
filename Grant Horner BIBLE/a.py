@@ -3,6 +3,8 @@ import json
 
 teka=os.path.dirname(os.path.abspath(__file__))
 data=os.path.join(teka,"data")
+BooksDataFile=os.path.join(data,"BooksData.json")
+ListsDataFile=os.path.join(data,"Lists.json")
 
 def cycle(a,start=0):
     start=0 if not start else a.index(start)
@@ -24,4 +26,7 @@ Acts
 '''
 lists=[[n for n in l.split(", ")] for l in plan.split("\n") if l]
 lists_cycle=cycle(lists)
-for _ in range(12): print(next(lists_cycle))
+
+with open(BooksDataFile,encoding="utf-8",mode="r") as f: BooksData=json.load(f)
+print(BooksData)
+print(next(lists_cycle))
