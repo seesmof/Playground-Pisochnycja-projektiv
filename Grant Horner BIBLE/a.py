@@ -30,3 +30,17 @@ lists_cycle=cycle(lists)
 with open(BooksDataFile,encoding="utf-8",mode="r") as f: BooksData=json.load(f)
 print(BooksData)
 print(next(lists_cycle))
+
+class BooksGroup:
+    name:str
+    Books:list[Book]
+
+class Book:
+    num:int 
+    name:str 
+    chapters:int 
+
+    def __init__(self,id:int,name:str,chapters:int):
+        self.num=id 
+        self.name=name 
+        self.chapters=chapters 
