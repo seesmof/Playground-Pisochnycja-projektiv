@@ -177,10 +177,11 @@
       const update_button_text = () => {
         const data = lists[current_list];
         const Book_name = data.Books[data.current_Book];
+        const chapter_num = data.current_chapter;
 
-        data.current_Book += 1 % data.Books.length;
+        // data.current_Book += 1 % data.Books.length;
 
-        main_button.innerHTML = Book_name;
+        main_button.innerHTML = `${Book_name} ${chapter_num}`;
       };
 
       const choose_next_list = () => {
