@@ -325,7 +325,7 @@
       };
       let list = 1;
 
-      const update_button_text = () => {
+      function update_button_text() {
         const data = lists[list];
         if (data.chapter < chapters[data.Books[data.Book]]) {
           data.chapter += 1;
@@ -333,18 +333,18 @@
           data.chapter = 1;
           data.Book += 1 % data.Books.length;
         }
-        main_button.innerHTML = `${UBIO[data.Books[data.Book]]} ${
+        main_button.innerHTML = `${UKRK[data.Books[data.Book]]} ${
           data.chapter
         }`;
-      };
+      }
 
-      const choose_next_list = () => {
+      function choose_next_list() {
         if (list < 10) {
           list += 1;
         } else {
           list = 1;
         }
-      };
+      }
 
       const main_button = document.querySelector("button");
       main_button.addEventListener("click", () => {
