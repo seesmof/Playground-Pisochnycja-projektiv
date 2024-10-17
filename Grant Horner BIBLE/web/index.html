@@ -7,95 +7,124 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
   </head>
   <body>
-    <button class="h-screen w-full font-medium text-3xl active:bg-stone-50">
-      1
-    </button>
+    <button class="h-screen w-full font-medium text-3xl"></button>
     <script>
-      const lists = {
-        1: ["Matthew", "Mark", "Luke", "John"],
-        2: ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
-        3: [
-          "Romans",
-          "1 Corinthians",
-          "2 Corinthians",
-          "Galatians",
-          "Ephesians",
-          "Philippians",
-          "Colossians",
-          "Hebrews",
-        ],
-        4: [
-          "1 Thessalonians",
-          "2 Thessalonians",
-          "1 Timothy",
-          "2 Timothy",
-          "Titus",
-          "Philemon",
-          "James",
-          "1 Peter",
-          "2 Peter",
-          "1 John",
-          "2 John",
-          "3 John",
-          "Jude",
-          "Revelation",
-        ],
-        5: ["Job", "Ecclesiastes", "Song of Songs"],
-        6: ["Psalms"],
-        7: ["Proverbs"],
-        8: [
-          "Joshua",
-          "Judges",
-          "Ruth",
-          "1 Samuel",
-          "2 Samuel",
-          "1 Kings",
-          "2 Kings",
-          "1 Chronicles",
-          "2 Chronicles",
-          "Ezra",
-          "Nehemiah",
-          "Esther",
-        ],
-        9: [
-          "Isaiah",
-          "Jeremiah",
-          "Lamentations",
-          "Ezekiel",
-          "Daniel",
-          "Hosea",
-          "Joel",
-          "Amos",
-          "Obadiah",
-          "Jonah",
-          "Micah",
-          "Nahum",
-          "Habakkuk",
-          "Zephaniah",
-          "Haggai",
-          "Zechariah",
-          "Malachi",
-        ],
-        10: ["Acts"],
+      let lists = {
+        1: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: ["Matthew", "Mark", "Luke", "John"],
+        },
+        2: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
+        },
+        3: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: [
+            "Romans",
+            "1 Corinthians",
+            "2 Corinthians",
+            "Galatians",
+            "Ephesians",
+            "Philippians",
+            "Colossians",
+            "Hebrews",
+          ],
+        },
+        4: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: [
+            "1 Thessalonians",
+            "2 Thessalonians",
+            "1 Timothy",
+            "2 Timothy",
+            "Titus",
+            "Philemon",
+            "James",
+            "1 Peter",
+            "2 Peter",
+            "1 John",
+            "2 John",
+            "3 John",
+            "Jude",
+            "Revelation",
+          ],
+        },
+        5: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: ["Job", "Ecclesiastes", "Song of Songs"],
+        },
+        6: { current_Book: 0, current_chapter: 1, Books: ["Psalms"] },
+        7: { current_Book: 0, current_chapter: 1, Books: ["Proverbs"] },
+        8: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: [
+            "Joshua",
+            "Judges",
+            "Ruth",
+            "1 Samuel",
+            "2 Samuel",
+            "1 Kings",
+            "2 Kings",
+            "1 Chronicles",
+            "2 Chronicles",
+            "Ezra",
+            "Nehemiah",
+            "Esther",
+          ],
+        },
+        9: {
+          current_Book: 0,
+          current_chapter: 1,
+          Books: [
+            "Isaiah",
+            "Jeremiah",
+            "Lamentations",
+            "Ezekiel",
+            "Daniel",
+            "Hosea",
+            "Joel",
+            "Amos",
+            "Obadiah",
+            "Jonah",
+            "Micah",
+            "Nahum",
+            "Habakkuk",
+            "Zephaniah",
+            "Haggai",
+            "Zechariah",
+            "Malachi",
+          ],
+        },
+        10: { current_Book: 0, current_chapter: 1, Books: ["Acts"] },
       };
-
       let current_list = 1;
-      const list_switcher_button = document.querySelector("button");
 
-      const sync_button_text = () => {
-        list_switcher_button.innerHTML = lists[current_list][0];
+      const update_button_text = () => {
+        main_button.innerHTML = current_list;
       };
 
-      list_switcher_button.addEventListener("click", () => {
+      const choose_next_list = () => {
         if (current_list < 10) {
           current_list += 1;
         } else {
           current_list = 1;
         }
-        sync_button_text();
+      };
+
+      const main_button = document.querySelector("button");
+      main_button.addEventListener("click", () => {
+        choose_next_list();
+        update_button_text();
       });
 
-      window.onload = () => sync_button_text();
+      window.onload = () => update_button_text();
     </script>
   </body>
 </html>
