@@ -8,11 +8,32 @@
   </head>
   <body>
     <main
-      class="max-w-7xl mx-auto flex items-center justify-center text-3xl font-bold min-h-screen"
+      class="max-w-7xl mx-auto flex items-center justify-center min-h-screen"
     >
-      Matthew 1
+      <button
+        class="bg-green-500 px-4 py-2 text-white font-medium rounded-md active:bg-green-600"
+      >
+        1
+      </button>
     </main>
+    <script>
+      let current_list = 1;
+      const list_switcher_button = document.querySelector("button");
 
-    <script src="./a.js"></script>
+      const sync_button_text = () => {
+        list_switcher_button.innerHTML = current_list;
+      };
+
+      list_switcher_button.addEventListener("click", () => {
+        if (current_list < 10) {
+          current_list += 1;
+        } else {
+          current_list = 1;
+        }
+        sync_button_text();
+      });
+
+      window.onload = () => sync_button_text();
+    </script>
   </body>
 </html>
