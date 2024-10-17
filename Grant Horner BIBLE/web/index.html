@@ -7,21 +7,83 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
   </head>
   <body>
-    <main
-      class="max-w-7xl mx-auto flex items-center justify-center min-h-screen"
-    >
-      <button
-        class="bg-green-500 px-4 py-2 text-white font-medium rounded-md active:bg-green-600"
-      >
-        1
-      </button>
-    </main>
+    <button class="h-screen w-full font-medium text-3xl active:bg-stone-50">
+      1
+    </button>
     <script>
+      const lists = {
+        1: ["Matthew", "Mark", "Luke", "John"],
+        2: ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
+        3: [
+          "Romans",
+          "1 Corinthians",
+          "2 Corinthians",
+          "Galatians",
+          "Ephesians",
+          "Philippians",
+          "Colossians",
+          "Hebrews",
+        ],
+        4: [
+          "1 Thessalonians",
+          "2 Thessalonians",
+          "1 Timothy",
+          "2 Timothy",
+          "Titus",
+          "Philemon",
+          "James",
+          "1 Peter",
+          "2 Peter",
+          "1 John",
+          "2 John",
+          "3 John",
+          "Jude",
+          "Revelation",
+        ],
+        5: ["Job", "Ecclesiastes", "Song of Songs"],
+        6: ["Psalms"],
+        7: ["Proverbs"],
+        8: [
+          "Joshua",
+          "Judges",
+          "Ruth",
+          "1 Samuel",
+          "2 Samuel",
+          "1 Kings",
+          "2 Kings",
+          "1 Chronicles",
+          "2 Chronicles",
+          "Ezra",
+          "Nehemiah",
+          "Esther",
+        ],
+        9: [
+          "Isaiah",
+          "Jeremiah",
+          "Lamentations",
+          "Ezekiel",
+          "Daniel",
+          "Hosea",
+          "Joel",
+          "Amos",
+          "Obadiah",
+          "Jonah",
+          "Micah",
+          "Nahum",
+          "Habakkuk",
+          "Zephaniah",
+          "Haggai",
+          "Zechariah",
+          "Malachi",
+        ],
+        10: ["Acts"],
+      };
+
       let current_list = 1;
       const list_switcher_button = document.querySelector("button");
 
       const sync_button_text = () => {
-        list_switcher_button.innerHTML = current_list;
+        list_switcher_button.innerHTML = lists[current_list][0];
       };
 
       list_switcher_button.addEventListener("click", () => {
