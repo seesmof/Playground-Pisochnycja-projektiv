@@ -79,18 +79,18 @@
       };
       let lists = {
         1: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: ["Matthew", "Mark", "Luke", "John"],
         },
         2: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
         },
         3: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: [
             "Romans",
             "1 Corinthians",
@@ -103,8 +103,8 @@
           ],
         },
         4: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: [
             "1 Thessalonians",
             "2 Thessalonians",
@@ -123,15 +123,15 @@
           ],
         },
         5: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: ["Job", "Ecclesiastes", "Song of Songs"],
         },
-        6: { current_Book: 0, current_chapter: 0, Books: ["Psalms"] },
-        7: { current_Book: 0, current_chapter: 0, Books: ["Proverbs"] },
+        6: { Book: 0, chapter: 0, Books: ["Psalms"] },
+        7: { Book: 0, chapter: 0, Books: ["Proverbs"] },
         8: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: [
             "Joshua",
             "Judges",
@@ -148,8 +148,8 @@
           ],
         },
         9: {
-          current_Book: 0,
-          current_chapter: 0,
+          Book: 0,
+          chapter: 0,
           Books: [
             "Isaiah",
             "Jeremiah",
@@ -170,25 +170,26 @@
             "Malachi",
           ],
         },
-        10: { current_Book: 0, current_chapter: 0, Books: ["Acts"] },
+        10: { Book: 0, chapter: 0, Books: ["Acts"] },
       };
-      let current_list = 1;
+      let list = 1;
 
       const update_button_text = () => {
-        const data = lists[current_list];
-        const Book_name = data.Books[data.current_Book];
-
-        const total_chapters = chapters[Book_name];
-        console.log(Book_name, total_chapters);
-        main_button.innerHTML = `${Book_name} ${data.current_chapter}`;
-        // data.current_Book += 1 % data.Books.length;
+        const data = lists[list];
+        if (data.chapter < chapters[data.Books[data.Book]]) {
+          data.chapter += 1;
+        } else {
+          data.chapter = 1;
+          data.Book += 1 % data.Books.length;
+        }
+        main_button.innerHTML = `${data.Books[data.Book]} ${data.chapter}`;
       };
 
       const choose_next_list = () => {
-        if (current_list < 10) {
-          current_list += 1;
+        if (list < 10) {
+          list += 1;
         } else {
-          current_list = 1;
+          list = 1;
         }
       };
 
