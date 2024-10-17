@@ -28,7 +28,7 @@
         Nehemiah: 13,
         Esther: 10,
         Job: 42,
-        Psalm: 150,
+        Psalms: 150,
         Proverbs: 31,
         Ecclesiastes: 12,
         "Song of Solomon": 8,
@@ -80,17 +80,17 @@
       let lists = {
         1: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: ["Matthew", "Mark", "Luke", "John"],
         },
         2: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"],
         },
         3: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: [
             "Romans",
             "1 Corinthians",
@@ -104,7 +104,7 @@
         },
         4: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: [
             "1 Thessalonians",
             "2 Thessalonians",
@@ -124,14 +124,14 @@
         },
         5: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: ["Job", "Ecclesiastes", "Song of Songs"],
         },
-        6: { current_Book: 0, current_chapter: 1, Books: ["Psalms"] },
-        7: { current_Book: 0, current_chapter: 1, Books: ["Proverbs"] },
+        6: { current_Book: 0, current_chapter: 0, Books: ["Psalms"] },
+        7: { current_Book: 0, current_chapter: 0, Books: ["Proverbs"] },
         8: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: [
             "Joshua",
             "Judges",
@@ -149,7 +149,7 @@
         },
         9: {
           current_Book: 0,
-          current_chapter: 1,
+          current_chapter: 0,
           Books: [
             "Isaiah",
             "Jeremiah",
@@ -170,20 +170,23 @@
             "Malachi",
           ],
         },
-        10: { current_Book: 0, current_chapter: 1, Books: ["Acts"] },
+        10: { current_Book: 0, current_chapter: 0, Books: ["Acts"] },
       };
       let current_list = 1;
 
       const update_button_text = () => {
         const data = lists[current_list];
         const Book_name = data.Books[data.current_Book];
-        const chapter_num = data.current_chapter;
         const total_chapters = chapters[Book_name];
-        console.log(total_chapters);
+        console.log(Book_name, total_chapters);
+
+        const chapter_num = data.current_chapter;
+
+        data.current_chapter += 1;
 
         // data.current_Book += 1 % data.Books.length;
 
-        main_button.innerHTML = `${Book_name} ${chapter_num}`;
+        main_button.innerHTML = `${Book_name} ${data.current_chapter}`;
       };
 
       const choose_next_list = () => {
