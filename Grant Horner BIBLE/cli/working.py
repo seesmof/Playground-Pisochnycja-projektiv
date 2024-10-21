@@ -83,3 +83,4 @@ next_list=1
 for _ in range(12):
     print(lists[next_list])
     next_list=next_list+1 if next_list<10 else 1
+
