@@ -15,4 +15,11 @@ def move_to_next_reading_on_list(list_number:int):
 def show_current_reading_for_list(list_number:int):
     print(names[str(lists[list_number]['Books'][lists[list_number]['Book']])], lists[list_number]['chapter'])
 
+def get_readings_for_next_day():
+    for list_number in range(10):
+        move_to_next_reading_on_list(list_number)
+        show_current_reading_for_list(list_number)
+
+get_readings_for_next_day()
+
 with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
