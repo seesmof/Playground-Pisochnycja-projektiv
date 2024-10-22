@@ -20,15 +20,6 @@ def get_readings_for_next_day():
         move_to_next_reading_on_list(list_number)
         show_current_reading_for_list(list_number)
 
-def get_readings_for_specified_day(day:int):
-    global lists
-    lists_copy=lists
-    print(lists_copy)
-    lists=lists_copy
-    for _ in range(day): get_readings_for_next_day()
-    lists=lists_copy
-
-get_readings_for_specified_day(47)
-get_readings_for_specified_day(1)
+def get_readings_for_specified_day(day:int): ...
 
 with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
