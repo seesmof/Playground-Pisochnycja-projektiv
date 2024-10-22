@@ -5,13 +5,14 @@ with open(os.path.join(this_folder,"chapters.json")) as f: chapters=json.load(f)
 with open(os.path.join(this_folder,"lists.json")) as f: lists=json.load(f)
 with open(os.path.join(this_folder,"names.json")) as f: names=json.load(f)
 
-cur=0
+def move_to_next_reading_on_list(list_number:int):
+    if lists[list_number]['chapter'] < chapters[str(lists[list_number]['Books'][lists[list_number]['Book']])]:
+        lists[list_number]['chapter']+=1
+    else: 
+        lists[list_number]['chapter']=1
+        lists[list_number]['Book']=lists[list_number]['Book']+1 if lists[list_number]['Book']<len(lists[list_number]['Books'])-1 else 0
 
-if lists[cur]['chapter']<chapters[str(lists[cur]['Books'][lists[cur]['Book']])]:lists[cur]['chapter']+=1
-else: 
-    lists[cur]['chapter']=1
-    lists[cur]['Book']=lists[cur]['Book']+1 if lists[cur]['Book']<len(lists[cur]['Books'])-1 else 0
-
-print(names[str(lists[cur]['Books'][lists[cur]['Book']])], lists[cur]['chapter'])
+def show_current_reading_for_list(list_number:int):
+    print(names[str(lists[list_number]['Books'][lists[list_number]['Book']])], lists[list_number]['chapter'])
 
 with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
