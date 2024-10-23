@@ -1,10 +1,11 @@
 import os 
 import json 
 this_folder=os.path.dirname(os.path.abspath(__file__))
-with open(os.path.join(this_folder,"chapters.json")) as f: chapters=json.load(f)
-with open(os.path.join(this_folder,"names.json")) as f: names=json.load(f)
-with open(os.path.join(this_folder,"abbreviations.json")) as f: abbreviations=json.load(f)
-with open(os.path.join(this_folder,"lists.json")) as f: lists=json.load(f)
+get_path=lambda name:os.path.join(this_folder,name)
+with open(get_path('chapters.json')) as f: chapters=json.load(f)
+with open(get_path('names.json')) as f: names=json.load(f)
+with open(get_path('abbreviations.json')) as f: abbreviations=json.load(f)
+with open(get_path('lists.json')) as f: lists=json.load(f)
 
 def get_list_data(list_number:int):
     list_data=lists[list_number]
@@ -30,27 +31,35 @@ def show_current_reading_for_list(list_number:int):
 def open_link(link:str):
     os.startfile(link)
 
-def open_chapter(Book_number:int,chapter:int,resource:str="BollsLife",lang:str="UK"):
-    """ 
-    resource: BollsLife | BibleGateway | YouVersion
-    lang: UK | EN
-        for UK use UKRK Bible (or UKR on BibleGateway)
-        for EN use KJV Bible
-    """
-    if resource=="BollsLife":
-        base_link="https://bolls.life"
-        version="UKRK" if lang=="UK" else "KJV"
-        ready_link=f"{base_link}/{version}/{Book_number}/{chapter}/"
+class Resource:
+    BOLLS_LIFE='Bolls.Life'
+    BIBLE_GATEWAY='BibleGateway'
+    YOU_VERSION='YouVersion'
+
+class Language:
+    UK='Ukrainian'
+    EN='English'
+
+def open_chapter(
+    Book_number:int,
+    chapter:int,
+    resource=Resource.BOLLS_LIFE,
+    lang=Language.UK
+):
+    if resource==Resource.BOLLS_LIFE:
+        base_link='https://bolls.life'
+        version='UKRK' if lang==Language.UK else 'KJV'
+        ready_link=f'{base_link}/{version}/{Book_number}/{chapter}/'
         open_link(ready_link)
-    elif resource=="BibleGateway":
-        base_link="https://www.biblegateway.com/passage/?search"
+    elif resource==Resource.BIBLE_GATEWAY:
+        base_link='https://www.biblegateway.com/passage/?search'
         passage=names[str(Book_number)]+str(chapter)
-        version='UKR' if lang=='UK' else 'KJV'
+        version='UKR' if lang==Language.UK else 'KJV'
         ready_link=f'{base_link}={passage}&version={version}'
         open_link(ready_link)
-    elif resource=='YouVersion':
+    elif resource==Resource.YOU_VERSION:
         base_link='https://www.bible.com/bible'
-        version='188' if lang=='UK' else '1'
+        version='188' if lang==Language.UK else '1'
         abbreviation=abbreviations[str(Book_number)]
         ready_link=f'{base_link}/{version}/{abbreviation}.{chapter}'
         open_link(ready_link)
@@ -60,12 +69,10 @@ def get_readings_for_next_day():
         move_to_next_reading_on_list(list_number)
 
         chapter,Book,Books=get_list_data(list_number)
-        open_chapter(Books[Book],chapter,'YouVersion')
+        open_chapter(Books[Book],chapter)
 
         print(names[str(Books[Book])],chapter)
 
 def get_readings_for_specified_day(day:int): ...
 
-get_readings_for_next_day()
-
-with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
+with open(get_path('lists.json'),'w') as f: json.dump(lists,f,indent=2)
