@@ -26,6 +26,9 @@ def show_current_reading_for_list(list_number:int):
 
     print(names[str(Books[Book])], chapter)
 
+def open_link(link:str):
+    os.startfile(link)
+
 def open_chapter(Book_number:int,chapter:int,resource:str="BollsLife",lang:str="UK"):
     """ 
     resource: BollsLife | BibleGateway | YouVersion
@@ -37,7 +40,7 @@ def open_chapter(Book_number:int,chapter:int,resource:str="BollsLife",lang:str="
         base_link="https://bolls.life"
         version="UKRK" if lang=="UK" else "KJV"
         ready_link=f"{base_link}/{version}/{Book_number}/{chapter}/"
-        os.startfile(ready_link)
+        open_link(ready_link)
 
 def get_readings_for_next_day():
     for list_number in range(10):
@@ -49,7 +52,5 @@ def get_readings_for_next_day():
         print(names[str(Books[Book])],chapter)
 
 def get_readings_for_specified_day(day:int): ...
-
-get_readings_for_next_day()
 
 with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
