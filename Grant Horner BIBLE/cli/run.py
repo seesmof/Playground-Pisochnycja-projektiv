@@ -41,16 +41,24 @@ def open_chapter(Book_number:int,chapter:int,resource:str="BollsLife",lang:str="
         version="UKRK" if lang=="UK" else "KJV"
         ready_link=f"{base_link}/{version}/{Book_number}/{chapter}/"
         open_link(ready_link)
+    elif resource=="BibleGateway":
+        base_link="https://www.biblegateway.com/passage/?search"
+        passage=names[str(Book_number)]+str(chapter)
+        version='UKR' if lang=='UK' else 'KJV'
+        ready_link=f'{base_link}={passage}&version={version}'
+        open_link(ready_link)
 
 def get_readings_for_next_day():
     for list_number in range(10):
         move_to_next_reading_on_list(list_number)
 
         chapter,Book,Books=get_list_data(list_number)
-        open_chapter(Books[Book],chapter)
+        open_chapter(Books[Book],chapter,'BibleGateway')
 
         print(names[str(Books[Book])],chapter)
 
 def get_readings_for_specified_day(day:int): ...
+
+get_readings_for_next_day()
 
 with open(os.path.join(this_folder,"lists.json"),'w') as f: json.dump(lists,f,indent=2)
