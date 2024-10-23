@@ -80,7 +80,6 @@ def skip_days(days:int):
         for list_number in range(10):
             move_to_next_reading_on_list(list_number)
 
-skip_days(47)
 get_readings_for_next_day()
 
 with open(get_path('lists.json'),'w') as f: json.dump(lists,f,indent=2)
