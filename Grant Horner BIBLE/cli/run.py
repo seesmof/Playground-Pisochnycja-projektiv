@@ -26,10 +26,27 @@ def show_current_reading_for_list(list_number:int):
 
     print(names[str(Books[Book])], chapter)
 
+def open_chapter(Book_number:int,chapter:int,resource:str="BollsLife",lang:str="UK"):
+    """ 
+    resource: BollsLife | BibleGateway | YouVersion
+    lang: UK | EN
+        for UK use UKRK Bible (or UKR on BibleGateway)
+        for EN use KJV Bible
+    """
+    if resource=="BollsLife":
+        base_link="https://bolls.life"
+        version="UKRK" if lang=="UK" else "KJV"
+        ready_link=f"{base_link}/{version}/{Book_number}/{chapter}/"
+        os.startfile(ready_link)
+
 def get_readings_for_next_day():
     for list_number in range(10):
         move_to_next_reading_on_list(list_number)
-        show_current_reading_for_list(list_number)
+
+        chapter,Book,Books=get_list_data(list_number)
+        open_chapter(Books[Book],chapter)
+
+        print(names[str(Books[Book])],chapter)
 
 def get_readings_for_specified_day(day:int): ...
 
