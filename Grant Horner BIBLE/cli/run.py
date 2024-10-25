@@ -5,6 +5,7 @@ get_path=lambda name:os.path.join(this_folder,name)
 with open(get_path('chapters.json')) as f: chapters=json.load(f)
 with open(get_path('names.json')) as f: names=json.load(f)
 with open(get_path('abbreviations.json')) as f: abbreviations=json.load(f)
+with open(get_path('shorts.json')) as f: eBible_abbreviations=json.load(f)
 with open(get_path('lists.json')) as f: lists=json.load(f)
 
 def get_list_data(list_number:int):
@@ -35,6 +36,7 @@ class Resource:
     BOLLS_LIFE='Bolls.Life'
     BIBLE_GATEWAY='BibleGateway'
     YOU_VERSION='YouVersion'
+    E_BIBLE='eBible'
 
 class Language:
     UK='Ukrainian'
@@ -43,7 +45,7 @@ class Language:
 def open_chapter(
     Book_number:int,
     chapter:int,
-    resource=Resource.BOLLS_LIFE,
+    resource=Resource.E_BIBLE,
     lang=Language.UK
 ):
     if resource==Resource.BOLLS_LIFE:
@@ -62,6 +64,12 @@ def open_chapter(
         version='188' if lang==Language.UK else '1'
         abbreviation=abbreviations[str(Book_number)]
         ready_link=f'{base_link}/{version}/{abbreviation}.{chapter}'
+        open_link(ready_link)
+    elif resource==Resource.E_BIBLE:
+        base_link="https://ebible.org/study/?w1=bible&t1=local%3A"
+        version='ukr1871' if lang==Language.UK else 'eng-kjv2006'
+        abbreviation=eBible_abbreviations[str(Book_number)]
+        ready_link=f'{base_link}{version}&v1={abbreviation}{chapter}'
         open_link(ready_link)
 
 def get_readings_for_next_day():
