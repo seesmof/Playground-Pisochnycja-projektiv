@@ -1,0 +1,1 @@
+- [ ] Work on indentations, align all with [source](https://biblehub.com/outline/)
