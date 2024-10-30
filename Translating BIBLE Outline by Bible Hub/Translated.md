@@ -1,4 +1,4 @@
-Genesis
+# Genesis
 1. God and the World  ( 1:1⁠–⁠10:32 )
 a. The Creation of the Heavens and the Earth  ( 1:1⁠–⁠2:3 )
 b. Human Sin and the Ruin of God’s World  ( 2:4⁠–⁠5:32 )
@@ -95,8 +95,7 @@ vi. The Nation of Israel Goes Down to Egypt  ( 46:1⁠–⁠50:26 )
 5. The Death and Burial of Jacob  ( 49:29⁠–⁠50:14 )
 6. The Death of Joseph  ( 50:15⁠–⁠26 )
 
-
-Exodus
+# Exodus
 1. Israel in Egypt  ( 1:1⁠–⁠2:25 )
 a. Israel Multiplies  ( 1:1⁠–⁠7 )
 b. Israel is Oppressed  ( 1:8⁠–⁠22 )
@@ -219,8 +218,7 @@ ix. Moses Approves the Work  ( 39:32⁠–⁠43 )
 x.  The Inauguration of the Tabernacle  ( 40:1⁠–⁠33 )
 xi. God’s Presence Fills the Tabernacle  ( 40:34⁠–⁠38 )
 
-
-Leviticus
+# Leviticus
 1. The Five Major Offerings  ( 1:1⁠–⁠7:38 )
 a. Laws for the People  ( 1:1⁠–⁠6:7 )
 i.   The Burnt Offering  ( 1:1⁠–⁠17 )
@@ -297,8 +295,7 @@ ii.  Punishments for Disobedience  ( 26:14⁠–⁠39 )
 iii. Repentance  ( 26:40⁠–⁠46 )
 iv. Voluntary Contributions  ( 27:1⁠–⁠34 )
 
-
-Numbers
+# Numbers
 1. Israel at Mount Sinai  ( 1:1⁠–⁠10:10 )
 a. Israel Numbered and Arranged  ( 1:1⁠–⁠4:49 )
 i.   The Census of Israel’s Warriors  ( 1:1⁠–⁠54 )
@@ -405,8 +402,7 @@ viii. The Inheritance of the Levites  ( 35:1⁠–⁠34 )
 2. The Six Cities of Refuge  ( 35:9⁠–⁠34 )
 ix. The Inheritance of the Daughters of Zelophehad  ( 36:1⁠–⁠13 )
 
-
-Deuteronomy
+# Deuteronomy
 1. Moses’ First Address: A Historical Summary  ( 1:1⁠–⁠4:49 )
 a. Introduction  ( 1:1⁠–⁠4 )
 b. The Summary of Events in the Wilderness  ( 1:5⁠–⁠4:49 )
@@ -516,8 +512,7 @@ i.   Moses’ Death Foretold  ( 32:48⁠–⁠52 )
 ii.  Moses Blesses the Twelve Tribes  ( 33:1⁠–⁠29 )
 iii. The Death of Moses  ( 34:1⁠–⁠12 )
 
-
-Joshua
+# Joshua
 1. Entering the Promised Land  ( 1:1⁠–⁠5:15 )
 a. Joshua Takes Charge  ( 1:1⁠–⁠18 )
 b. Rahab and the Spies  ( 2:1⁠–⁠24 )
@@ -581,8 +576,7 @@ c. Joshua's Charge to Leaders  ( 23:1⁠–⁠16 )
 d. The Covenant at Shechem  ( 24:1⁠–⁠28 )
 e. The Death and Burial of Joshua  ( 24:29⁠–⁠33 )
 
-
-Judges
+# Judges
 1. Introduction: Israel’s Disobedience and Failure  ( 1:1⁠–⁠3:6 )
 a. The Conquest of Canaan Proceeds  ( 1:1⁠–⁠7 )
 b. The Capture of Jerusalem and Hebron  ( 1:8⁠–⁠26 )
@@ -647,8 +641,7 @@ ii.  The Decree of the Assembly  ( 20:1⁠–⁠17 )
 iii. Civil War Against Benjamin  ( 20:18⁠–⁠48 )
 iv. Wives for the Benjamites  ( 21:1⁠–⁠25 )
 
-
-Ruth
+# Ruth
 1. The Return from Moab  ( 1:1⁠–⁠22 )
 a. Naomi Becomes a Widow  ( 1:1⁠–⁠5 )
 b. Ruth’s Loyalty to Naomi  ( 1:6⁠–⁠18 )
@@ -666,8 +659,7 @@ a. Boaz Secures the Right of Redemption  ( 4:1⁠–⁠12 )
 b. Boaz Marries Ruth  ( 4:13⁠–⁠17 )
 c. The Line of David  ( 4:18⁠–⁠22 )
 
-
-1 Samuel
+# 1 Samuel
 1. Samuel, the Last Judge of Israel  ( 1:1⁠–⁠7:17 )
 a. Samuel the Prophet  ( 1:1⁠–⁠3:21 )
 i.   The Birth of Samuel  ( 1:1⁠–⁠2:10 )
@@ -754,8 +746,7 @@ iii. The Philistines Reject David  ( 29:1⁠–⁠11 )
 iv. David Destroys the Amalekites at Ziklag  ( 30:1⁠–⁠31 )
 v.  Saul’s Overthrow and Death  ( 31:1⁠–⁠13 )
 
-
-2 Samuel
+# 2 Samuel
 1. David as King  ( 1:1⁠–⁠20:26 )
 a. David’s Rise to King of Judah  ( 1:1⁠–⁠3:5 )
 i.   Saul’s Death Reported to David  ( 1:1⁠–⁠16 )
@@ -821,8 +812,7 @@ ii.  Judgment for David’s Sin  ( 24:10⁠–⁠14 )
 iii. A Plague on Israel  ( 24:15⁠–⁠17 )
 iv. David Builds an Altar  ( 24:18⁠–⁠25 )
 
-
-1 Kings
+# 1 Kings
 1. The Last Days of King David  ( 1:1⁠–⁠2:12 )
 a. Adonijah’s Rebellion  ( 1:1⁠–⁠53 )
 i.   David and Abishag  ( 1:1⁠–⁠4 )
@@ -956,8 +946,7 @@ ii.  Jehoshaphat Makes Peace with Israel  ( 22:44⁠–⁠49 )
 iii. Jehoram Succeeds Jehoshaphat  ( 22:50 )
 c. Ahaziah the Wicked King of Israel  ( 22:51⁠–⁠53 )
 
-
-2 Kings
+# 2 Kings
 1. Elijah the Prophet  ( 1:1⁠–⁠2:14 )
 a. Ahaziah the Wicked King of Israel  ( 1:1⁠–⁠18 )
 i.   Ahaziah Inquires of Baal  ( 1:1⁠–⁠2 )
@@ -1114,8 +1103,7 @@ i.   Gedaliah Appointed by Nebuchadnezzar  ( 25:22⁠–⁠24 )
 ii.  The People Rebel and Flee to Egypt  ( 25:25⁠–⁠26 )
 j. Jehoiachin Released from Prison in Babylon  ( 25:27⁠–⁠30 )
 
-
-1 Chronicles
+# 1 Chronicles
 1. Genealogies  ( 1:1⁠–⁠9:44 )
 a. The Patriarchs  ( 1:1⁠–⁠54 )
 i.   From Adam to Abraham  ( 1:1⁠–⁠27 )
@@ -1202,8 +1190,7 @@ i. Solomon Succeeds David  ( 29:21⁠–⁠30 )
 i.   Solomon Anointed King  ( 29:21⁠–⁠25 )
 ii.  David’s Reign and Death  ( 29:26⁠–⁠30 )
 
-
-2 Chronicles
+# 2 Chronicles
 1. The Reign of Solomon  ( 1:1⁠–⁠9:31 )
 a. Solomon’s Prayer for Wisdom  ( 1:1⁠–⁠13 )
 b. Solomon’s Riches  ( 1:14⁠–⁠17 )
@@ -1322,8 +1309,7 @@ iv. Zedekiah Reigns in Judah  ( 36:11⁠–⁠14 )
 q. The Babylonian Exile  ( 36:15⁠–⁠21 )
 r. The Promise of Restoration  ( 36:22⁠–⁠23 )
 
-
-Ezra
+# Ezra
 1. Return from Babylon Under Zerubbabel  ( 1:1⁠–⁠6:22 )
 a. Return from Babylon  ( 1:1⁠–⁠2:70 )
 i.   The Proclamation of Cyrus  ( 1:1⁠–⁠6 )
@@ -1362,8 +1348,7 @@ iii. Shecaniah Encourages Ezra  ( 10:1⁠–⁠5 )
 iv. The People’s Confession of Sin  ( 10:6⁠–⁠17 )
 v.  Those Guilty of Intermarriage  ( 10:18⁠–⁠44 )
 
-
-Nehemiah
+# Nehemiah
 1. The Restoration of the City  ( 1:1⁠–⁠7:73 )
 a. Preparation to Restore Jerusalem  ( 1:1⁠–⁠2:20 )
 i.   News of Jerusalem’s Wall  ( 1:1⁠–⁠4 )
@@ -1404,8 +1389,7 @@ ii.  Tithes Restored  ( 13:10⁠–⁠14 )
 iii. The Sabbath Restored  ( 13:15⁠–⁠22 )
 iv. Intermarriage Forbidden  ( 13:23⁠–⁠31 )
 
-
-Esther
+# Esther
 1. Persian Festival and Ascension of Esther  ( 1:1⁠–⁠2:23 )
 a. Xerxes’ Royal Feast  ( 1:1⁠–⁠22 )
 i.   Xerxes’ Greatness  ( 1:1⁠–⁠8 )
@@ -1442,8 +1426,7 @@ b. Haman’s Sons Hanged  ( 9:11⁠–⁠17 )
 a. Feast of Purim Instituted  ( 9:18⁠–⁠32 )
 b. Tribute to Xerxes and Mordecai  ( 10:1⁠–⁠3 )
 
-
-Job
+# Job
 1. The Dilemma of Job  ( 1:1⁠–⁠2:13 )
 a. Job’s Character and Wealth  ( 1:1⁠–⁠1:5 )
 b. Satan’s First Attack  ( 1:6⁠–⁠22 )
@@ -1512,16 +1495,14 @@ d. Job’s Second Reply to God  ( 42:1⁠–⁠6 )
 e. The LORD Rebukes Job’s Friends  ( 42:7⁠–⁠9 )
 f. The LORD Blesses Job  ( 42:10⁠–⁠17 )
 
-
-Psalms
+# Psalms
 1. Book 1  ( 1:1⁠–⁠41:13 )
 2. Book 2  ( 42:1⁠–⁠72:20 )
 3. Book 3  ( 73:1⁠–⁠89:52 )
 4. Book 4  ( 90:1⁠–⁠106:48 )
 5. Book 5  ( 107:1⁠–⁠150:6 )
 
-
-Proverbs
+# Proverbs
 1. The Beginning of Knowledge  ( 1:1⁠–⁠7 )
 2. The Way of Wisdom  ( 1:8⁠–⁠9:18 )
 a. Appeals and Warnings  ( 1:8⁠–⁠33 )
@@ -1562,8 +1543,7 @@ m. A Good Name  ( 22:1⁠–⁠16 )
 8. The Sayings of King Lemuel  ( 31:1⁠–⁠9 )
 9. The Virtues of a Noble Woman  ( 31:10⁠–⁠31 )
 
-
-Ecclesiastes
+# Ecclesiastes
 1. Introduction  ( 1:1⁠–⁠11 )
 a. Introduction to The Teacher  ( 1:1 )
 b. Everything is Futile  ( 1:2⁠–⁠11 )
@@ -1599,8 +1579,7 @@ e. Final Conclusions  ( 12:1⁠–⁠14 )
 i.   Remember Your Creator  ( 12:1⁠–⁠8 )
 ii.  The Whole Duty of Man  ( 12:9⁠–⁠14 )
 
-
-Song of Solomon
+# Song of Solomon
 1. The Courtship  ( 1:1⁠–⁠3:5 )
 a. The Bride Confesses Her Love  ( 1:1⁠–⁠17 )
 b. The Bride’s Admiration  ( 2:1⁠–⁠17 )
@@ -1614,8 +1593,7 @@ b. Together in the Garden  ( 6:1⁠–⁠13 )
 c. Admiration by the Bridegroom  ( 7:1⁠–⁠13 )
 d. Longing for Her Beloved  ( 8:1⁠–⁠14 )
 
-
-Isaiah
+# Isaiah
 1. The Judgments  ( 1:1⁠–⁠35:10 )
 a. Judgment and Hope for Judah  ( 1:1⁠–⁠12:6 )
 i.   Judgement for Sin  ( 1:1⁠–⁠6:13 )
@@ -1733,8 +1711,7 @@ vi. The Righteous and the Wicked  ( 65:1⁠–⁠66:17 )
 5. Final Judgments against the Wicked  ( 66:15⁠–⁠17 )
 vii. Call to the Nations  ( 66:18⁠–⁠24 )
 
-
-Jeremiah
+# Jeremiah
 1. The Call of Jeremiah  ( 1:1⁠–⁠19 )
 2. Prophesies for Judah  ( 2:1⁠–⁠45:5 )
 a. Warnings to Judah  ( 2:1⁠–⁠29:32 )
@@ -1817,8 +1794,7 @@ b. The Temple Destroyed  ( 52:12⁠–⁠23 )
 c. Captives Carried to Babylon  ( 52:24⁠–⁠30 )
 d. Evil-merodach Releases Jehoiachin  ( 52:31⁠–⁠34 )
 
-
-Lamentations
+# Lamentations
 1. The Sorrows of Zion  ( 1:1⁠–⁠22 )
 2. God’s Anger over Jerusalem  ( 2:1⁠–⁠22 )
 3. The Suffering Servant  ( 3:1⁠–⁠66 )
@@ -1828,8 +1804,7 @@ c. God’s Justice  ( 3:37⁠–⁠66 )
 4. The Siege of Jerusalem  ( 4:1⁠–⁠22 )
 5. A Prayer for Restoration  ( 5:1⁠–⁠22 )
 
-
-Ezekiel
+# Ezekiel
 1. Prophesies of Judgement  ( 1:2⁠–⁠32:32 )
 a. The Call of Ezekiel  ( 1:1⁠–⁠3:27 )
 i.   Appearance of the Glory of the LORD  ( 1:1⁠–⁠28 )
@@ -1952,8 +1927,7 @@ c. The Portion for the Prince  ( 48:21⁠–⁠22 )
 d. The Portions for the Remaining Tribes  ( 48:23⁠–⁠29 )
 e. The City Gates and Dimensions  ( 48:30⁠–⁠35 )
 
-
-Daniel
+# Daniel
 1. Narrative of Daniel  ( 1:1⁠–⁠6:28 )
 a. Under King Nebuchadnezzar of Babylon  ( 1:1⁠–⁠4:37 )
 i.   Exile to Babylon  ( 1:1⁠–⁠21 )
@@ -2000,8 +1974,7 @@ ii.  Kings of the South and North  ( 11:1⁠–⁠35 )
 iii. The King Who Exalts Himself  ( 11:36⁠–⁠45 )
 iv. The End Times  ( 12:1⁠–⁠13 )
 
-
-Hosea
+# Hosea
 1. Adulterous Wife and Faithful Husband  ( 1:1⁠–⁠3:5 )
 a. Hosea’s Wife and Children  ( 1:1⁠–⁠11 )
 b. The Adulterous Wife  ( 2:1⁠–⁠23 )
@@ -2027,8 +2000,7 @@ vi. Judgment on Samaria  ( 13:15⁠–⁠16 )
 vii. A Call to Repentance  ( 14:1⁠–⁠3 )
 viii. A Promise of God’s Blessing  ( 14:4⁠–⁠9 )
 
-
-Joel
+# Joel
 1. A Past Day of the LORD  ( 1:1⁠–⁠20 )
 a. The Invasion of Locusts  ( 1:1⁠–⁠7 )
 b. A Call to Mourning  ( 1:8⁠–⁠12 )
@@ -2043,8 +2015,7 @@ ii.  I Will Pour Out My Spirit  ( 2:28⁠–⁠32 )
 a. The LORD Judges the Nations  ( 3:1⁠–⁠16 )
 b. Blessings for God’s People  ( 3:17⁠–⁠21 )
 
-
-Amos
+# Amos
 1. Prophecy against All Nations  ( 1:1⁠–⁠2:16 )
 a. Judgment on Israel’s Neighbors  ( 1:1⁠–⁠2:5 )
 i.   Introduction  ( 1:1⁠–⁠2 )
@@ -2076,8 +2047,7 @@ ii.  The Basket of Summer Fruit  ( 8:1⁠–⁠14 )
 iii. The Destruction of Israel  ( 9:1⁠–⁠10 )
 c. A Promise of Restoration  ( 9:11⁠–⁠15 )
 
-
-Obadiah
+# Obadiah
 1. The Judgment of Edom  ( 1:1⁠–⁠14 )
 a. The Destruction of Edom  ( 1:1⁠–⁠9 )
 b. The Sin of Edom  ( 1:10⁠–⁠14 )
@@ -2085,8 +2055,7 @@ b. The Sin of Edom  ( 1:10⁠–⁠14 )
 a. Destruction of the Nations  ( 1:15⁠–⁠16 )
 b. The Deliverance of Israel  ( 1:17⁠–⁠21 )
 
-
-Jonah
+# Jonah
 1. Fleeing from God’s Mission  ( 1:1⁠–⁠17 )
 a. Jonah’s Call and Flight  ( 1:1⁠–⁠3 )
 b. The Great Storm  ( 1:4⁠–⁠10 )
@@ -2099,8 +2068,7 @@ b. Nineveh Repents  ( 3:5⁠–⁠10 )
 a. Jonah’s Anger  ( 4:1⁠–⁠4 )
 b. The Withering Plant  ( 4:5⁠–⁠11 )
 
-
-Micah
+# Micah
 1. First Cycle of Judgment and Restoration  ( 1:1⁠–⁠2:13 )
 a. Judgment of Samaria and Jerusalem  ( 1:1⁠–⁠2:11 )
 i.   Judgment to Come  ( 1:1⁠–⁠7 )
@@ -2124,8 +2092,7 @@ b. The Final Restoration of God's Kingdom  ( 7:7⁠–⁠20 )
 i.   Israel’s Confession and Comfort  ( 7:7⁠–⁠13 )
 ii.  God’s Compassion on Israel  ( 7:14⁠–⁠20 )
 
-
-Nahum
+# Nahum
 1. The Burden against Nineveh  ( 1:1⁠–⁠15 )
 a. The LORD Appears  ( 1:1⁠–⁠8 )
 b. The Fate of the Nations  ( 1:9⁠–⁠15 )
@@ -2136,8 +2103,7 @@ b. Reputation of Nineveh Destroyed  ( 2:11⁠–⁠13 )
 a. Woe to the City of Blood  ( 3:1⁠–⁠4 )
 b. Judgment of Assyria  ( 3:5⁠–⁠19 )
 
-
-Habakkuk
+# Habakkuk
 1. Habakkuk’s First Complaint  ( 1:1⁠–⁠11 )
 a. The Perversion of Justice  ( 1:1⁠–⁠4 )
 b. The LORD’s Answer: I am Raising Up the Chaldeans  ( 1:5⁠–⁠11 )
@@ -2146,8 +2112,7 @@ a. Babylon is Worse than Israel  ( 1:12⁠–⁠17 )
 b. The LORD Answers Again: Woe to the Chaldeans  ( 2:1⁠–⁠20 )
 3. Habakkuk's Prayer  ( 3:1⁠–⁠19 )
 
-
-Zephaniah
+# Zephaniah
 1. Judgment on Jerusalem  ( 1:1⁠–⁠2:3 )
 a. Zephaniah Prophesies Judgment on Judah  ( 1:1⁠–⁠6 )
 b. The Day of the LORD  ( 1:7⁠–⁠18 )
@@ -2162,16 +2127,14 @@ e. Purification of the Nations  ( 3:6⁠–⁠8 )
 a. A Faithful Remnant  ( 3:9⁠–⁠13 )
 b. Israel’s Restoration  ( 3:14⁠–⁠20 )
 
-
-Haggai
+# Haggai
 1. A Call to Rebuild the Temple  ( 1:1⁠–⁠11 )
 2. Zerubbabel and the People Obey  ( 1:12⁠–⁠15 )
 3. The Coming Glory of God’s House  ( 2:1⁠–⁠9 )
 4. Blessings for a Defiled People  ( 2:10⁠–⁠19 )
 5. Zerubbabel the LORD’s Signet Ring  ( 2:20⁠–⁠23 )
 
-
-Zechariah
+# Zechariah
 1. A Call to Repentance  ( 1:1⁠–⁠6 )
 2. The Eight Visions  ( 1:7⁠–⁠6:15 )
 a. The Vision of the Horses  ( 1:7⁠–⁠17 )
@@ -2203,8 +2166,7 @@ iii. An End to Idolatry  ( 13:1⁠–⁠9 )
 iv. The Destroyers of Jerusalem Destroyed  ( 14:1⁠–⁠15 )
 v.  All Nations Will Worship the King  ( 14:16⁠–⁠21 )
 
-
-Malachi
+# Malachi
 1. The Six Disputes  ( 1:1⁠–⁠3:18 )
 a. The LORD’s Love for Israel  ( 1:1⁠–⁠5 )
 b. The Polluted Offerings and Priesthood  ( 1:6⁠–⁠2:9 )
@@ -2214,8 +2176,7 @@ e. Robbing God  ( 3:6⁠–⁠12 )
 f. The Book of Remembrance  ( 3:13⁠–⁠18 )
 2. The Day of the LORD  ( 4:1⁠–⁠6 )
 
-
-Matthew
+# Matthew
 1. Introduction  ( 1:1⁠–⁠4:25 )
 a. The Birth of Jesus  ( 1:1⁠–⁠2:23 )
 i.   The Genealogy of Jesus  ( 1:1⁠–⁠17 )
@@ -2410,8 +2371,7 @@ a. The Women at the Tomb  ( 28:1⁠–⁠10 )
 b. The Report of the Guards  ( 28:11⁠–⁠15 )
 c. The Great Commission  ( 28:16⁠–⁠20 )
 
-
-Mark
+# Mark
 1. The Beginning of Jesus’ Ministry  ( 1:1⁠–⁠15 )
 a. The Mission of John the Baptist  ( 1:1⁠–⁠11 )
 b. The Temptation and Preaching of Jesus  ( 1:12⁠–⁠15 )
@@ -2540,8 +2500,7 @@ iii. Jesus Appears to Two Disciples  ( 16:12⁠–⁠13 )
 iv. The Great Commission  ( 16:14⁠–⁠18 )
 v.  The Ascension  ( 16:19⁠–⁠20 )
 
-
-Luke
+# Luke
 1. The Beginning of Jesus’ Ministry  ( 1:1⁠–⁠4:13 )
 a. Dedication to Theophilus  ( 1:1⁠–⁠4 )
 b. The Births of John the Baptist and Jesus  ( 1:5⁠–⁠2:40 )
@@ -2742,8 +2701,7 @@ b. The Road to Emmaus  ( 24:13⁠–⁠35 )
 c. Jesus Appears to the Disciples  ( 24:36⁠–⁠49 )
 d. The Ascension  ( 24:50⁠–⁠53 )
 
-
-John
+# John
 1. The Beginning of Jesus’ Ministry  ( 1:1⁠–⁠51 )
 a. The Beginning  ( 1:1⁠–⁠5 )
 b. The Witness of John  ( 1:6⁠–⁠13 )
@@ -2857,8 +2815,7 @@ vi. Jesus Appears by the Sea of Tiberias  ( 21:1⁠–⁠14 )
 vii. Jesus and Peter  ( 21:15⁠–⁠19 )
 viii. Jesus and the Beloved Disciple  ( 21:20⁠–⁠25 )
 
-
-Acts
+# Acts
 1. Introduction  ( 1:1⁠–⁠26 )
 a. Dedication to Theophilus  ( 1:1⁠–⁠5 )
 b. The Ascension  ( 1:6⁠–⁠11 )
@@ -3009,8 +2966,7 @@ i.   The Journey  ( 27:1⁠–⁠28:15 )
 5. Paul Arrives in Italy  ( 28:11⁠–⁠15 )
 ii.  Paul Preaches at Rome  ( 28:16⁠–⁠31 )
 
-
-Romans
+# Romans
 1. Condemnation: The Need for a Savior  ( 1:1⁠–⁠3:20 )
 a. Paul Greets the Saints in Rome  ( 1:1⁠–⁠7 )
 b. Unashamed of the Gospel  ( 1:8⁠–⁠17 )
@@ -3072,8 +3028,7 @@ d. Avoid Divisions  ( 16:17⁠–⁠20 )
 e. Greetings from Paul’s Fellow Workers  ( 16:21⁠–⁠23 )
 f. Doxology  ( 16:25⁠–⁠27 )
 
-
-1 Corinthians
+# 1 Corinthians
 1. Introduction  ( 1:1⁠–⁠9 )
 a. Greetings from Paul and Sosthenes  ( 1:1⁠–⁠3 )
 b. Thanksgiving  ( 1:4⁠–⁠9 )
@@ -3136,8 +3091,7 @@ c. Timothy and Apollos  ( 16:10⁠–⁠12 )
 d. Concluding Exhortations  ( 16:13⁠–⁠18 )
 e. Signature and Final Greetings  ( 16:19⁠–⁠24 )
 
-
-2 Corinthians
+# 2 Corinthians
 1. Paul Reconciles with the Corinthians  ( 1:1⁠–⁠7:16 )
 a. Introduction  ( 1:1⁠–⁠11 )
 i.   Paul Greets the Corinthians  ( 1:1⁠–⁠2 )
@@ -3172,8 +3126,7 @@ vi. Concern for the Corinthians  ( 12:11⁠–⁠21 )
 b. Examine Yourselves  ( 13:1⁠–⁠10 )
 c. Benediction and Farewell  ( 13:11⁠–⁠14 )
 
-
-Galatians
+# Galatians
 1. Personal: Authentication of the Message and the Messenger  ( 1:1⁠–⁠2:21 )
 a. Introduction  ( 1:1⁠–⁠9 )
 i.   Paul’s Greeting to the Galatians  ( 1:1⁠–⁠5 )
@@ -3204,8 +3157,7 @@ b. Walking by the Spirit  ( 5:16⁠–⁠26 )
 c. Carry One Another’s Burdens  ( 6:1⁠–⁠10 )
 d. Final Warnings and Blessings  ( 6:11⁠–⁠18 )
 
-
-Ephesians
+# Ephesians
 1. Paul’s Greeting to the Ephesians  ( 1:1⁠–⁠2 )
 2. God’s Purpose for the Church  ( 1:3⁠–⁠3:21 )
 a. Spiritual Blessings  ( 1:3⁠–⁠14 )
@@ -3229,8 +3181,7 @@ iv. Serving with Honor  ( 6:5⁠–⁠9 )
 d. The Full Armor of God  ( 6:10⁠–⁠20 )
 4. Final Greetings  ( 6:21⁠–⁠24 )
 
-
-Philippians
+# Philippians
 1. Introduction  ( 1:1⁠–⁠11 )
 a. Greetings from Paul and Timothy  ( 1:1⁠–⁠2 )
 b. Thanksgiving and Prayer  ( 1:3⁠–⁠11 )
@@ -3254,8 +3205,7 @@ a. Rejoice in the Lord  ( 4:1⁠–⁠9 )
 b. The Generosity of the Philippians  ( 4:10⁠–⁠20 )
 c. Final Greetings  ( 4:21⁠–⁠23 )
 
-
-Colossians
+# Colossians
 1. Introduction  ( 1:1⁠–⁠14 )
 a. Greetings from Paul and Timothy  ( 1:1⁠–⁠2 )
 b. Thanksgiving and Prayer  ( 1:3⁠–⁠14 )
@@ -3275,8 +3225,7 @@ d. Prayerful Speech and Actions  ( 4:1⁠–⁠6 )
 a. Greetings from Paul’s Fellow Workers  ( 4:7⁠–⁠14 )
 b. Signature and Final Instructions  ( 4:15⁠–⁠18 )
 
-
-1 Thessalonians
+# 1 Thessalonians
 1. A Celebration of Faith  ( 1:1⁠–⁠3:13 )
 a. Greetings to the Thessalonians  ( 1:1⁠–⁠10 )
 b. Paul’s Ministry  ( 2:1⁠–⁠20 )
@@ -3293,8 +3242,7 @@ c. The Day of the Lord  ( 5:1⁠–⁠11 )
 d. Christian Living  ( 5:12⁠–⁠22 )
 e. Final Blessings and Instruction  ( 5:23⁠–⁠28 )
 
-
-2 Thessalonians
+# 2 Thessalonians
 1. Comfort During Persecution  ( 1:1⁠–⁠12 )
 a. Greetings to the Thessalonians  ( 1:1⁠–⁠4 )
 b. Worthy of the Kingdom of God  ( 1:5⁠–⁠12 )
@@ -3306,8 +3254,7 @@ a. Request for Prayer  ( 3:1⁠–⁠5 )
 b. A Warning against Idleness  ( 3:6⁠–⁠15 )
 c. Signature and Final Greetings  ( 3:16⁠–⁠18 )
 
-
-1 Timothy
+# 1 Timothy
 1. Timothy’s Commission  ( 1:1⁠–⁠20 )
 a. Paul’s Greeting to Timothy  ( 1:1⁠–⁠2 )
 b. Correcting False Teachers  ( 1:3⁠–⁠11 )
@@ -3336,8 +3283,7 @@ iii. Fight the Good Fight: A Charge to Timothy  ( 6:11⁠–⁠16 )
 iv. A Charge to the Rich  ( 6:17⁠–⁠19 )
 h. Guard the Faith  ( 6:20⁠–⁠21 )
 
-
-2 Timothy
+# 2 Timothy
 1. Encouragement for Timothy  ( 1:1⁠–⁠2:26 )
 a. Paul’s Greeting to Timothy  ( 1:1⁠–⁠2 )
 b. Faithfulness under Persecution  ( 1:3⁠–⁠12 )
@@ -3354,8 +3300,7 @@ c. Personal Concerns  ( 4:9⁠–⁠15 )
 d. The Lord Remains Faithful  ( 4:16⁠–⁠18 )
 e. Final Greetings  ( 4:19⁠–⁠22 )
 
-
-Titus
+# Titus
 1. Paul’s Greeting to Titus  ( 1:1⁠–⁠4 )
 2. For the Leaders  ( 1:5⁠–⁠16 )
 a. Appointing Elders on Crete  ( 1:5⁠–⁠9 )
@@ -3368,15 +3313,13 @@ a. Heirs of Grace  ( 3:1⁠–⁠8 )
 b. Avoid Divisions  ( 3:9⁠–⁠11 )
 5. Final Remarks and Greetings  ( 3:12⁠–⁠15 )
 
-
-Philemon
+# Philemon
 1. Greetings from Paul and Timothy  ( 1:1⁠–⁠3 )
 2. Philemon’s Faith and Love  ( 1:4⁠–⁠7 )
 3. Paul's Appeal for Onesimus  ( 1:8⁠–⁠22 )
 4. Final Greetings  ( 1:23⁠–⁠25 )
 
-
-Hebrews
+# Hebrews
 1. Jesus is Above the Angels  ( 1:1⁠–⁠2:18 )
 a. The Supremacy of the Son  ( 1:1⁠–⁠14 )
 b. Salvation Confirmed  ( 2:1⁠–⁠4 )
@@ -3421,8 +3364,7 @@ vi. Christ’s Unchanging Nature  ( 13:5⁠–⁠14 )
 vii. Sacrifice, Obedience, and Prayer  ( 13:15⁠–⁠19 )
 viii. Benediction and Farewell  ( 13:20⁠–⁠25 )
 
-
-James
+# James
 1. Genuine Faith  ( 1:1⁠–⁠3:18 )
 a. A Greeting from James  ( 1:1 )
 b. The Testing of Faith  ( 1:2⁠–⁠18 )
@@ -3443,8 +3385,7 @@ a. Patience in Suffering  ( 5:7⁠–⁠12 )
 b. The Prayer of Faith  ( 5:13⁠–⁠18 )
 c. Restoring a Sinner  ( 5:19⁠–⁠20 )
 
-
-1 Peter
+# 1 Peter
 1. A Greeting from Peter  ( 1:1⁠–⁠2 )
 2. A Living Hope: A Song of Praise  ( 1:3⁠–⁠12 )
 3. A Call to Holiness  ( 1:13⁠–⁠21 )
@@ -3463,8 +3404,7 @@ c. Suffering as Christians  ( 4:12⁠–⁠19 )
 10. Cast Your Cares on Him  ( 5:5⁠–⁠9 )
 11. Benediction and Farewell  ( 5:10⁠–⁠14 )
 
-
-2 Peter
+# 2 Peter
 1. Peter’s Final Challenge  ( 1:1⁠–⁠21 )
 a. A Greeting from Peter  ( 1:1⁠–⁠2 )
 b. Partakers of the Divine Nature  ( 1:3⁠–⁠15 )
@@ -3478,8 +3418,7 @@ a. The Coming Judgement  ( 3:1⁠–⁠7 )
 b. The Day of the Lord  ( 3:8⁠–⁠13 )
 c. Final Exhortations  ( 3:14⁠–⁠18 )
 
-
-1 John
+# 1 John
 1. The First Test of Fellowship  ( 1:1⁠–⁠2:17 )
 a. Understanding Christ and Sin  ( 1:1⁠–⁠10 )
 i.   The Word of Life: Jesus Christ  ( 1:1⁠–⁠4 )
@@ -3509,15 +3448,13 @@ b. Outward Displays of Understanding  ( 5:13⁠–⁠21 )
 i.   Effective Prayer  ( 5:13⁠–⁠17 )
 ii.  The True God  ( 5:18⁠–⁠21 )
 
-
-2 John
+# 2 John
 1. A Greeting from the Elder  ( 1:1⁠–⁠3 )
 2. Walking in Truth: Love One Another  ( 1:4⁠–⁠6 )
 3. Beware Deceivers  ( 1:7⁠–⁠11 )
 4. Conclusion  ( 1:12⁠–⁠13 )
 
-
-3 John
+# 3 John
 1. A Greeting from the Elder  ( 1:1⁠–⁠4 )
 2. Gaius Commended for Hospitality: Love One Another  ( 1:5⁠–⁠8 )
 3. Diotrephes and Demetrius: Beware Deceivers  ( 1:9⁠–⁠11 )
@@ -3525,8 +3462,7 @@ a. Diotrephes the Slanderer  ( 1:9⁠–⁠11 )
 b. Demetrius the True  ( 1:12 )
 4. Conclusion  ( 1:13⁠–⁠14 )
 
-
-Jude
+# Jude
 1. Opening Charge  ( 1:1⁠–⁠4 )
 a. A Greeting from Jude  ( 1:1⁠–⁠2 )
 b. Contend Earnestly for the Faith  ( 1:3⁠–⁠4 )
@@ -3542,8 +3478,7 @@ iii. Enoch’s Prophecy  ( 1:14⁠–⁠16 )
 3. A Call to Persevere  ( 1:17⁠–⁠23 )
 4. Doxology  ( 1:24⁠–⁠25 )
 
-
-Revelation
+# Revelation
 1. Opening  ( 1:1⁠–⁠20 )
 a. Prologue  ( 1:1⁠–⁠3 )
 b. John Greets the Seven Churches  ( 1:4⁠–⁠8 )
