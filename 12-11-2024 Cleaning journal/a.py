@@ -16,7 +16,8 @@ for f in target_files:
     with open(file_path,encoding='utf-8',mode='r') as fr:
         ls=fr.readlines()
     day_name=f.replace('.md','')
-    day_header='### ' + day_name + '\n'
+    day_header='### ' + day_name + '\n\n'
     ls.insert(0,day_header)
-    print(ls)
-    gls+=ls
+    gls+=ls+['\n\n']
+with open(os.path.join(root,'note.md'),encoding='utf-8',mode='w') as fr:
+    fr.writelines(gls)
