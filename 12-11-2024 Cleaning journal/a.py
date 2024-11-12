@@ -1,6 +1,4 @@
-import glob
 import os
-from datetime import datetime
 
 root=os.path.dirname(os.path.abspath(__file__))
 target_folder=os.path.join(root,"entries")
@@ -15,9 +13,5 @@ for f in target_files:
     file_path=os.path.join(target_folder,f)
     with open(file_path,encoding='utf-8',mode='r') as fr:
         ls=fr.readlines()
-    day_name=f.replace('.md','')
-    day_header='### ' + day_name + '\n\n'
-    ls.insert(0,day_header)
-    gls+=ls+['\n\n']
-with open(os.path.join(root,'note.md'),encoding='utf-8',mode='w') as fr:
-    fr.writelines(gls)
+    if not ls:
+        print('Empty file',f)
