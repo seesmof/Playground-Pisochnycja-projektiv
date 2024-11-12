@@ -10,3 +10,4 @@ for file_path in target_files:
         lines=f.readlines()
     if not lines: 
         print("Empty file",file_path.split('\\')[-1])
+        os.remove(file_path)
