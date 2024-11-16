@@ -4,7 +4,9 @@
     <h1>Members</h1>
     <ul>
       {% for m in given_members %}
-      <li>{{ m.first_name }} {{ m.last_name }}</li>
+      <li>
+        <a href="details/{{member.id}}">{{ m.first_name }} {{ m.last_name }}</a>
+      </li>
       {% endfor %}
     </ul>
   </body>
