@@ -2,8 +2,8 @@
 <html lang="en">
   <body>
     <h1>{{ member.first_name }} {{ member.last_name }}</h1>
-    <p>Phone: {{ member.phone|default_if_none: 'Not specified' }}</p>
-    <p>Member since: {{ member.joined_date|default_if_none: 'Unknown' }}</p>
+    <p>Phone: {{ member.phone }}</p>
+    <p>Member since: {{ member.joined_date }}</p>
     <p>Back to <a href="/members">all members</a></p>
   </body>
 </html>
