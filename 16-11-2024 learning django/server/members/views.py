@@ -27,6 +27,6 @@ def index(request):
 def testing(request):
     template=loader.get_template('template.html')
     context={
-        'cities':['Minneappolis','Chicago','Denver','Summerside','Liberville']
+        'first_name':'John'
     }
     return HttpResponse(template.render(context=context,request=request))

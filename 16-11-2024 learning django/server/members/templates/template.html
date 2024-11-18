@@ -3,10 +3,8 @@
 testing
 {%endblock%}
 {%block content%}
-<ul>
-  {%for c in cities%}
-  <li>{{c}}</li>
-  {%endfor%}
-</ul>
 <p>In testing you can see some temporary variables.</p>
+{%with first_name='Mike'%}
+<h1>Hello {{first_name}}, praise JESUS ALLELUJAH</h1>
+{%endwith%}
 {%endblock%}
