@@ -4,17 +4,7 @@ testing
 {%endblock%}
 
 {%block content%}
-{%if o is t%}
-<p>The variables are equal.</p>
-{%else%}
-<p>The variables are not equal.</p>
-{%endif%}
-<p>{{o}} and {{t}} are the variables.</p>
-{%with n1=o n2=o%}
-{%if n1 is n2%}
-<p>Now they are equal</p>
-{%else%}
-<p>Still not equal.</p>
-{%endif%}
-{%endwith%}
+{%for m in members%}
+<p>{{m.id}}. {{m.first_name}} {{m.last_name}} and maybe {{m.joined_date}}</p>
+{%endfor%}
 {%endblock%}
