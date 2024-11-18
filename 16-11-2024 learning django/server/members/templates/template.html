@@ -4,9 +4,11 @@ testing
 {%endblock%}
 {%block content%}
 <p>In testing you can see some temporary variables.</p>
-<ul>
-  {%for m in members%}
-  <li>{{m.first_name}} and {{m.joined_date}}</li>
-  {%endfor%}
-</ul>
+{%with is_logged_in=False%}
+  {%if is_logged_in%}
+  <p>The user is logged in</p>
+  {%else%}
+  <p>The user is not logged in</p>
+  {%endif%}
+{%endwith%}
 {%endblock%}
