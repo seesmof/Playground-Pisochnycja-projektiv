@@ -2,12 +2,12 @@
 {%block title%}
 testing
 {%endblock%}
+
 {%block content%}
-{%if status == 0%}
-<p>Status is none</p>
-{%elif status != 0%}
-<p>Status is {{status}}</p>
+{%if o is t%}
+<p>The variables are equal.</p>
 {%else%}
-<p>Status is something else</p>
+<p>The variables are not equal.</p>
 {%endif%}
+<p>{{o}} and {{t}} are the variables.</p>
 {%endblock%}

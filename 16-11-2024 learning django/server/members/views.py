@@ -26,9 +26,8 @@ def index(request):
 
 def testing(request):
     template=loader.get_template('template.html')
-    members=Member.objects.all().values()
     context={
-        'members':members,
-        'status':12
+        'o':['Minneappolis','Chicago','Denver'],
+        't':['Minneappolis','Chicago','Denver']
     }
     return HttpResponse(template.render(context=context,request=request))
