@@ -29,6 +29,6 @@ def testing(request):
     members=Member.objects.all().values()
     context={
         'members':members,
-        'status':0
+        'status':12
     }
     return HttpResponse(template.render(context=context,request=request))
