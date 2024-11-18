@@ -7,4 +7,12 @@ testing
 {%for m in members%}
 <p>{{m.id}}. {{m.first_name}} {{m.last_name}} and maybe {{m.joined_date}}</p>
 {%endfor%}
+
+{%with emptymembers = []%}
+{%for m in emptymembers%}
+<p>{{m.first_name}}</p>
+{%empty%}
+<p>No member</p>
+{%endfor%}
+{%endwith%}
 {%endblock%}
