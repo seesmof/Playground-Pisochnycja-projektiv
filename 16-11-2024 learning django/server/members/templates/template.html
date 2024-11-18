@@ -3,12 +3,11 @@
 testing
 {%endblock%}
 {%block content%}
-<p>In testing you can see some temporary variables.</p>
-{%with is_logged_in=False%}
-  {%if is_logged_in%}
-  <p>The user is logged in</p>
-  {%else%}
-  <p>The user is not logged in</p>
-  {%endif%}
-{%endwith%}
+{%if status == 0%}
+<p>Status is none</p>
+{%elif status != 0%}
+<p>Status is {{status}}</p>
+{%else%}
+<p>Status is something else</p>
+{%endif%}
 {%endblock%}
