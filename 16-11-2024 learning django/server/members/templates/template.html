@@ -4,15 +4,8 @@ testing
 {%endblock%}
 
 {%block content%}
-{%for m in members%}
+{%for m in members reversed%}
 <p>{{m.id}}. {{m.first_name}} {{m.last_name}} and maybe {{m.joined_date}}</p>
+<p>{{forloop.counter}}</p>
 {%endfor%}
-
-{%with emptymembers = []%}
-{%for m in emptymembers%}
-<p>{{m.first_name}}</p>
-{%empty%}
-<p>No member</p>
-{%endfor%}
-{%endwith%}
 {%endblock%}
