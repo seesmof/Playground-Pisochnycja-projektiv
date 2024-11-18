@@ -29,11 +29,13 @@ def testing(request):
     first_names=Member.objects.values_list('first_name')
     johns=Member.objects.filter(first_name='John').values()
     ms=Member.objects.filter(first_name__startswith='M').values()
+    ordered_members=Member.objects.all().order_by('first_name').values()
     template=loader.get_template('template.html')
     context={
         'members':members,
         'first_names':first_names,
         'johns':johns,
-        'ms':ms
+        'ms':ms,
+        'ordered_members':ordered_members,
     }
     return HttpResponse(template.render(context=context,request=request))

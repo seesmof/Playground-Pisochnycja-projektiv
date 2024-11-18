@@ -38,4 +38,10 @@ testing
   {%endfor%}
 </ul>
 
+<ul>
+  {%for m in ordered_members%}
+  <li>{{m.id}}. {{m.first_name}} and {{m.last_name}} joined at {{m.joined_date}}</li>
+  {%endfor%}
+</ul>
+
 {%endblock%}
