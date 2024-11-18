@@ -5,13 +5,19 @@ testing
 
 {%block content%}
 
-<p>Seeing anything?</p>
-{%comment%}
-<h1>Should be seeing an {#inline comment#}</h1>
-{%endcomment%}
-
-{%include 'footer.html'%}
-
-{%include 'test_menu.html' with first_name='Peter' last_name='Michael'%}
+<table border="1">
+  <tr>
+    <td>ID</td>
+    <td>Firstname</td>
+    <td>Lastname</td>
+  </tr>
+  {%for m in members%}
+    <tr>
+      <td>{{m.id}}</td>
+      <td>{{m.first_name}}</td>
+      <td>{{m.last_name}}</td>
+    </tr>
+  {%endfor%}
+</table>
 
 {%endblock%}
