@@ -1,3 +1,4 @@
+from django import template
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
@@ -22,3 +23,10 @@ def details(request,id):
 def index(request):
     template=loader.get_template('index.html')
     return HttpResponse(template.render())
+
+def testing(request):
+    template=loader.get_template('template.html')
+    context={
+        'cities':['Minneappolis','Chicago','Denver','Summerside','Liberville']
+    }
+    return HttpResponse(template.render(context=context,request=request))

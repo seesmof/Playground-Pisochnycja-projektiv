@@ -1,0 +1,12 @@
+{%extends 'main.html'%}
+{%block title%}
+testing
+{%endblock%}
+{%block content%}
+<ul>
+  {%for c in cities%}
+  <li>{{c}}</li>
+  {%endfor%}
+</ul>
+<p>In testing you can see some temporary variables.</p>
+{%endblock%}
