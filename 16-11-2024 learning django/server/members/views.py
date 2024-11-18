@@ -26,7 +26,8 @@ def index(request):
 
 def testing(request):
     template=loader.get_template('template.html')
+    members=Member.objects.all().values()
     context={
-        'first_name':'John'
+        'members':members
     }
     return HttpResponse(template.render(context=context,request=request))
