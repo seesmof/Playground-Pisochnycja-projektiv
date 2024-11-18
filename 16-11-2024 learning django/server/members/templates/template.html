@@ -7,5 +7,8 @@ testing
 {%for m in members reversed%}
 <p>{{m.id}}. {{m.first_name}} {{m.last_name}} and maybe {{m.joined_date}}</p>
 <p>{{forloop.counter}}</p>
+{%if not forloop.last%}
+<hr>
+{%endif%}
 {%endfor%}
 {%endblock%}
