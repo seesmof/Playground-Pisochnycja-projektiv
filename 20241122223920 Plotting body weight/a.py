@@ -28,7 +28,7 @@ def parse_input(input_string):
     for line in input_string.splitlines():
         date, weight = line.split()
         dates.append(date.replace('-2024', ''))
-        weights.append(float(weight.strip('~')))
+        weights.append(float(weight.replace('~', '')))
     return dates, weights
 
 dates, weights = parse_input(input_string)
