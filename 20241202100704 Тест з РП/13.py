@@ -3,3 +3,16 @@
 '''
 
 import pandas 
+players={
+"id":[0,1,2,3],
+"name":['John','Micah','Peter','Jonah'],
+"height":[183,175,195,193],
+"weight":[79,63,103,121],
+"goals":[12,7,40,21],
+}
+df=pandas.DataFrame(players)
+print("\nData\n",df)
+selected=df.query('height>=190 and weight>=100')
+print("\nSelected\n",selected)
+goaler=selected.nlargest(1,'goals')
+print("\nGoaler\n",goaler)
