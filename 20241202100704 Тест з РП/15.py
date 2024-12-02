@@ -15,6 +15,6 @@ n=dict()
 for id,rating in f['rating'].items():
     v=3 if rating>=4.5 else 2 if rating>=4 else 1 if rating >=3 else 0
     n[id]=v
-print(n)
 f['new']=n
-print(f)
+data=pandas.DataFrame.from_dict(f).query('rating<5')
+print(data)
