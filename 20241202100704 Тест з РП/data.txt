@@ -1,8 +1,0 @@
-name!year!rating
-cup!2017!3.472
-sight!1976!
-gain!2013!5.77
-holiday!1953!5.387
-clock!!4.736
-forbid!2001!4.215
-salty!1998!6.942
