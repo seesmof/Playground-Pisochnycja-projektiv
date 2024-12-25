@@ -1,15 +1,35 @@
-source=r'\v 14 Тим прозвано криницю ту: "Криницею Живого, що мене бачить." Се між Кадесом і Баредом.'
-double_quotes="“ ”"
-double_open,double_close=double_quotes.split()
-single_quotes="‘ ’"
-single_open,single_close=single_quotes.split()
+import glob
+from shutil import copy2
+import os
+import time 
 
-words=[]
-opened=False
-for word in source.split():
-    if '"' in word: 
-        opened=not opened
-        words.append(word.replace('"',double_open if opened else double_close))
-    else: words.append(word)
-result=" ".join(words)
-print(result)
+root_folder=os.path.dirname(os.path.abspath(__file__))
+paratext_folder=os.path.join(r'C:\My Paratext 9 Projects\UFB')
+revision_folder=os.path.join(root_folder,'Revision')
+revision_files = glob.glob(revision_folder + "\\*.USFM")
+
+def copy_to_paratext():
+    try:
+        for file_path in revision_files:
+            copy2(file_path, os.path.join(paratext_folder, file_path.split("\\")[-1]))
+    except: pass
+
+def perform_automations():
+    print()
+    copy_to_paratext()
+    print("Paratext")
+
+def monitor_files_for_changes():
+    latest_file = max(revision_files, key=os.path.getmtime)
+    last_modification_time = os.path.getmtime(latest_file)
+    perform_automations()
+    while 1:
+        latest_file = max(revision_files, key=os.path.getmtime)
+        current_modification_time = os.path.getmtime(latest_file)
+        if last_modification_time != current_modification_time:
+            perform_automations()
+            last_modification_time = current_modification_time
+        time.sleep(1)
+
+if __name__ == "__main__":
+    monitor_files_for_changes()
