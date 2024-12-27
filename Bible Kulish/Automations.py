@@ -42,9 +42,11 @@ def form_markdown_output():
                 line=line[3:].strip()
                 verse_number,contents=line.split(maxsplit=1)
                 WJ_COLOR='#7e1717'
+                contents=contents.replace('\\add*','</em>')
                 closing_tag_pattern=r'\\\w+\*'
                 contents=re.sub(closing_tag_pattern,'</span>',contents)
                 contents=contents.replace('\\wj ',f'<span style="color: {WJ_COLOR}">')
+                contents=contents.replace('\\add ','<em>')
                 res=f'<sup>{verse_number}</sup> {contents}'
                 output_lines.append(res)
 
