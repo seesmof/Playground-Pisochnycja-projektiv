@@ -14,6 +14,13 @@ def copy_to_paratext():
         for file_path in revision_files:
             copy2(file_path, os.path.join(paratext_folder, file_path.split("\\")[-1]))
     except: pass
+    for file_name in os.listdir(revision_folder):
+        paratext_file_path=os.path.join(paratext_folder,file_name)
+        with open(paratext_file_path,encoding='utf-8',mode='r') as f:
+            lines=f.readlines()
+        lines=[l for l in lines if '\\rem' not in l]
+        with open(paratext_file_path,encoding='utf-8',mode='w') as f:
+            f.write('\n'.join([l.strip() for l in lines]))
 
 def form_markdown_output():
     output_lines=[]
