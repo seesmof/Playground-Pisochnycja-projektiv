@@ -1,26 +1,32 @@
 import glob
-from shutil import copy2
+import shutil
+import time 
 import os
 import re
-import time 
 
-root_folder=os.path.dirname(os.path.abspath(__file__))
-paratext_folder=os.path.join(r'C:\My Paratext 9 Projects\UFB')
-revision_folder=os.path.join(root_folder,'Revision')
-revision_files = glob.glob(revision_folder + "\\*.USFM")
+root_folder_path=os.path.dirname(os.path.abspath(__file__))
+revision_folder_path=os.path.join(root_folder_path,'Revision')
+revision_files = glob.glob(revision_folder_path + "\\*.USFM")
+paratext_projects_folder_path=os.path.join(r'C:\My Paratext 9 Projects')
 
-def copy_to_paratext():
-    try:
-        for file_path in revision_files:
-            copy2(file_path, os.path.join(paratext_folder, file_path.split("\\")[-1]))
-    except: pass
-    for file_name in os.listdir(revision_folder):
-        paratext_file_path=os.path.join(paratext_folder,file_name)
-        with open(paratext_file_path,encoding='utf-8',mode='r') as f:
-            lines=f.readlines()
-        lines=[l for l in lines if '\\rem' not in l]
-        with open(paratext_file_path,encoding='utf-8',mode='w') as f:
-            f.write('\n'.join([l.strip() for l in lines]))
+
+def copy_files_to_paratext_project(
+    project_abbreviation: str = 'UFB',
+    local_files_folder_path: str = revision_folder_path,
+    remove_comenting_rem_tags: bool = True,
+):
+    paratext_project_folder_path=os.path.join(paratext_projects_folder_path,project_abbreviation)
+    for file_name in os.listdir(local_files_folder_path):
+        paratext_file_path=os.path.join(paratext_project_folder_path,file_name)
+        local_file_path=os.path.join(local_files_folder_path,file_name)
+        shutil.copy2(local_file_path,paratext_file_path)
+
+        if remove_comenting_rem_tags:
+            with open(paratext_file_path,encoding='utf-8',mode='r') as f:
+                lines=f.readlines()
+            lines=[l for l in lines if not l.startswith(r'\rem ')]
+            with open(paratext_file_path,encoding='utf-8',mode='w') as f:
+                f.write('\n'.join([l.strip() for l in lines]))
 
 def form_markdown_output():
     def remove_footnotes_with_contents(verse: str):
@@ -28,8 +34,8 @@ def form_markdown_output():
         return re.sub(footnote_pattern,'',verse)
     output_lines=[]
 
-    for file_name in os.listdir(revision_folder):
-        file_path=os.path.join(revision_folder,file_name)
+    for file_name in os.listdir(revision_folder_path):
+        file_path=os.path.join(revision_folder_path,file_name)
         with open(file_path,encoding='utf-8',mode='r') as f:
             lines=f.readlines()
         
@@ -56,13 +62,15 @@ def form_markdown_output():
                 res=f'<sup>{verse_number}</sup> {contents}'
                 output_lines.append(res)
 
-    output_file=os.path.join(root_folder,'a.md')
+    output_file=os.path.join(root_folder_path,'a.md')
     with open(output_file,encoding='utf-8',mode='w') as f:
         f.write('\n'.join(output_lines))
 
 def perform_automations():
     print("Markdown")
     form_markdown_output()
+    print('Paratext')
+    copy_files_to_paratext_project()
 
 def monitor_files_for_changes():
     latest_file = max(revision_files, key=os.path.getmtime)
