@@ -66,8 +66,10 @@ def form_markdown_output():
         f.write('\n'.join(output_lines))
 
 def perform_automations():
-    print("Markdown")
-    form_markdown_output()
+    try:
+        print("Markdown")
+        form_markdown_output()
+    except: print('NO Markdown')
     print('Paratext')
     copy_files_to_paratext_project()
 
