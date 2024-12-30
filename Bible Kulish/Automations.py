@@ -51,7 +51,7 @@ def form_markdown_output():
                 WJ_COLOR='#7e1717'
                 line=line[3:].strip()
                 verse_number,contents=line.split(maxsplit=1)
-                contents=re.sub(r'\\(\+?)qt\s',f'<span style="font-variant: small-caps">',contents)
+                contents=re.sub(r'\\(\+?)(qt|nd)\s',f'<span style="font-variant: small-caps">',contents)
                 contents=re.sub(r'\\(\+?)wj\s',f'<span style="color: {WJ_COLOR}">',contents)
                 contents=re.sub(r'\\(\+?)add\s','<em>',contents)
                 contents=contents.replace('\\add*','</em>')
