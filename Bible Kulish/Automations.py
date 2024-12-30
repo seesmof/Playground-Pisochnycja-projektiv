@@ -55,11 +55,8 @@ def form_markdown_output():
         f.write('\n'.join(output_lines))
 
 def perform_automations():
-    print()
-    copy_to_paratext()
-    print("Paratext")
-    form_markdown_output()
     print("Markdown")
+    form_markdown_output()
 
 def monitor_files_for_changes():
     latest_file = max(revision_files, key=os.path.getmtime)
