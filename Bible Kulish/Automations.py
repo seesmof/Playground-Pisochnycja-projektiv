@@ -9,7 +9,6 @@ revision_folder_path=os.path.join(root_folder_path,'Revision')
 revision_files = glob.glob(revision_folder_path + "\\*.USFM")
 paratext_projects_folder_path=os.path.join(r'C:\My Paratext 9 Projects')
 
-
 def copy_files_to_paratext_project(
     project_abbreviation: str = 'UFB',
     local_files_folder_path: str = revision_folder_path,
