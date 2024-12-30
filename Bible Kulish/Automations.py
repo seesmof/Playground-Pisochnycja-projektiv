@@ -23,6 +23,9 @@ def copy_to_paratext():
             f.write('\n'.join([l.strip() for l in lines]))
 
 def form_markdown_output():
+    def remove_footnotes_with_contents(verse: str):
+        footnote_pattern=r'\\(\+*)f(.*?)\\(\+*)f\*'
+        return re.sub(footnote_pattern,'',verse)
     output_lines=[]
 
     for file_name in os.listdir(revision_folder):
@@ -30,7 +33,8 @@ def form_markdown_output():
         with open(file_path,encoding='utf-8',mode='r') as f:
             lines=f.readlines()
         
-        Book_name=file_name[:3]
+        Book_name=file_name[2:].split('.')[0]
+        output_lines.append(f'# {Book_name}')
         for line in lines:
             if r'\c ' in line:
                 chapter_number=line[3:].strip()
@@ -39,14 +43,16 @@ def form_markdown_output():
             elif r'\p' in line:
                 output_lines.append('')
             elif r'\v ' in line:
+                WJ_COLOR='#7e1717'
                 line=line[3:].strip()
                 verse_number,contents=line.split(maxsplit=1)
-                WJ_COLOR='#7e1717'
+                contents=re.sub(r'\\(\+?)qt\s',f'<span style="font-variant: small-caps">',contents)
+                contents=re.sub(r'\\(\+?)wj\s',f'<span style="color: {WJ_COLOR}">',contents)
+                contents=re.sub(r'\\(\+?)add\s','<em>',contents)
                 contents=contents.replace('\\add*','</em>')
-                closing_tag_pattern=r'\\\w+\*'
-                contents=re.sub(closing_tag_pattern,'</span>',contents)
-                contents=contents.replace('\\wj ',f'<span style="color: {WJ_COLOR}">')
-                contents=contents.replace('\\add ','<em>')
+                contents=remove_footnotes_with_contents(contents)
+                # all other closing tags
+                contents=re.sub(r'\\(\+?)\w+\*','</span>',contents)
                 res=f'<sup>{verse_number}</sup> {contents}'
                 output_lines.append(res)
 
