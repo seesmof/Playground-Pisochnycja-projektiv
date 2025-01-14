@@ -22,30 +22,41 @@ def mark_text(
         return re.sub(rf'(\w)\'([\w{string.punctuation}])',r'\1ʼ\2',text)
 
     def make_quotes_typographical(text):
+        '''
+        SINGLE_OPENING='‹'
+        SINGLE_CLOSING='›'
+        DOUBLE_OPENING='«'
+        DOUBLE_CLOSING='»'
+        '''
+        SINGLE_OPENING='‘'
+        SINGLE_CLOSING='’'
+        DOUBLE_OPENING='“'
+        DOUBLE_CLOSING='”'
+
         def replace_at_index(text,index=0,replacement=''):
             return f'{text[:index]}{replacement}{text[index+1:]}'
 
         single_last_closing=False
         double_last_closing=False
         for i,symbol in enumerate(text):
-            if symbol=='«': double_last_closing=True
-            elif symbol=='‹': single_last_closing=True
-            if symbol=='»': double_last_closing=False
-            elif symbol=='›': single_last_closing=False
+            if symbol==DOUBLE_OPENING: double_last_closing=True
+            elif symbol==SINGLE_OPENING: single_last_closing=True
+            if symbol==DOUBLE_CLOSING: double_last_closing=False
+            elif symbol==SINGLE_CLOSING: single_last_closing=False
 
             elif symbol=="'":
                 if not single_last_closing: 
-                    text=replace_at_index(text,i,'‹')
+                    text=replace_at_index(text,i,SINGLE_OPENING)
                     single_last_closing=True
                 else: 
-                    text=replace_at_index(text,i,'›')
+                    text=replace_at_index(text,i,SINGLE_CLOSING)
                     single_last_closing=False
             elif symbol=='"':
                 if not double_last_closing: 
-                    text=replace_at_index(text,i,'«')
+                    text=replace_at_index(text,i,DOUBLE_OPENING)
                     double_last_closing=True
                 else: 
-                    text=replace_at_index(text,i,'»')
+                    text=replace_at_index(text,i,DOUBLE_CLOSING)
                     double_last_closing=False
         return text
 
