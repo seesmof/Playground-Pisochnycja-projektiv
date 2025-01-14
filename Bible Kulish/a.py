@@ -58,8 +58,10 @@ while 1:
     with open(target_file_path,encoding='utf-8',mode='r') as f:
         new_read_text=f.read()
     if new_read_text!=read_text:
+        marked_text=mark_text(new_read_text)
         with open(target_file_path,encoding='utf-8',mode='w') as f:
-            f.write(mark_text(new_read_text))
+            f.write(marked_text)
         print('\nText marked')
-        read_text=new_read_text
+        read_text=marked_text
+    else: read_text=new_read_text
     time.sleep(1)
