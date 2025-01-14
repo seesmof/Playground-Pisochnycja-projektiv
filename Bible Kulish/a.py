@@ -30,6 +30,8 @@ def mark_text(
         for i,symbol in enumerate(text):
             if symbol=='«': double_last_closing=True
             elif symbol=='‹': single_last_closing=True
+            if symbol=='»': double_last_closing=False
+            elif symbol=='›': single_last_closing=False
 
             elif symbol=="'":
                 if not single_last_closing: 
@@ -37,12 +39,14 @@ def mark_text(
                     single_last_closing=True
                 else: 
                     text=replace_at_index(text,i,'›')
+                    single_last_closing=False
             elif symbol=='"':
                 if not double_last_closing: 
                     text=replace_at_index(text,i,'«')
                     double_last_closing=True
                 else: 
                     text=replace_at_index(text,i,'»')
+                    double_last_closing=False
         return text
 
     dashes_fixed=make_dashes_typographical(given_text)
