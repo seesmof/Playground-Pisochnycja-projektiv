@@ -1,18 +1,19 @@
 import os
 
-root=os.path.dirname(os.path.abspath(__file__))
-revision_based_on_WEB=os.path.join(root,'WEB_Based_Revision')
+root_folder_path=os.path.dirname(os.path.abspath(__file__))
+target_file_path=os.path.join(root_folder_path,'test.md')
+with open(target_file_path,encoding='utf-8',mode='r') as f:
+    text=f.read()
 
-older_revision_folder=os.path.join(root,'Revision')
-revision_file_names=os.listdir(older_revision_folder)
+'''
+replace all ` -` with em dash 
+replace all ` "` and `" ` with opening and closing double brackets 
+replace all ` '` and `' ` with opening and closing single brackets 
+replace all `\w!` and `!\w` with embeded accent mark 
+replace all `\w'` and `'\w` with apostrophe symbols 
+'''
 
-for file_name in os.listdir(revision_based_on_WEB):
-    if 'GLO' in file_name or 'FRT' in file_name: continue
-    abbr=file_name.split('.')[0].split('-')[-1]
-    print(abbr)
-    correct_name=[n for n in revision_file_names if abbr in n][0]
-    print(correct_name)
+text=text.replace(' -',' —')
 
-    old=os.path.join(revision_based_on_WEB,file_name)
-    new=os.path.join(revision_based_on_WEB,correct_name)
-    os.rename(old,new)
+with open(target_file_path,encoding='utf-8',mode='w') as f:
+    f.write(text)

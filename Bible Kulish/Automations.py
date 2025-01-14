@@ -5,7 +5,7 @@ import os
 import re
 
 root_folder_path=os.path.dirname(os.path.abspath(__file__))
-revision_folder_path=os.path.join(root_folder_path,'Revision')
+revision_folder_path=os.path.join(root_folder_path,'WEB_Based_Revision')
 revision_files = glob.glob(revision_folder_path + "\\*.USFM")
 paratext_projects_folder_path=os.path.join(r'C:\My Paratext 9 Projects')
 
@@ -16,6 +16,8 @@ def copy_files_to_paratext_project(
 ):
     paratext_project_folder_path=os.path.join(paratext_projects_folder_path,project_abbreviation)
     for file_name in os.listdir(local_files_folder_path):
+        if 'GLO' in file_name or 'FRT' in file_name: continue
+
         paratext_file_path=os.path.join(paratext_project_folder_path,file_name)
         local_file_path=os.path.join(local_files_folder_path,file_name)
         shutil.copy2(local_file_path,paratext_file_path)
