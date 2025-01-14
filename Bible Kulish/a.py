@@ -15,7 +15,16 @@ replace all `\w'` and `'\w` with apostrophe symbols
 '''
 
 text=text.replace(' -',' —')
-text=re.sub(r'(\w)\'',r'ʼ',text)
+accent_mark='\u0301'
+text=re.sub(r'(\s)-',r'\1—',text)
+text=re.sub(r'-(\s)',r'—\1',text)
+last_closing=False
+for i,symbol in enumerate(text):
+    print(rf'{symbol}')
+text=re.sub(r'(\w)!',rf'\1{accent_mark}',text)
+text=re.sub(r'!(\w)',rf'{accent_mark}\1',text)
+text=re.sub(r'(\w)\'',r'\1ʼ',text)
+text=re.sub(r'\'(\w)',r'ʼ\1',text)
 
 with open(target_file_path,encoding='utf-8',mode='w') as f:
     f.write(text)
