@@ -1,3 +1,4 @@
+import string
 import os
 import re
 
@@ -23,7 +24,28 @@ text=re.sub(r'-(\s)',r'—\1',text)
 text=re.sub(r'(\w)!',rf'\1{accent_mark}',text)
 text=re.sub(r'!(\w)',rf'{accent_mark}\1',text)
 
-text=re.sub(r'\'([яюєїЯЮЄЇ])',r'ʼ\1',text)
+text=re.sub(rf'(\w)\'([\w{string.punctuation}])',r'\1ʼ\2',text)
+
+def replace_at_index(text,index=0,replacement=''):
+    return f'{text[:index]}{replacement}{text[index+1:]}'
+
+last_closing=False
+for i,symbol in enumerate(text):
+    if symbol=='\'':
+        if not last_closing: 
+            text=replace_at_index(text,i,'‹')
+            last_closing=True
+        else: 
+            text=replace_at_index(text,i,'›')
+
+last_closing=False
+for i,symbol in enumerate(text):
+    if symbol=='\"':
+        if not last_closing: 
+            text=replace_at_index(text,i,'«')
+            last_closing=True
+        else: 
+            text=replace_at_index(text,i,'»')
 
 with open(target_file_path,encoding='utf-8',mode='w') as f:
     f.write(text)
