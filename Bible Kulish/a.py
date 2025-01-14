@@ -28,7 +28,10 @@ def mark_text(
         single_last_closing=False
         double_last_closing=False
         for i,symbol in enumerate(text):
-            if symbol=="'":
+            if symbol=='«': double_last_closing=True
+            elif symbol=='‹': single_last_closing=True
+
+            elif symbol=="'":
                 if not single_last_closing: 
                     text=replace_at_index(text,i,'‹')
                     single_last_closing=True
