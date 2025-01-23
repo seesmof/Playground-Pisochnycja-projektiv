@@ -5,7 +5,7 @@ import os
 import re
 
 root_folder_path=os.path.dirname(os.path.abspath(__file__))
-revision_folder_path=os.path.join(root_folder_path,'WEB_Based_Revision')
+revision_folder_path=os.path.join(root_folder_path,'Revision')
 revision_files = glob.glob(revision_folder_path + "\\*.USFM")
 paratext_projects_folder_path=os.path.join(r'C:\My Paratext 9 Projects')
 
