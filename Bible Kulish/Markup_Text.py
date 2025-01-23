@@ -5,7 +5,7 @@ import re
 
 root_folder_path=os.path.dirname(os.path.abspath(__file__))
 revision_folder_path=os.path.join(root_folder_path,'Revision')
-target_file_path=os.path.join(revision_folder_path,'66JUD.USFM')
+target_file_path=os.path.join(revision_folder_path,'31OBA.USFM')
 
 def mark_text(
     given_text:str,
@@ -23,8 +23,12 @@ def mark_text(
         return re.sub(rf'(\w)\'([\w{string.punctuation}])',r'\1ʼ\2',text)
 
     def make_quotes_typographical(text):
+        '''
         SINGLE_OPENING='‹'
         SINGLE_CLOSING='›'
+        '''
+        SINGLE_OPENING='“'
+        SINGLE_CLOSING='”'
         DOUBLE_OPENING='«'
         DOUBLE_CLOSING='»'
 
