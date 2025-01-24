@@ -5,7 +5,7 @@ import re
 
 root_folder_path=os.path.dirname(os.path.abspath(__file__))
 revision_folder_path=os.path.join(root_folder_path,'Revision')
-target_file_path=os.path.join(revision_folder_path,'42MRK.USFM')
+target_file_path=os.path.join(revision_folder_path,'57TIT.USFM')
 
 def mark_text(
     given_text:str,
