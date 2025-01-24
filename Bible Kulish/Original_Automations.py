@@ -31,8 +31,8 @@ def copy_files_to_paratext_project(
 
 def form_markdown_output(
     source_folder_path:str = revision_folder_path,
-    local_output_file_path:str = None,
-    vault_output_file_path:str = r'E:\Notatnyk\Біблія свободи.md',
+    local_output_file_path:str = os.path.join(root_folder_path,'Formatted_Output.md'),
+    vault_output_file_path:str = None,
 ):
     def remove_footnotes_with_contents(verse: str):
         footnote_pattern=r'\\(\+*)f(.*?)\\(\+*)f\*'
