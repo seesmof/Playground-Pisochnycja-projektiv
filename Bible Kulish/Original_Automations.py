@@ -48,7 +48,9 @@ def form_markdown_output():
                 res=f'### {Book_name} {chapter_number}'
                 output_lines.append(res)
             elif r'\p' in line:
-                output_lines.append('')
+                line=line[3:].strip()
+                res=f'\n{line}' if line else ''
+                output_lines.append(res)
             elif r'\v ' in line:
                 WJ_COLOR='#7e1717'
                 line=line[3:].strip()
