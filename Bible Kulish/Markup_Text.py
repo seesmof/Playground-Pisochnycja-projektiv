@@ -10,17 +10,19 @@ target_file_path=os.path.join(revision_folder_path,'57TIT.USFM')
 def mark_text(
     given_text:str,
 ):
+    PUNCTUATION=r"!”#’$%&'()*+,-./:;<?=@>[\]^_`{|}~"
+
     def make_dashes_typographical(text):
         text=re.sub(r'(\s)-',r'\1—',text)
         text=re.sub(r'-(\s)',r'—\1',text)
         return text
 
     def render_accent_marks(text):
-        accent_mark='\u0301'
-        return re.sub(rf'([аеєиіїоуюяАЕЄИІЇОУЮЯ])!([\w{string.punctuation}])',rf'\1{accent_mark}\2',text)
+        ACCENT_MARK='\u0301'
+        return re.sub(rf'([аеєиіїоуюяАЕЄИІЇОУЮЯ])!([\w{PUNCTUATION}])',rf'\1{ACCENT_MARK}\2',text)
 
     def make_apostrophes_typographical(text):
-        return re.sub(rf'(\w)\'([\w{string.punctuation}])',r'\1ʼ\2',text)
+        return re.sub(rf'(\w)\'([\w{PUNCTUATION}])',r'\1ʼ\2',text)
 
     def make_quotes_typographical(text):
         '''
