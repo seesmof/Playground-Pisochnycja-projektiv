@@ -29,19 +29,37 @@ def copy_files_to_paratext_project(
             with open(paratext_file_path,encoding='utf-8',mode='w') as f:
                 f.write('\n'.join([l.strip() for l in lines]))
 
-def form_markdown_output():
+def form_markdown_output(
+    source_folder_path:str = revision_folder_path,
+    local_output_file_path:str = None,
+    vault_output_file_path:str = r'E:\Notatnyk\Біблія свободи.md',
+):
     def remove_footnotes_with_contents(verse: str):
         footnote_pattern=r'\\(\+*)f(.*?)\\(\+*)f\*'
         return re.sub(footnote_pattern,'',verse)
+
+    def format_text_line(line):
+        QT_tags_handled=re.sub(r'\\(\+?)qt\s',f'<span style="font-variant: small-caps">',line)
+        ND_tags_handled=re.sub(r'\\(\+?)nd\s',f'<span style="font-variant: small-caps; font-weight:bold">',QT_tags_handled)
+        WJ_tags_handled=re.sub(r'\\(\+?)wj\s',f'<span style="color: {WJ_COLOR}">',ND_tags_handled)
+        add_opening_tags=re.sub(r'\\(\+?)add\s','<em>',WJ_tags_handled)
+        add_closing_tags=add_opening_tags.replace('\\add*','</em>').replace('\\+add*','</em>')
+        footnotes_removed=remove_footnotes_with_contents(add_closing_tags)
+        other_tags_closed=re.sub(r'\\(\+?)\w+\*','</span>',footnotes_removed)
+        return other_tags_closed
+
+    WJ_COLOR='#7e1717'
     output_lines=[]
 
-    for file_name in os.listdir(revision_folder_path):
-        file_path=os.path.join(revision_folder_path,file_name)
+    for file_name in os.listdir(source_folder_path):
+        file_path=os.path.join(source_folder_path,file_name)
         with open(file_path,encoding='utf-8',mode='r') as f:
             lines=f.readlines()
         
         Book_name=file_name[2:].split('.')[0]
         output_lines.append(f'# {Book_name}')
+        last_verse_number=1
+        
         for line in lines:
             if r'\c ' in line:
                 chapter_number=line[3:].strip()
@@ -52,22 +70,25 @@ def form_markdown_output():
                 res=f'\n{line}' if line else ''
                 output_lines.append(res)
             elif r'\v ' in line:
-                WJ_COLOR='#7e1717'
                 line=line[3:].strip()
-                verse_number,contents=line.split(maxsplit=1)
-                contents=re.sub(r'\\(\+?)(qt|nd)\s',f'<span style="font-variant: small-caps">',contents)
-                contents=re.sub(r'\\(\+?)wj\s',f'<span style="color: {WJ_COLOR}">',contents)
-                contents=re.sub(r'\\(\+?)add\s','<em>',contents)
-                contents=contents.replace('\\add*','</em>')
-                contents=remove_footnotes_with_contents(contents)
-                # all other closing tags
-                contents=re.sub(r'\\(\+?)\w+\*','</span>',contents)
-                res=f'<sup>{verse_number}</sup> {contents}'
+                last_verse_number,contents=line.split(maxsplit=1)
+                formatted_line=format_text_line(contents)
+                res=f'<sup>{last_verse_number}</sup> {formatted_line}'
+                output_lines.append(res)
+            elif '\\q2 ' in line:
+                line=line[3:].strip()
+                res=f'   {line}'
                 output_lines.append(res)
 
-    output_file=os.path.join(root_folder_path,'a.md')
-    with open(output_file,encoding='utf-8',mode='w') as f:
-        f.write('\n'.join(output_lines))
+    try:
+        if local_output_file_path:
+            with open(local_output_file_path,encoding='utf-8',mode='w') as f:
+                f.write('\n'.join(output_lines))
+        if 'Notatnyk' not in vault_output_file_path:
+            vault_output_file_path=os.path.join(r'E:\Notatnyk',vault_output_file_path)
+        with open(vault_output_file_path,encoding='utf-8',mode='w') as f:
+            f.write('\n'.join(output_lines))
+    except: pass
 
 def perform_automations():
     try:
