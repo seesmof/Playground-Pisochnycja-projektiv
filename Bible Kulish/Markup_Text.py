@@ -11,6 +11,10 @@ def mark_text(
 ):
     PUNCTUATION=r"!”#’$%&'()*+,-./:;<?=@>[\]^_`{|}~"
 
+    def mark_LORD_s_Words_with_ND(text):
+        pattern=r'(ГОСПОД.*?(?=-|\s))'
+        
+
     def make_dashes_typographical(text):
         text=re.sub(r'(\s)-',r'\1—',text)
         text=re.sub(r'-(\s)',r'—\1',text)

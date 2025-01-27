@@ -1,15 +1,11 @@
-import string
-import time
-import os
 import re
 
-root_folder_path=os.path.dirname(os.path.abspath(__file__))
-web_folder_path=os.path.join(root_folder_path,'WEB')
 
-for file_name in os.listdir(web_folder_path):
-    file_path=os.path.join(web_folder_path,file_name)
-    with open(file_path,encoding='utf-8',mode='r') as f:
-        lines=f.readlines()
-    lines=[re.sub(r'\|strong=\"[GH]\d{4}\"\\w\*','',l).replace('\w ','').strip() for l in lines]
-    with open(file_path,encoding='utf-8',mode='w') as f:
-        f.write('\n'.join(lines))
+text=r'\v 2 а насолода його в ГОСПОДНЬОМУ\f + \fr 1:2 \ft Коли слово «ГОСПОДЬ» або «БОГ» пишеться УСІМА ВЕЛИКИМИ ЛІТЕРАМИ, воно є перекладом Божого Власного Імені (Євр. «\+wh יהוה\+wh*», зазвичай вимовляється як Ягве).\f* законі.'
+
+def mark_LORD_s_Words_with_ND(text):
+    pattern=r'(ГОСПОД.*?(?=-|\s))'
+    print(re.findall(pattern,text))
+
+res=mark_LORD_s_Words_with_ND(text)
+print(res)
