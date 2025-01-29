@@ -23,7 +23,7 @@ def mark_text(
     def render_accent_marks(text):
         ACCENT_MARK='\u0301'
         ACCENT_TRIGGER='#'
-        return re.sub(rf'([аеєиіїоуюяАЕЄИІЇОУЮЯ]){ACCENT_TRIGGER}([\w{PUNCTUATION}])',rf'\1{ACCENT_MARK}\2',text)
+        return re.sub(rf'([аеєиіїоуюяАЕЄИІЇОУЮЯ])[{ACCENT_TRIGGER}№]([\w{PUNCTUATION}])',rf'\1{ACCENT_MARK}\2',text)
 
     def make_apostrophes_typographical(text):
         return re.sub(rf'(\w)\'([\w{PUNCTUATION}])',r'\1ʼ\2',text)
