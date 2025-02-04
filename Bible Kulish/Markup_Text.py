@@ -81,8 +81,8 @@ def mark_text(
 
     dashes_fixed=make_dashes_typographical(given_text)
     apostrophes_fixed=make_apostrophes_typographical(dashes_fixed)
-    quotes_fixed=make_quotes_typographical(apostrophes_fixed)
-    accents_fixed=render_accent_marks(quotes_fixed)
+    # quotes_fixed=make_quotes_typographical(apostrophes_fixed)
+    accents_fixed=render_accent_marks(apostrophes_fixed)
     return accents_fixed
 
 with open(target_file_path,encoding='utf-8',mode='r') as f:
