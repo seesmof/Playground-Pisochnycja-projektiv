@@ -11,10 +11,6 @@ def mark_text(
 ):
     PUNCTUATION=r"!”#’$%&'()*+,-./:;<?=@>[\]^_`{|}~"
 
-    def mark_LORD_s_Words_with_ND(text):
-        pattern=r'(ГОСПОД.*?(?=-|\s))'
-        
-
     def make_dashes_typographical(text):
         text=re.sub(r'(\s)-',r'\1—',text)
         text=re.sub(r'-(\s)',r'—\1',text)
@@ -79,11 +75,36 @@ def mark_text(
                     double_last_closing=False
         return text
 
+    def add_strong_tags(text: str):
+        text=text.split(' ')
+        opens_count=0
+        closes_count=0
+        for i,word in enumerate(text):
+            if '\\w*' in word: closes_count+=1
+            elif '\\w' in word: opens_count+=1
+
+            if not '|strong=' in word: continue
+            try:
+                if opens_count!=closes_count and text[i-1]!='\\w':
+                    text[i]='\\w '+word
+                    closes_count+=1
+            except: pass
+
+            if 1<=word.count('"')<2:
+                text[i]=re.sub(r'(\"[GH]\d*)',r'\1"\\w*',text[i])
+        text=' '.join(text)
+        return text
+
+    def remove_trailing_whitespaces(text: str):
+        return '\n'.join([l.strip() for l in text.split('\n')])
+
     dashes_fixed=make_dashes_typographical(given_text)
     apostrophes_fixed=make_apostrophes_typographical(dashes_fixed)
     # quotes_fixed=make_quotes_typographical(apostrophes_fixed)
     accents_fixed=render_accent_marks(apostrophes_fixed)
-    return accents_fixed
+    strongs_handled=add_strong_tags(accents_fixed)
+    whitespaces_removed=remove_trailing_whitespaces(strongs_handled)
+    return whitespaces_removed
 
 with open(target_file_path,encoding='utf-8',mode='r') as f:
     read_text=f.read()
