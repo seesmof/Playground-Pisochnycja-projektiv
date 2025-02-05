@@ -92,6 +92,7 @@ def mark_text(
 
             if 1<=word.count('"')<2:
                 text[i]=re.sub(r'(\"[GH]\d*)',r'\1"\\w*',text[i])
+
         text=' '.join(text)
         return text
 
