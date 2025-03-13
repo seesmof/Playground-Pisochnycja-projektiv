@@ -11,7 +11,3 @@ b="не загинув але мав життя вічне"
 
 res=difflib.SequenceMatcher(None,a,b).ratio()
 print(res)
-
-word_list=a.split()
-res=difflib.get_close_matches(b,word_list,cutoff=.33)
-print(res)
