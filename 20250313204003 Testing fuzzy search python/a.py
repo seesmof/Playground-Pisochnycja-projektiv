@@ -1,13 +1,7 @@
-def lev(a, b):
-    if not a: return len(b)
-    if not b: return len(a)
-    return min(lev(a[1:], b[1:])+(a[0] != b[0]), lev(a[1:], b)+1, lev(a, b[1:])+1)
+import difflib
 
 a="Всяк бо, хто призове імя Господнє, спасеть ся. Римлян 10:13"
 b="Бо всяк, хто призове ім'я Господнє, спасеться. Римляни 10:13"
 
-a="імя Господнє, спасеть ся"
-b="ім'я Господнє, спасеться"
-
-res=lev(a,b)
+res=difflib.SequenceMatcher(None,a,b).ratio()
 print(res)
