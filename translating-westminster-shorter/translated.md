@@ -1,8 +1,8 @@
-1. Що є головною метою людини? --- Головною метою людини є прославляти Бога і насолоджуватися Ним навіки.
-2. What rule hath God given to direct us how we may glorify and enjoy him? --- The Word of God, which is contained in the Scriptures of the Old and New Testaments, is the only rule to direct us how we may glorify and enjoy him.
-3. What do the Scriptures principally teach? --- The Scriptures principally teach, what man is to believe concerning God, and what duty God requires of man.
-4. What is God? --- God is a Spirit, infinite, eternal, and unchangeable, in his being, wisdom, power, holiness, justice, goodness, and truth.
-5. Are there more Gods than one? --- There is but one only, the living and true God.
+1. В чому полягає головна мета людини? --- Головна мета людини полягає в тому, щоб прославляти Бога і насолоджуватися Ним навіки.
+2. Яке правило дав нам Бог, щоб вказати як ми можемо прославляти Його і насолоджуватися Ним? --- Слово Боже, яке міститься в Писаннях Старого і Нового Завітів, є єдиним правилом, яке вказує нам, як ми можемо прославляти Його і насолоджуватися Ним.
+3. Чого насамперед навчають Писання? --- Писання насамперед навчають, у що людина має вірити щодо Бога і які обов'язки Бог вимагає від людини.
+4. Що таке Бог? --- Бог є Духом, нескінченним, вічним і незмінним у Своєму бутті, мудрості, силі, святості, справедливості, доброті та істині.
+5. Чи є більше Богів, ніж один? --- Є лише один, живий і справжній Бог.
 6. How many persons are there in the Godhead? --- There are three persons in the Godhead; the Father, the Son, and the Holy Ghost; and these three are one God, the same in substance, equal in power and glory.
 7. What are the decrees of God? --- The decrees of God are, his eternal purpose, according to the counsel of his will, whereby, for his own glory, he hath foreordained whatsoever comes to pass.
 8. How doth God execute his decrees? --- God executeth his decrees in the works of creation and providence.
