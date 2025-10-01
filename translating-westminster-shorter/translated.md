@@ -1,4 +1,4 @@
-1. What is the chief end of man? --- Man’s chief end is to glorify God, and to enjoy him for ever.
+1. Що є головною метою людини? --- Головною метою людини є прославляти Бога і насолоджуватися Ним навіки.
 2. What rule hath God given to direct us how we may glorify and enjoy him? --- The Word of God, which is contained in the Scriptures of the Old and New Testaments, is the only rule to direct us how we may glorify and enjoy him.
 3. What do the Scriptures principally teach? --- The Scriptures principally teach, what man is to believe concerning God, and what duty God requires of man.
 4. What is God? --- God is a Spirit, infinite, eternal, and unchangeable, in his being, wisdom, power, holiness, justice, goodness, and truth.
