@@ -1,0 +1,7 @@
+[project]
+name = "translating-westminster-shorter"
+version = "0.1.0"
+description = "Given an original Public Domain English text of Westminster Shorter Catechism, translate it into Ukrainian faithfully."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
