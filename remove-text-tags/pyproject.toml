@@ -1,0 +1,7 @@
+[project]
+name = "remove-text-tags"
+version = "0.1.0"
+description = "Searches the text for tags in form of `<...>` and removes them."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
