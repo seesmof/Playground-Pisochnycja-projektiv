@@ -35,6 +35,9 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (text.trim() === "") alert("Please fill in the input field.");
+
     addNewTodo();
   };
 
