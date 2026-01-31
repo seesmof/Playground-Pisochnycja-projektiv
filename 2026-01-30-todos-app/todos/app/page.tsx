@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface Todo {
   text: string;
@@ -23,23 +23,46 @@ export default function Home() {
     setText("");
   };
 
+  const toggleCheck = (item: Todo) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.text === item.text
+          ? { ...todo, status: todo.status === "Pending" ? "Done" : "Pending" }
+          : todo,
+      ),
+    );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNewTodo();
+  };
+
   return (
     <>
-      <div className="p-3 w-full flex gap-3">
+      <form onSubmit={handleSubmit} className="p-3 w-full flex gap-3">
         <input
           className="input flex-1"
           value={text}
           onChange={(event) => setText(event.target.value)}
         />
-        <button className="btn" onClick={addNewTodo}>
+        <button className="btn" type="submit">
           Submit
         </button>
-      </div>
-      <ul className="p-3 flex flex-col list-disc list-inside">
+      </form>
+      <div className="p-3 flex flex-col list-disc list-inside">
         {todos.map((item) => (
-          <li key={item.text}>{item.text}</li>
+          <div key={item.text} className="flex flex-row gap-2">
+            <input
+              type="checkbox"
+              checked={item.status === "Done"}
+              onChange={() => toggleCheck(item)}
+              id={`todo-${item.text}`}
+            />
+            <label htmlFor={`todo-${item.text}`}>{item.text}</label>
+          </div>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
