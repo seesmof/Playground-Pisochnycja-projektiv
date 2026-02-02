@@ -10,24 +10,19 @@ interface Verse {
   verse: number;
   text: string;
 }
-const url = "https://bolls.life/get-random-verse/";
+const url = "https://bolls.life/get-random-verse/UBIO/";
 
 export default function Home() {
   const [verse, setVerse] = useState("");
 
-  const fetchVerse = async () => {
-    try {
+  useEffect(() => {
+    async function startFetching() {
       const response = await fetch(url);
       const result: Verse = await response.json();
       setVerse(result.text);
-      console.log(result.text);
-    } catch (error) {
-      console.error(error);
     }
-  };
 
-  useEffect(() => {
-    fetchVerse();
+    startFetching();
   }, []);
 
   return <p>{verse}</p>;
