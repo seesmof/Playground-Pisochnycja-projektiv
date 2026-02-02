@@ -25,5 +25,13 @@ export default function Home() {
     startFetching();
   }, []);
 
-  return <p>{verse}</p>;
+  return (
+    <div className="h-screen bg-sky-100 flex flex-col justify-center items-center p-3">
+      <div className="card bg-white">
+        <div className="card-body">
+          <p>{verse}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
