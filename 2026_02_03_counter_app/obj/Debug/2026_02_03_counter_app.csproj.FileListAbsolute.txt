@@ -1,0 +1,10 @@
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\bin\Debug\2026_02_03_counter_app.exe.config
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\bin\Debug\2026_02_03_counter_app.exe
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\bin\Debug\2026_02_03_counter_app.pdb
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\2026_02_03_counter_app.csproj.AssemblyReference.cache
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\_2026_02_03_counter_app.Form1.resources
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\_2026_02_03_counter_app.Properties.Resources.resources
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\2026_02_03_counter_app.csproj.GenerateResource.cache
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\2026_02_03_counter_app.csproj.CoreCompileInputs.cache
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\2026_02_03_counter_app.exe
+D:\Playground-Pisochnycja-projektiv\2026_02_03_counter_app\obj\Debug\2026_02_03_counter_app.pdb
