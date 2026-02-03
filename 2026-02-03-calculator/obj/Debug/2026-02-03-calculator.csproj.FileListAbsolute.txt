@@ -1,0 +1,10 @@
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\bin\Debug\2026-02-03-calculator.exe.config
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\bin\Debug\2026-02-03-calculator.exe
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\bin\Debug\2026-02-03-calculator.pdb
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\2026-02-03-calculator.csproj.AssemblyReference.cache
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\_2026_02_03_calculator.Form1.resources
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\_2026_02_03_calculator.Properties.Resources.resources
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\2026-02-03-calculator.csproj.GenerateResource.cache
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\2026-02-03-calculator.csproj.CoreCompileInputs.cache
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\2026-02-03-calculator.exe
+D:\Playground-Pisochnycja-projektiv\2026-02-03-calculator\obj\Debug\2026-02-03-calculator.pdb
