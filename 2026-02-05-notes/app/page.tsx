@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-sky-50 h-screen flex flex-col gap-3">
+    <div className="bg-sky-50 min-h-screen flex flex-col gap-3">
       <form
         className="flex flex-col p-3 gap-3 bg-white m-3 rounded-md"
         onSubmit={handleSubmit}
