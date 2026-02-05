@@ -53,7 +53,7 @@ export default function Home() {
         {notes.map((note) => (
           <div className="bg-white w-full rounded-md p-3" key={note.id}>
             <h3 className="text-lg pb-3 font-medium">{note.heading}</h3>
-            <p>{note.text}</p>
+            <p className="wrap-break-word">{note.text}</p>
           </div>
         ))}
       </div>
