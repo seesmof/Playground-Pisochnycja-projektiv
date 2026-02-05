@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 let currentId = 0;
 
@@ -15,7 +15,7 @@ export default function Home() {
   const [heading, setHeading] = useState("");
   const [text, setText] = useState("");
 
-  const handleSubmit = (e: SubmitEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newNote: Note = {
       id: currentId,
