@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Random Bible Verse",
-  description: "This app shows a random Bible verse.",
+  title: "Counter App",
+  description: "This is a simple counter app.",
 };
 
 export default function RootLayout({
