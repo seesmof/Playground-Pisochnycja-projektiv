@@ -1,12 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 const formGroupContainerClasses = "flex flex-col gap-1";
 
 export default function Home() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+
+  const validateUsername = (username: string): boolean => {
+    const usernameRegex: RegExp = /^[a-zA-Z0-9_]{3,20}$/;
+    return usernameRegex.test(username);
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    setUsernameError(false);
+    setEmailError(false);
+
+    if (!validateUsername(username)) setUsernameError(true);
+    if (!validateEmail(email)) setEmailError(true);
+
+    setUsername("");
+    setEmail("");
+  };
 
   return (
     <div className="min-h-screen bg-sky-50 p-3 flex items-center justify-center">
@@ -16,16 +42,18 @@ export default function Home() {
             Jesus is LORD
           </a>
         </em>
-        <form className=" flex flex-col gap-3">
+        <form className=" flex flex-col gap-3" onSubmit={handleSubmit}>
           <div className={formGroupContainerClasses}>
             <label htmlFor="username">User name</label>
             <input
               type="text"
-              className="input"
+              className={`${usernameError && "input-error"} input`}
               name="username"
               id="username"
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+            <p>{usernameError && "Please enter a correct username."}</p>
           </div>
           <div className={formGroupContainerClasses}>
             <label htmlFor="email">Email</label>
@@ -33,11 +61,18 @@ export default function Home() {
               type="email"
               name="email"
               id="email"
-              className="input"
+              className={`${emailError && "input-error"} input`}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <p>{emailError && "Please enter a correct email."}</p>
           </div>
-          <button className="btn">Submit</button>
+          <div className="flex gap-3 w-full">
+            <button type="reset" className="btn btn-ghost">
+              Reset
+            </button>
+            <button className="btn flex-1">Submit</button>
+          </div>
         </form>
       </div>
     </div>
