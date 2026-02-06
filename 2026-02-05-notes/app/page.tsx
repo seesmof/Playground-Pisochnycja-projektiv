@@ -1,5 +1,6 @@
 "use client";
 
+import NoteCard from "@/components/NoteCard";
 import { FormEvent, useState } from "react";
 
 let currentId = 0;
@@ -51,10 +52,7 @@ export default function Home() {
       </form>
       <div className="px-3 flex-col flex gap-3">
         {notes.map((note) => (
-          <div className="bg-white w-full rounded-md p-3" key={note.id}>
-            <h3 className="text-lg pb-3 font-medium">{note.heading}</h3>
-            <p className="wrap-break-word">{note.text}</p>
-          </div>
+          <NoteCard key={note.id} note={note} />
         ))}
       </div>
     </div>
