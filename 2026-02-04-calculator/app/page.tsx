@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [value, setValue] = useState("");
@@ -10,8 +10,18 @@ export default function Home() {
     setValue(result);
   };
 
+  const keyDownHandler = (event: KeyboardEvent) => {
+    if (event.key === "Backspace") setValue("");
+    if (event.key === "Enter" || event.key === "=") handleSolve();
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", keyDownHandler);
+    return () => window.removeEventListener("keydown", keyDownHandler);
+  }, [value]);
+
   return (
-    <div className="bg-sky-50 flex items-center justify-center h-screen">
+    <div className="bg-sky-50 flex items-center justify-center min-h-screen">
       <div className="bg-white rounded-md p-3 gap-2 flex flex-col">
         <input
           type="text"
