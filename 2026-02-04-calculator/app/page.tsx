@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [value, setValue] = useState("");
-  const [result, setResult] = useState("");
 
   const handleSolve = () => {
     const result = eval(value);
@@ -104,7 +103,7 @@ export default function Home() {
             0
           </button>
           <button
-            onClick={() => setValue(value + ",")}
+            onClick={() => setValue(value + ".")}
             className="btn col-span-1"
           >
             ,
