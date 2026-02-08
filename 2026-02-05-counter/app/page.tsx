@@ -1,9 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(`Count: ${count}`);
+  }, [count]);
 
   return (
     <div className="bg-sky-100 h-screen flex items-center justify-center">
