@@ -6,13 +6,35 @@ export default function Home() {
   const [value, setValue] = useState("");
 
   const handleSolve = () => {
-    const result = eval(value);
+    let result;
+    try {
+      result = eval(value);
+    } catch {
+      console.error("Failed to evaluate an expression.");
+    }
     setValue(result);
   };
 
   const keyDownHandler = (event: KeyboardEvent) => {
     if (event.key === "Backspace") setValue("");
-    if (event.key === "Enter" || event.key === "=") handleSolve();
+    if (event.key === "Enter") handleSolve();
+
+    if (event.key === "." || event.key === ",") setValue(value + ".");
+    if (event.key === "/" || event.key === "\\") setValue(value + "/");
+    if (event.key === "*") setValue(value + "*");
+    if (event.key === "-") setValue(value + "-");
+    if (event.key === "+") setValue(value + "+");
+
+    if (event.key === "1") setValue(value + "1");
+    if (event.key === "2") setValue(value + "2");
+    if (event.key === "3") setValue(value + "3");
+    if (event.key === "4") setValue(value + "4");
+    if (event.key === "5") setValue(value + "5");
+    if (event.key === "6") setValue(value + "6");
+    if (event.key === "7") setValue(value + "7");
+    if (event.key === "8") setValue(value + "8");
+    if (event.key === "9") setValue(value + "9");
+    if (event.key === "0") setValue(value + "0");
   };
 
   useEffect(() => {
