@@ -1,6 +1,7 @@
 "use client";
 
 import { Verse, VerseType } from "@/components/Verse";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function About() {
@@ -22,6 +23,17 @@ export default function About() {
   return (
     <>
       <div className="min-h-screen p-3 bg-linear-to-br to-sky-50 flex items-center justify-center">
+        <div className="bg-white rounded-md p-3 shadow-md flex gap-3 fixed bottom-4">
+          <Link className="underline underline-offset-4" href="/about/">
+            About
+          </Link>
+          <Link className="hover:underline underline-offset-4" href="/love/">
+            Love
+          </Link>
+          <Link className="hover:underline underline-offset-4" href="/heaven/">
+            Heaven
+          </Link>
+        </div>
         <div className="bg-white rounded-md p-3 shadow-md">
           <h1 className="text-2xl mb-2">About Us</h1>
           <p>
