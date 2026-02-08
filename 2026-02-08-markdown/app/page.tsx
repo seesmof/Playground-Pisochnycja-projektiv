@@ -43,7 +43,7 @@ export default function About() {
             Heaven
           </Link>
         </div>
-        <div className="bg-white rounded-md p-3 shadow-md">
+        <div className="bg-white rounded-md p-3 shadow-md max-w-3xl">
           <h1 className="text-2xl mb-2">Welcome!</h1>
           <p>
             This is a simple app that uses{" "}
