@@ -4,12 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const images: string[] = [
-  "https://images.pexels.com/photos/30037629/pexels-photo-30037629.jpeg",
   "https://images.pexels.com/photos/16706765/pexels-photo-16706765.jpeg",
-  "https://images.pexels.com/photos/33081220/pexels-photo-33081220.jpeg",
-  "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg",
   "https://images.pexels.com/photos/8994766/pexels-photo-8994766.jpeg",
-  "https://images.pexels.com/photos/11087837/pexels-photo-11087837.jpeg",
   "https://images.pexels.com/photos/11087830/pexels-photo-11087830.jpeg",
 ];
 
@@ -40,22 +36,22 @@ export default function Home() {
   });
 
   return (
-    <div className="bg-sky-50 min-h-screen flex flex-col items-center justify-center gap-3">
-      <button className="btn" onClick={prevImage}>
-        Prev
-      </button>
-      <div className="max-h-240 overflow-clip">
+    <div className="bg-linear-to-br to-sky-50 min-h-screen flex items-center justify-center">
+      <div className="max-w-xl flex flex-col items-center gap-2">
+        <button className="btn" onClick={prevImage}>
+          Prev
+        </button>
         <Image
           src={currentUrl}
           width={1920}
           height={1080}
           alt="An image of a semi truck."
-          className="object-cover object-bottom"
+          className="max-h-100"
         />
+        <button className="btn" onClick={nextImage}>
+          Next
+        </button>
       </div>
-      <button className="btn" onClick={nextImage}>
-        Next
-      </button>
     </div>
   );
 }
