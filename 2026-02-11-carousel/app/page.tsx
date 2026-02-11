@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const images: string[] = [
   "https://images.pexels.com/photos/16706765/pexels-photo-16706765.jpeg",
-  "https://images.pexels.com/photos/8994766/pexels-photo-8994766.jpeg",
+  "https://images.pexels.com/photos/8561771/pexels-photo-8561771.jpeg",
   "https://images.pexels.com/photos/11087830/pexels-photo-11087830.jpeg",
 ];
 
