@@ -1,15 +1,7 @@
 "use client";
 
+import { factorial } from "@/helper/factorial";
 import { FormEvent, useEffect, useState } from "react";
-
-const factorial = (num: number): number => {
-  if (num < 0) return 0;
-  let result: number = 1;
-  for (let index = 1; index <= num; index++) {
-    result = result * index;
-  }
-  return result;
-};
 
 export default function Home() {
   const [input, setInput] = useState<string>("");
