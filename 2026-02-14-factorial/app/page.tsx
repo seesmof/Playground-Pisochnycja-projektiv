@@ -23,10 +23,10 @@ export default function Home() {
 
   return (
     <div className="bg-sky-50 min-h-screen p-3 flex items-center justify-center">
-      <div className="bg-white rounded-md p-3 w-xl">
+      <div className="bg-white rounded-md p-3 w-full max-w-xl">
         <form className="flex flex-row gap-2 w-full" onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="number"
             placeholder="A factorial number"
             className="input flex-1"
             value={input}
