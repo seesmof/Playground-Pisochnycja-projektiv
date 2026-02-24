@@ -1,7 +1,7 @@
 "use client";
 
 import { bookNames, chapterNumbers } from "@/data/consts";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [currentBook, setCurrentBook] = useState<number>(43);
@@ -10,8 +10,11 @@ export default function Home() {
   const previousChapter = () => {
     if (currentChapter > 1) setCurrentChapter((prevNumber) => prevNumber - 1);
     else {
-      const previousBook = currentBook - 1;
-      setCurrentBook((prevBook) => prevBook - 1);
+      let previousBook = currentBook - 1;
+
+      if (previousBook == 0) previousBook = 66;
+
+      setCurrentBook(previousBook);
       setCurrentChapter(
         chapterNumbers[previousBook as keyof typeof chapterNumbers],
       );
@@ -24,7 +27,11 @@ export default function Home() {
     if (currentChapter < booksChapters)
       setCurrentChapter((prevNumber) => prevNumber + 1);
     else {
-      setCurrentBook((prevBook) => prevBook + 1);
+      let nextBook = currentBook + 1;
+
+      if (nextBook == 67) nextBook = 1;
+
+      setCurrentBook(nextBook);
       setCurrentChapter(1);
     }
   };
