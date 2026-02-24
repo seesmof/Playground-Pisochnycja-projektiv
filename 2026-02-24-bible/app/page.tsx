@@ -42,9 +42,12 @@ export default function Home() {
         <button className="btn" onClick={previousChapter}>
           Prev
         </button>
-        <p>
+        <a
+          href={`https://bolls.life/HOM/${currentBook}/${currentChapter}/`}
+          className="hover:underline underline-offset-4"
+        >
           {bookNames[currentBook as keyof typeof bookNames]} {currentChapter}
-        </p>
+        </a>
         <button className="btn" onClick={nextChapter}>
           Next
         </button>
