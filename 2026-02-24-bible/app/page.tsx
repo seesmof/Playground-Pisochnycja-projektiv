@@ -1,41 +1,46 @@
 "use client";
 
-import { bookNames } from "@/data/consts";
+import { bookNames, chapterNumbers } from "@/data/consts";
 import { useEffect, useState } from "react";
 
-const translation = "HOM";
-const baseUrl = "https://bolls.life/get-text";
-
-interface Verse {
-  primaryKey: number;
-  verseNumber: number;
-  verseText: string;
-}
-
 export default function Home() {
+  const [currentBook, setCurrentBook] = useState<number>(43);
   const [currentChapter, setCurrentChapter] = useState<number>(1);
-  const [chapterContents, setChapterContents] = useState<Verse[]>([]);
 
-  const fetchChapter = async () => {
-    console.log(`${baseUrl}/HOM/43/${currentChapter}`);
-    const response = await fetch(`${baseUrl}/HOM/43/${currentChapter}`);
-    const data = await response.json();
-    setChapterContents(data);
+  const previousChapter = () => {
+    if (currentChapter > 1) setCurrentChapter((prevNumber) => prevNumber - 1);
+    else {
+      const previousBook = currentBook - 1;
+      setCurrentBook((prevBook) => prevBook - 1);
+      setCurrentChapter(
+        chapterNumbers[previousBook as keyof typeof chapterNumbers],
+      );
+    }
   };
 
-  useEffect(() => {
-    fetchChapter();
-  }, []);
+  const nextChapter = () => {
+    const booksChapters =
+      chapterNumbers[currentBook as keyof typeof chapterNumbers];
+    if (currentChapter < booksChapters)
+      setCurrentChapter((prevNumber) => prevNumber + 1);
+    else {
+      setCurrentBook((prevBook) => prevBook + 1);
+      setCurrentChapter(1);
+    }
+  };
 
   return (
     <div className="bg-sky-50 min-h-screen flex items-center justify-center">
-      <div className="bg-white rounded-md border border-sky-300 p-3">
-        {chapterContents.map((verse) => (
-          <div key={verse.primaryKey} className="flex flex-row gap-2">
-            <small>{verse.verseNumber}</small>
-            <p>{verse.verseText}</p>
-          </div>
-        ))}
+      <div className="bg-white rounded-md border border-sky-300 p-3 flex flex-row items-center gap-3">
+        <button className="btn" onClick={previousChapter}>
+          Prev
+        </button>
+        <p>
+          {bookNames[currentBook as keyof typeof bookNames]} {currentChapter}
+        </p>
+        <button className="btn" onClick={nextChapter}>
+          Next
+        </button>
       </div>
     </div>
   );

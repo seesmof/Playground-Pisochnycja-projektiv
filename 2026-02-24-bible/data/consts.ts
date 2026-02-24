@@ -1,4 +1,4 @@
-export const numberOfChapters = {
+export const chapterNumbers = {
   1: 50,
   2: 40,
   3: 27,
