@@ -2,15 +2,20 @@
 
 import { useState } from "react";
 
-export default function Page() {
-  const [status, setStatus] = useState<boolean>(false);
-
+const Button = () => {
+  const [count, setCount] = useState<number>(0);
   return (
-    <div className="flex flex-col p-3 gap-3">
-      <button className="btn" onClick={() => setStatus(!status)}>
-        Click
-      </button>
-      {status && <p>Some text.</p>}
+    <button className="btn" onClick={() => setCount((count) => count + 1)}>
+      Count is {count}.
+    </button>
+  );
+};
+
+export default function Page() {
+  return (
+    <div className="flex flex-col gap-3 p-3">
+      <Button />
+      <Button />
     </div>
   );
 }
