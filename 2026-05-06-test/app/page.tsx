@@ -2,20 +2,42 @@
 
 import { useState } from "react";
 
-const Button = () => {
-  const [count, setCount] = useState<number>(0);
+interface ProfileProps {
+  id: number;
+  name: string;
+  age: number;
+}
+
+const Profile = ({ id, name, age }: ProfileProps) => {
   return (
-    <button className="btn" onClick={() => setCount((count) => count + 1)}>
-      Count is {count}.
-    </button>
+    <div className="bg-white rounded-md shadow p-3 flex-col flex">
+      <h2 className="font-bold">{name}</h2>
+      <p className="italic">{age}</p>
+    </div>
   );
 };
 
 export default function Page() {
+  const [data, setData] = useState<ProfileProps[]>([
+    { id: 1, name: "Nell", age: 47 },
+    { id: 1, name: "Jorge", age: 60 },
+    { id: 1, name: "Ethan", age: 48 },
+    { id: 1, name: "Russell", age: 47 },
+    { id: 1, name: "Myrtle", age: 39 },
+  ]);
+
   return (
-    <div className="flex flex-col gap-3 p-3">
-      <Button />
-      <Button />
+    <div className="bg-sky-50 min-h-screen">
+      <div className="flex flex-col gap-3 p-3">
+        {data.map((object) => (
+          <Profile
+            id={object.id}
+            key={object.id}
+            name={object.name}
+            age={object.age}
+          />
+        ))}
+      </div>
     </div>
   );
 }
