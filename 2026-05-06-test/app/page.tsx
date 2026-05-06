@@ -20,10 +20,10 @@ const Profile = ({ id, name, age }: ProfileProps) => {
 export default function Page() {
   const [data, setData] = useState<ProfileProps[]>([
     { id: 1, name: "Nell", age: 47 },
-    { id: 1, name: "Jorge", age: 60 },
-    { id: 1, name: "Ethan", age: 48 },
-    { id: 1, name: "Russell", age: 47 },
-    { id: 1, name: "Myrtle", age: 39 },
+    { id: 2, name: "Jorge", age: 60 },
+    { id: 3, name: "Ethan", age: 48 },
+    { id: 4, name: "Russell", age: 47 },
+    { id: 5, name: "Myrtle", age: 39 },
   ]);
 
   return (
