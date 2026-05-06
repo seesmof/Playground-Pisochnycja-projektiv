@@ -10,6 +10,7 @@ const Home = () => {
   const [todos, setTodos] = useState<Todo[]>([
     { isDone: false, message: "Learn Rust" },
     { isDone: false, message: "Finish this task" },
+    { isDone: true, message: "Read React docs" },
   ]);
 
   const handleToggle = (todoMessage: string) => {
