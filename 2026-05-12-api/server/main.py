@@ -1,27 +1,30 @@
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 app = FastAPI()
+
+
+class Item(BaseModel):
+    text: str
+    is_done: bool = False
+
 
 items = []
 
 
-@app.get("/")
-def root():
-    return {"message": "Jesus is LORD"}
-
-
-@app.post("/create_item")
-def create_item(item: str):
+@app.post("/items")
+def create_item(item: Item):
     items.append(item)
-
-
-@app.get("/get_items")
-def get_items():
     return items
 
 
+@app.get("/items")
+def get_items(limit: int = 10):
+    return items[0:limit]
+
+
 @app.get("/get_item/{item_id}")
-def get_item(item_id: int) -> str:
+def get_item(item_id: int) -> Item:
     if item_id < len(items):
         return items[item_id]
     else:
