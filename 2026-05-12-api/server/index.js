@@ -1,5 +1,6 @@
-const express = require("express");
-const app = express();
+import http from "node:http";
+import { data } from "./data";
 
-app.get("/", (req, res) => res.send("Jesus is LORD"));
-app.listen(8080);
+const server = http.createServer((req, res) => {
+  res.end(JSON.stringify(data));
+});
