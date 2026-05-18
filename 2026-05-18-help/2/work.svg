@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3.5in"
+   height="2in"
+   viewBox="0 0 88.9 50.8"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="work.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="73.656242"
+     inkscape:cx="-1.5137889"
+     inkscape:cy="116.49386"
+     inkscape:window-width="1918"
+     inkscape:window-height="2054"
+     inkscape:window-x="-10"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="lattice2"
+       gridpoint0="0.040640045,0.020319857"
+       gridpoint1="88.8907,0.020319857"
+       gridpoint2="0.005634069,33.337089"
+       gridpoint3="88.898799,17.019408"
+       gridpoint4="22.253155,0.020319857"
+       gridpoint5="66.678185,0.020319857"
+       gridpoint6="22.253155,13.659955"
+       gridpoint7="67.24715,26.908723"
+       gridpoint8x9="44.46567,0.020319857"
+       gridpoint10x11="44.059266,21.056507"
+       gridpoint12="0.040640045,6.4782581"
+       gridpoint13="88.8907,6.4782581"
+       gridpoint14="0.040640045,19.394134"
+       gridpoint15="88.8907,19.394134"
+       gridpoint16="22.253155,6.4782581"
+       gridpoint17="66.678185,6.4782581"
+       gridpoint18="22.253155,19.394134"
+       gridpoint19="66.678185,19.394134"
+       gridpoint20x21="44.46567,6.4782581"
+       gridpoint22x23="44.46567,19.394134"
+       gridpoint24x26="0.040640045,12.936196"
+       gridpoint25x27="88.8907,12.936196"
+       gridpoint28x30="22.253155,12.936196"
+       gridpoint29x31="66.678185,12.936196"
+       gridpoint32x33x34x35="44.46567,12.936196"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       horizontal_mirror="false"
+       vertical_mirror="false"
+       perimetral="false"
+       live_update="true" />
+  </defs>
+  <g
+     inkscape:label="Шар 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#66ff00;fill-opacity:1;stroke-width:0.262754"
+       id="rect1"
+       width="88.85006"
+       height="25.831753"
+       x="0.040640045"
+       y="0.020319857"
+       inkscape:path-effect="#path-effect1"
+       sodipodi:type="rect"
+       d="m 0.04064004,0.02031986 c 29.62260996,0 88.85005996,0 88.85005996,0 0.0027,5.66749594 0.0081,16.99908814 0.0081,16.99908814 -7.877645,1.868455 -15.841192,0.552232 -26.341984,-0.901143 -10.546889,-1.459756 -19.411846,-2.142148 -29.37563,0.113004 -9.429982,2.134333 -17.337074,6.477097 -23.4911436,10.407505 -6.019574,3.84451 -9.68440733,6.698315 -9.68440733,6.698315 z" />
+  </g>
+</svg>
