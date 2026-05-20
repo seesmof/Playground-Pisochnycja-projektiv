@@ -1,0 +1,278 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="7.39.0" title="Shotcut version 26.4.30" producer="main_bin">
+  <profile description="automatic" width="1280" height="720" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="16" display_aspect_den="9" frame_rate_num="30" frame_rate_den="1" colorspace="709"/>
+  <playlist id="main_bin">
+    <property name="xml_retain">1</property>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:07:53.233">
+    <property name="length">00:07:53.267</property>
+    <property name="eof">pause</property>
+    <property name="resource">0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgba</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:07:53.233"/>
+  </playlist>
+  <chain id="chain0" out="00:02:43.400">
+    <property name="length">00:02:43.433</property>
+    <property name="eof">pause</property>
+    <property name="resource">Як Працює Резистор. Що Таке Резистор. Як знайти опір.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="meta.media.nb_streams">2</property>
+    <property name="meta.media.0.stream.type">video</property>
+    <property name="meta.media.0.stream.frame_rate">30</property>
+    <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+    <property name="meta.media.0.codec.width">1280</property>
+    <property name="meta.media.0.codec.height">720</property>
+    <property name="meta.media.0.codec.rotate">0</property>
+    <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+    <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+    <property name="meta.media.0.codec.colorspace">709</property>
+    <property name="meta.media.0.codec.color_trc">1</property>
+    <property name="meta.media.0.codec.name">h264</property>
+    <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+    <property name="meta.media.0.codec.bit_rate">208455</property>
+    <property name="meta.attr.0.stream.creation_time.markup">2022-07-16T10:24:34.000000Z</property>
+    <property name="meta.attr.0.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 07/16/2022.</property>
+    <property name="meta.media.1.stream.type">audio</property>
+    <property name="meta.media.1.codec.sample_fmt">fltp</property>
+    <property name="meta.media.1.codec.sample_rate">44100</property>
+    <property name="meta.media.1.codec.channels">2</property>
+    <property name="meta.media.1.codec.layout">stereo</property>
+    <property name="meta.media.1.codec.name">aac</property>
+    <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
+    <property name="meta.media.1.codec.bit_rate">128023</property>
+    <property name="meta.attr.1.stream.creation_time.markup">2022-07-16T10:24:34.000000Z</property>
+    <property name="meta.attr.1.stream.language.markup">eng</property>
+    <property name="meta.attr.1.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 07/16/2022.</property>
+    <property name="meta.attr.major_brand.markup">mp42</property>
+    <property name="meta.attr.minor_version.markup">0</property>
+    <property name="meta.attr.compatible_brands.markup">isommp42</property>
+    <property name="meta.attr.creation_time.markup">2022-07-16T10:24:34.000000Z</property>
+    <property name="seekable">1</property>
+    <property name="meta.media.sample_aspect_num">1</property>
+    <property name="meta.media.sample_aspect_den">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="creation_time">2022-07-16T10:24:34</property>
+    <property name="vstream">0</property>
+    <property name="meta.media.frame_rate_num">30</property>
+    <property name="meta.media.frame_rate_den">1</property>
+    <property name="meta.media.colorspace">709</property>
+    <property name="meta.media.color_trc">1</property>
+    <property name="meta.media.has_b_frames">1</property>
+    <property name="meta.media.width">1280</property>
+    <property name="meta.media.height">720</property>
+    <property name="meta.media.aspect_ratio">1</property>
+    <property name="meta.media.color_range">mpeg</property>
+    <property name="astream">0</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="shotcut:hash">4721d8d3d5e41f4632ab0c819e7ba54c</property>
+    <property name="meta.media.top_field_first">0</property>
+    <property name="meta.media.progressive">1</property>
+    <property name="shotcut:caption">Як Працює Резистор. Що Таке Резистор. Як знайти опір.mp4</property>
+  </chain>
+  <chain id="chain1" out="00:02:33.700">
+    <property name="length">00:02:33.733</property>
+    <property name="eof">pause</property>
+    <property name="resource">Що Таке Конденсатор. Як Працює Конденсатор. Що Таке Ємність.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="meta.media.nb_streams">2</property>
+    <property name="meta.media.0.stream.type">video</property>
+    <property name="meta.media.0.stream.frame_rate">30</property>
+    <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+    <property name="meta.media.0.codec.width">1280</property>
+    <property name="meta.media.0.codec.height">720</property>
+    <property name="meta.media.0.codec.rotate">0</property>
+    <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+    <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+    <property name="meta.media.0.codec.colorspace">709</property>
+    <property name="meta.media.0.codec.color_trc">1</property>
+    <property name="meta.media.0.codec.name">h264</property>
+    <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+    <property name="meta.media.0.codec.bit_rate">215824</property>
+    <property name="meta.attr.0.stream.creation_time.markup">2022-08-03T09:12:23.000000Z</property>
+    <property name="meta.attr.0.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 08/03/2022.</property>
+    <property name="meta.media.1.stream.type">audio</property>
+    <property name="meta.media.1.codec.sample_fmt">fltp</property>
+    <property name="meta.media.1.codec.sample_rate">44100</property>
+    <property name="meta.media.1.codec.channels">2</property>
+    <property name="meta.media.1.codec.layout">stereo</property>
+    <property name="meta.media.1.codec.name">aac</property>
+    <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
+    <property name="meta.media.1.codec.bit_rate">128016</property>
+    <property name="meta.attr.1.stream.creation_time.markup">2022-08-03T09:12:23.000000Z</property>
+    <property name="meta.attr.1.stream.language.markup">eng</property>
+    <property name="meta.attr.1.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 08/03/2022.</property>
+    <property name="meta.attr.major_brand.markup">mp42</property>
+    <property name="meta.attr.minor_version.markup">0</property>
+    <property name="meta.attr.compatible_brands.markup">isommp42</property>
+    <property name="meta.attr.creation_time.markup">2022-08-03T09:12:23.000000Z</property>
+    <property name="seekable">1</property>
+    <property name="meta.media.sample_aspect_num">1</property>
+    <property name="meta.media.sample_aspect_den">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="creation_time">2022-08-03T09:12:23</property>
+    <property name="vstream">0</property>
+    <property name="meta.media.frame_rate_num">30</property>
+    <property name="meta.media.frame_rate_den">1</property>
+    <property name="meta.media.colorspace">709</property>
+    <property name="meta.media.color_trc">1</property>
+    <property name="meta.media.has_b_frames">1</property>
+    <property name="meta.media.width">1280</property>
+    <property name="meta.media.height">720</property>
+    <property name="meta.media.aspect_ratio">1</property>
+    <property name="meta.media.color_range">mpeg</property>
+    <property name="astream">0</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="shotcut:hash">4b895957b850ca622c2ee0a06273b8d3</property>
+    <property name="meta.media.top_field_first">0</property>
+    <property name="meta.media.progressive">1</property>
+    <property name="shotcut:caption">Що Таке Конденсатор. Як Працює Конденсатор. Що Таке Ємність.mp4</property>
+  </chain>
+  <chain id="chain2" out="00:02:36.067">
+    <property name="length">00:02:36.100</property>
+    <property name="eof">pause</property>
+    <property name="resource">Як Працює Котушка Індуктивності. Що Таке Котушка Індуктивності. Індуктивність.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="meta.media.nb_streams">2</property>
+    <property name="meta.media.0.stream.type">video</property>
+    <property name="meta.media.0.stream.frame_rate">30</property>
+    <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+    <property name="meta.media.0.codec.width">1280</property>
+    <property name="meta.media.0.codec.height">720</property>
+    <property name="meta.media.0.codec.rotate">0</property>
+    <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+    <property name="meta.media.0.codec.sample_aspect_ratio">1</property>
+    <property name="meta.media.0.codec.colorspace">709</property>
+    <property name="meta.media.0.codec.color_trc">1</property>
+    <property name="meta.media.0.codec.name">h264</property>
+    <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+    <property name="meta.media.0.codec.bit_rate">553517</property>
+    <property name="meta.attr.0.stream.creation_time.markup">2022-09-06T04:42:24.000000Z</property>
+    <property name="meta.attr.0.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 09/05/2022.</property>
+    <property name="meta.media.1.stream.type">audio</property>
+    <property name="meta.media.1.codec.sample_fmt">fltp</property>
+    <property name="meta.media.1.codec.sample_rate">44100</property>
+    <property name="meta.media.1.codec.channels">2</property>
+    <property name="meta.media.1.codec.layout">stereo</property>
+    <property name="meta.media.1.codec.name">aac</property>
+    <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
+    <property name="meta.media.1.codec.bit_rate">128016</property>
+    <property name="meta.attr.1.stream.creation_time.markup">2022-09-06T04:42:24.000000Z</property>
+    <property name="meta.attr.1.stream.language.markup">eng</property>
+    <property name="meta.attr.1.stream.handler_name.markup">ISO Media file produced by Google Inc. Created on: 09/05/2022.</property>
+    <property name="meta.attr.major_brand.markup">mp42</property>
+    <property name="meta.attr.minor_version.markup">0</property>
+    <property name="meta.attr.compatible_brands.markup">isommp42</property>
+    <property name="meta.attr.creation_time.markup">2022-09-06T04:42:24.000000Z</property>
+    <property name="seekable">1</property>
+    <property name="meta.media.sample_aspect_num">1</property>
+    <property name="meta.media.sample_aspect_den">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="creation_time">2022-09-06T04:42:24</property>
+    <property name="vstream">0</property>
+    <property name="meta.media.frame_rate_num">30</property>
+    <property name="meta.media.frame_rate_den">1</property>
+    <property name="meta.media.colorspace">709</property>
+    <property name="meta.media.color_trc">1</property>
+    <property name="meta.media.has_b_frames">1</property>
+    <property name="meta.media.width">1280</property>
+    <property name="meta.media.height">720</property>
+    <property name="meta.media.aspect_ratio">1</property>
+    <property name="meta.media.color_range">mpeg</property>
+    <property name="astream">0</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="shotcut:hash">1c6432b2b5c4645c675b8b03316204ba</property>
+    <property name="meta.media.top_field_first">0</property>
+    <property name="meta.media.progressive">1</property>
+    <property name="shotcut:caption">Як Працює Котушка Індуктивності. Що Таке Котушка Індуктивності. Індуктивність.mp4</property>
+  </chain>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="chain0" in="00:00:00.000" out="00:02:43.400"/>
+    <entry producer="chain1" in="00:00:00.000" out="00:02:33.700"/>
+    <entry producer="chain2" in="00:00:00.000" out="00:02:36.067"/>
+  </playlist>
+  <chain id="chain3" out="00:08:52.133">
+    <property name="length">00:08:52.167</property>
+    <property name="eof">pause</property>
+    <property name="resource">Modern Situations - Unicorn Heads.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="meta.media.nb_streams">1</property>
+    <property name="meta.media.0.stream.type">audio</property>
+    <property name="meta.media.0.codec.sample_fmt">fltp</property>
+    <property name="meta.media.0.codec.sample_rate">44100</property>
+    <property name="meta.media.0.codec.channels">2</property>
+    <property name="meta.media.0.codec.layout">stereo</property>
+    <property name="meta.media.0.codec.name">mp3float</property>
+    <property name="meta.media.0.codec.long_name">MP3 (MPEG audio layer 3)</property>
+    <property name="meta.media.0.codec.bit_rate">320000</property>
+    <property name="meta.attr.0.stream.encoder.markup">Lavf</property>
+    <property name="meta.attr.encoder.markup">Google</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="creation_time">2026-05-20T08:40:49</property>
+    <property name="astream">0</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="shotcut:hash">5b9390e78f4832e72fc5461d53b8c70d</property>
+    <property name="shotcut:caption">Modern Situations - Unicorn Heads.mp3</property>
+    <property name="xml">was here</property>
+    <filter id="filter0" out="00:07:53.233">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">00:07:51.267=0;00:07:53.233=-60</property>
+      <property name="channel_mask">-1</property>
+      <property name="mlt_service">volume</property>
+      <property name="shotcut:filter">fadeOutVolume</property>
+      <property name="shotcut:animOut">00:00:02.000</property>
+    </filter>
+  </chain>
+  <playlist id="playlist1">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="chain3" in="00:00:00.000" out="00:07:53.233"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 26.4.30" in="00:00:00.000" out="00:07:53.233">
+    <property name="shotcut">1</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <property name="shotcut:processingMode">Native8Cpu</property>
+    <property name="shotcut:scaleFactor">4.5843</property>
+    <property name="shotcut:trackHeight">57</property>
+    <track producer="background"/>
+    <track producer="playlist0" hide="audio"/>
+    <track producer="playlist1" hide="video"/>
+    <transition id="transition0">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition1">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="compositing">0</property>
+      <property name="distort">0</property>
+      <property name="rotate_center">0</property>
+      <property name="mlt_service">qtblend</property>
+      <property name="threads">0</property>
+      <property name="disable">1</property>
+    </transition>
+    <transition id="transition2">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+  </tractor>
+</mlt>
