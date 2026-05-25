@@ -14,13 +14,16 @@ const API_URL = "https://jsonplaceholder.typicode.com/posts/";
 export default function Page() {
   const [idInput, setIdInput] = useState<number>(1);
   const [data, setData] = useState<Response | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     const url = `${API_URL}${idInput}`;
     const response = await fetch(url);
     const data = await response.json();
     setData(data);
+    setIsLoading(false);
   };
 
   return (
@@ -41,6 +44,8 @@ export default function Page() {
             <p>{data.body}</p>
           </div>
         </div>
+      ) : isLoading ? (
+        <span className="skeleton w-full h-32"></span>
       ) : (
         <span>No data yet...</span>
       )}
