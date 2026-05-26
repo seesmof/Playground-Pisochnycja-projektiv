@@ -15,6 +15,7 @@ export default function HomePage() {
 
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault();
+    if (!input) return;
     const newItems = [...items, input];
     setItems(newItems);
     console.log(`Successfully added ${input}.`);
@@ -30,6 +31,7 @@ export default function HomePage() {
           placeholder="Item description..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          required
         />
         <button className="btn">Add</button>
       </form>
