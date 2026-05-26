@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between items-center p-2 px-4 border-b border-stone-100 bg-white/50">
+      <header className="flex justify-between items-center p-2 px-4 border-b border-stone-100 bg-white/90 top-0 sticky">
         <Link href={"/"}>
           <span className="font-bold">monorepo</span>
           <span className="text-yellow-600">.tools</span>
