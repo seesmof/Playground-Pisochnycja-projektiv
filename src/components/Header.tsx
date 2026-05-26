@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "@deemlol/next-icons";
+import { Menu, X } from "@deemlol/next-icons";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -48,7 +48,7 @@ export default function Header() {
           className="cursor-pointer hover:bg-yellow-50 text-stone-600 hover:text-yellow-600 rounded p-2"
           onClick={handleMenuOpen}
         >
-          <Menu />
+          {isMenuOpen ? <X /> : <Menu />}
         </button>
       </header>
       {isMenuOpen ? (
