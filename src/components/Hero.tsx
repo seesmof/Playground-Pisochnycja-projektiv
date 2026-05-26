@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function HeroSection() {
   return (
     <>
       <div className="flex flex-col px-4 py-24">
