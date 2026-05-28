@@ -1,9 +1,23 @@
-import Form from "@/components/Form";
+"use client";
 
-export default function Page() {
+import { useState } from "react";
+
+const Page = () => {
+  const [data, setData] = useState<string>("Hi");
+
   return (
-    <div className="min-h-screen bg-sky-50 p-3">
-      <Form />
-    </div>
+    <section className="p-3">
+      <button
+        onClick={() => {
+          setData("Help");
+        }}
+        className="btn"
+      >
+        Click
+      </button>
+      <p>{data}</p>
+    </section>
   );
-}
+};
+
+export default Page;
