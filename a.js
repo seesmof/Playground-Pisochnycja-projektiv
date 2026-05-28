@@ -1,3 +1,14 @@
-const thing = false;
+oldValue = 81;
+oldMin = 0;
+oldMax = 100;
+newMin = 1;
+newMax = 5;
 
-if (thing === false) console.log("Good");
+const convertRanges = (oldValue, oldMin, oldMax, newMin, newMax) => {
+  return ((oldValue - oldMin) * (newMax - newMin)) / (oldMax - oldMin) + newMin;
+};
+
+const result = convertRanges(oldValue, oldMin, oldMax, newMin, newMax);
+console.log(
+  `From range of ${oldMin}-${oldMax} to ${newMin}-${newMax}\nValue was ${oldValue} and became ${result}`,
+);
