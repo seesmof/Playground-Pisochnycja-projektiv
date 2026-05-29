@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const colors: string[] = ["red", "cyan", "amber"];
+const colors: string[] = ["bg-red-500", "bg-cyan-500", "bg-amber-500"];
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
@@ -21,7 +21,7 @@ const Carousel = () => {
       >
         Prev
       </button>
-      <div className={`rounded-md bg-${color}-500 p-3 h-80 flex-1`}></div>
+      <div className={`rounded-md ${color} p-3 h-80 flex-1`}></div>
       <button
         className="btn"
         onClick={() => {
