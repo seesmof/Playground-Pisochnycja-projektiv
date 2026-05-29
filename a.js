@@ -1,4 +1,4 @@
-oldValue = 81;
+oldValue = 86;
 oldMin = 0;
 oldMax = 100;
 newMin = 1;
@@ -10,5 +10,5 @@ const convertRanges = (oldValue, oldMin, oldMax, newMin, newMax) => {
 
 const result = convertRanges(oldValue, oldMin, oldMax, newMin, newMax);
 console.log(
-  `From range of ${oldMin}-${oldMax} to ${newMin}-${newMax}\nValue was ${oldValue} and became ${result}`,
+  `From range of ${oldMin}-${oldMax} to ${newMin}-${newMax}\nValue was ${oldValue} and became ${result.toFixed(2)}`,
 );

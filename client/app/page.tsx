@@ -1,16 +1,18 @@
-import Carousel from "@/components/Carousel";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Page = () => {
   return (
     <div className="min-h-screen">
-      <div className="max-w-xl mx-auto w-full p-3 md:mt-5">
-        <header className="mb-5">
-          <h1 className="text-3xl md:text-5xl font-black">Carousel</h1>
-          <p className="text-lg text-stone-700 mt-3 md:mt-5">
-            This is a simple app that features a slides carousel.
-          </p>
-        </header>
-        <Carousel />
+      <div className="max-w-xl mx-auto w-full p-3 md:mt-5 flex">
+        <Tabs defaultValue="shop" className="w-full">
+          <TabsList className="w-full">
+            <TabsTrigger value="credits">Credits</TabsTrigger>
+            <TabsTrigger value="garage">Garage</TabsTrigger>
+            <TabsTrigger value="shop">Shop</TabsTrigger>
+            <TabsTrigger value="bank">Bank</TabsTrigger>
+            <TabsTrigger value="tasks">Tasks</TabsTrigger>
+          </TabsList>
+        </Tabs>
       </div>
     </div>
   );
