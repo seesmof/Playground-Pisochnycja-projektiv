@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const colors: string[] = ["bg-red-500", "bg-cyan-500", "bg-amber-500"];
+const colors: string[] = ["bg-red-500", "bg-green-500", "bg-blue-500"];
 
 const Carousel = () => {
   const [index, setIndex] = useState<number>(0);
@@ -25,7 +25,7 @@ const Carousel = () => {
       <button
         className="btn"
         onClick={() => {
-          const nextIndex = index < colors.length ? index + 1 : 0;
+          const nextIndex = index < colors.length - 1 ? index + 1 : 0;
           setIndex(nextIndex);
 
           setColor(colors[index]);
