@@ -1,21 +1,21 @@
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Page = () => {
-  return (
-    <div className="min-h-screen">
-      <div className="max-w-xl mx-auto w-full p-3 md:mt-5 flex">
-        <Tabs defaultValue="shop" className="w-full">
-          <TabsList className="w-full">
-            <TabsTrigger value="credits">Credits</TabsTrigger>
-            <TabsTrigger value="garage">Garage</TabsTrigger>
-            <TabsTrigger value="shop">Shop</TabsTrigger>
-            <TabsTrigger value="bank">Bank</TabsTrigger>
-            <TabsTrigger value="tasks">Tasks</TabsTrigger>
-          </TabsList>
-        </Tabs>
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  if (!isLoggedIn)
+    return (
+      <div className="flex flex-row justify-between">
+        <p className="text-red-600 font-medium">Please log in first.</p>
+        <Button onClick={() => (isLoggedIn: boolean) => !isLoggedIn}>
+          Log In.
+        </Button>
       </div>
-    </div>
-  );
+    );
+  else return <p className="font-medium text-lg">Welcome!</p>;
 };
 
 export default Page;
