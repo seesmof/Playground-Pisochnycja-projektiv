@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
 interface Post {
   author: string;
   content: string;
@@ -37,19 +42,44 @@ const posts: Post[] = [
 ];
 
 export default function Page() {
+  const [input, setInput] = useState<string>("");
+
   return (
     <div className="bg-white">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-3 mx-auto max-w-3xl">
-        {posts.map((post, index) => (
-          <div
-            key={index}
-            className="bg-white p-3 rounded-md outline outline-stone-300 flex-col flex"
-          >
-            <blockquote className="text-lg">{post.content}</blockquote>
-            <cite className="self-end">{post.author}</cite>
-          </div>
-        ))}
-      </div>
+      <header className="mx-auto max-w-3xl mt-3 sticky top-3 bg-white z-50 flex justify-between items-center p-3 outline rounded-md outline-stone-300">
+        <h1 className="font-bold tracking-tight hover:underline underline-offset-4 cursor-pointer">
+          <Link href={"/"}>Poster</Link>
+        </h1>
+        <button className="hover:underline underline-offset-4 cursor-pointer">
+          <Link href={"/profile"}>Profile</Link>
+        </button>
+      </header>
+      <main className="mx-auto max-w-3xl">
+        <form>
+          <input
+            type="text"
+            className="px-3 py-1 w-full my-3 rounded-md outline-stone-300 outline focus:outline-2"
+            placeholder="Please enter your message here..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+        </form>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {posts
+            .filter((post) =>
+              post.content.toLowerCase().includes(input.toLowerCase()),
+            )
+            .map((post, index) => (
+              <div
+                key={index}
+                className="bg-white p-3 rounded-md outline outline-stone-300 flex-col flex"
+              >
+                <blockquote className="text-lg">{post.content}</blockquote>
+                <cite className="self-end">{post.author}</cite>
+              </div>
+            ))}
+        </div>
+      </main>
     </div>
   );
 }
