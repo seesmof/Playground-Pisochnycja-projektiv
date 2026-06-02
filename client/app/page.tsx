@@ -54,7 +54,7 @@ export default function Page() {
           <Link href={"/profile"}>Profile</Link>
         </button>
       </header>
-      <main className="mx-auto max-w-3xl">
+      <main className="mx-auto max-w-3xl mb-3">
         <form>
           <input
             type="text"
