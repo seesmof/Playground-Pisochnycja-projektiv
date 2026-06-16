@@ -12,43 +12,43 @@ export default function Page() {
         <nav className="bg-white rounded-md flex gap-3 p-3 justify-between">
           <button
             onClick={() => setSelectedTab(0)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 0 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 0 ? `underline` : ""}`}
           >
             Благодать
           </button>
           <button
             onClick={() => setSelectedTab(1)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 1 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 1 ? `underline` : ""}`}
           >
             Любов
           </button>
           <button
             onClick={() => setSelectedTab(2)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 2 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 2 ? `underline` : ""}`}
           >
             Радість
           </button>
           <button
             onClick={() => setSelectedTab(3)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 3 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 3 ? `underline` : ""}`}
           >
             Мир
           </button>
           <button
             onClick={() => setSelectedTab(4)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 4 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 4 ? `underline` : ""}`}
           >
             Віра
           </button>
           <button
             onClick={() => setSelectedTab(5)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 5 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 5 ? `underline` : ""}`}
           >
             Надія
           </button>
           <button
             onClick={() => setSelectedTab(6)}
-            className={`hover:underline underline-offset-4 cursor-pointer ${selectedTab === 6 ? `underline` : ""}`}
+            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 6 ? `underline` : ""}`}
           >
             Рай
           </button>
