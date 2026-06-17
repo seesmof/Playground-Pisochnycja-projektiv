@@ -1,177 +1,86 @@
-"use client";
-
-import { useState } from "react";
-
 export default function Page() {
-  const [selectedTab, setSelectedTab] = useState<number>(0);
-
   return (
-    <div className="bg-green-50 min-h-screen p-3">
-      <div className="max-w-3xl mx-auto flex flex-col gap-3">
-        {/* Nav Bar */}
-        <nav className="bg-white rounded-md flex gap-3 p-3 justify-between">
-          <button
-            onClick={() => setSelectedTab(0)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 0 ? `underline` : ""}`}
-          >
-            Благодать
-          </button>
-          <button
-            onClick={() => setSelectedTab(1)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 1 ? `underline` : ""}`}
-          >
-            Любов
-          </button>
-          <button
-            onClick={() => setSelectedTab(2)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 2 ? `underline` : ""}`}
-          >
-            Радість
-          </button>
-          <button
-            onClick={() => setSelectedTab(3)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 3 ? `underline` : ""}`}
-          >
-            Мир
-          </button>
-          <button
-            onClick={() => setSelectedTab(4)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 4 ? `underline` : ""}`}
-          >
-            Віра
-          </button>
-          <button
-            onClick={() => setSelectedTab(5)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 5 ? `underline` : ""}`}
-          >
-            Надія
-          </button>
-          <button
-            onClick={() => setSelectedTab(6)}
-            className={`hover:underline flex-1 underline-offset-4 cursor-pointer ${selectedTab === 6 ? `underline` : ""}`}
-          >
-            Рай
-          </button>
-        </nav>
+    <div className="min-h-screen bg-green-50">
+      <div className="flex flex-col mx-auto max-w-3xl p-3">
+        <div className="flex flex-row gap-5">
+          {/* Artem Jones Comment */}
+          <div className="flex flex-col gap-3 relative">
+            <div className="rounded-xl bg-stone-900 text-white p-3 z-20">
+              <p>
+                I have been solving all the project ideas on roadmap.sh and I am
+                surprised how far I have come from where I started.
+              </p>
+              <p>Highly recommended!</p>
+            </div>
+            <div className="flex flex-row gap-3">
+              <div className="h-12 w-12 rounded-full bg-stone-200 flex items-center justify-center">
+                Pic
+              </div>
+              <div className="flex flex-col">
+                <h3>Artem Jones</h3>
+                <p className="text-sm">Junior Frontend Developer</p>
+              </div>
+            </div>
+            <div className="aspect-square bg-stone-900 rotate-45 h-8 w-8 absolute top-[7.6rem] z-10 left-2"></div>
+          </div>
 
-        {/* Main Content */}
-        <main className="bg-white rounded-md p-3 flex flex-col gap-3">
-          {selectedTab === 0 ? (
-            <>
-              <p>
-                Бо спасені ви благодаттю через віру, а це не від вас, то дар
-                Божий, не від діл, щоб ніхто не хвалився. (Ефесян 2:8-9)
-              </p>
-              <p>
-                І сказав Він мені: Досить тобі Моєї благодаті, бо сила Моя
-                здійснюється в немочі. Отож, краще я буду хвалитись своїми
-                немочами, щоб сила Христова вселилася в мене. (2 Коринтян 12:9)
-              </p>
-              <p>
-                А коли за благодаттю, то не з учинків, інакше благодать не була
-                б благодаттю. А коли з учинків, то це більше не благодать,
-                інакше вчинок не є вже вчинок. (Римлян 11:6)
-              </p>
-            </>
-          ) : selectedTab === 1 ? (
-            <>
-              <p>
-                Любов довготерпить, любов милосердствує, не заздрить, любов не
-                величається, не надимається, не поводиться нечемно, не шукає
-                тільки свого, не рветься до гніву, не думає лихого, не радіє з
-                неправди, але тішиться правдою, усе зносить, вірить у все,
-                сподівається всього, усе терпить! Ніколи любов не перестає! Хоч
-                пророцтва й існують, та припиняться, хоч мови існують,
-                замовкнуть, хоч існує знання, та скасується. (1 Коринтян 13:4-8)
-              </p>
-              <p>хай з любов`ю все робиться в вас! (1 Коринтян 16:14)</p>
-              <p>
-                Хто не любить, той Бога не пізнав, бо Бог є любов! (1 Івана 4:8)
-              </p>
-            </>
-          ) : selectedTab === 2 ? (
-            <>
-              <p>
-                Бог же надії нехай вас наповнить усякою радістю й миром у вірі,
-                щоб ви збагатились надією, силою Духа Святого! (Римлян 15:13)
-              </p>
-              <p>
-                тіштесь надією, утиски терпіть, перебувайте в молитві, (Римлян
-                12:12)
-              </p>
-              <p>
-                Радійте в Господі завсіди, і знову кажу: радійте! (Филип`ян 4:4)
-              </p>
-            </>
-          ) : selectedTab === 3 ? (
-            <>
-              <p>
-                Це Я вам розповів, щоб мали ви мир у Мені. Страждання зазнаєте в
-                світі, але будьте відважні: Я світ переміг! (Івана 16:33)
-              </p>
-              <p>
-                А Сам Господь миру нехай завжди дасть вам мир усяким способом.
-                Господь з вами всіма! (2 Солунян 3:16)
-              </p>
-              <p>
-                Зоставляю вам мир, мир Свій вам даю! Я даю вам не так, як дає
-                світ. Серце ваше нехай не тривожиться, ані не лякається! (Івана
-                14:27)
-              </p>
-            </>
-          ) : selectedTab === 4 ? (
-            <>
-              <p>
-                Догодити ж без віри не можна. І той, хто до Бога приходить,
-                мусить вірувати, що Він є, а тим, хто шукає Його, Він дає
-                нагороду. (Євреїв 11:6)
-              </p>
-              <p>
-                І все, чого ви в молитві попросите з вірою, то одержите. (Матвія
-                21:22)
-              </p>
-              <p>
-                Тож віра від слухання, а слухання через Слово Христове. (Римлян
-                10:17)
-              </p>
-            </>
-          ) : selectedTab === 5 ? (
-            <>
-              <p>
-                Бо Я знаю ті думки, які думаю про вас, говорить Господь, думки
-                спокою, а не на зло, щоб дати вам будучність та надію. (Єремія
-                29:11)
-              </p>
-              <p>
-                а ті, хто надію складає на Господа, силу відновлять, крила
-                підіймуть, немов ті орли, будуть бігати і не потомляться, будуть
-                ходити і не помучаться! (Ісая 40:31)
-              </p>
-              <p>
-                А віра то підстава сподіваного, доказ небаченого. (Євреїв 11:1)
-              </p>
-            </>
-          ) : selectedTab === 6 ? (
-            <>
-              <p>
-                Багато осель у домі Мого Отця; а коли б то не так, то сказав би
-                Я вам, що йду приготувати місце для вас? (Івана 14:2)
-              </p>
-              <p>
-                і Бог кожну сльозу з очей їхніх зітре, і не буде вже смерти. Ані
-                смутку, ані крику, ані болю вже не буде, бо перше минулося!
-                (Об`явлення 21:4)
-              </p>
-              <p>
-                Але, як написано: Чого око не бачило й вухо не чуло, і що на
-                серце людині не впало, те Бог приготував був тим, хто любить
-                Його! (1 Коринтян 2:9)
-              </p>
-            </>
-          ) : (
-            <></>
-          )}
-        </main>
+          {/* Artem Jones */}
+          <div className="rounded-xl p-3 h-fit bg-white outline-2 outline-stone-900 flex gap-3 flex-col">
+            <p>
+              Since starting my career in 2021, I have only followed one
+              resource, roadmap.sh, it truly helped me go from 0 to having a job
+              and changing the financial trajectory of my family.
+            </p>
+            <div className="flex flex-row gap-3">
+              <div className="h-12 w-12 bg-stone-200 rounded-full flex items-center justify-center">
+                Pic
+              </div>
+              <div className="flex flex-col">
+                <h3 className="text-lg">Artem Jones</h3>
+                <p className="text-sm">Junior Frontend Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Jackie Card */}
+        <div className="flex flex-row gap-5 my-6">
+          <div className="flex items-center justify-center bg-linear-to-bl from-sky-50 to-pink-50 w-60 rounded-xl">
+            Pic
+          </div>
+          <div className="flex-1 bg-stone-900 text-white flex-col flex p-6 rounded-xl w-full">
+            <div className="flex">⭐⭐⭐⭐⭐</div>
+            <h3 className="text-xl mt-4">Jackie Mackle</h3>
+            <p className="text-stone-400 mt-2">Engineering Manager</p>
+            <p className="mt-4">
+              I find myself recommending roadmap.sh to all the internees or
+              junior developers. It`s a great way to skill up and grow in your
+              career.
+            </p>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-white outline-2 outline-stone-900 flex flex-col text-center items-center justify-center p-5">
+          <p>
+            roadmap.sh is an incredible resource. I was fortunate to discover it
+            during my university days in 2018. Back then, it was just a single
+            repository with three images. It`s amazing to see how much impact it
+            has had on millions of lives since then.
+          </p>
+          <div className="flex mt-6 items-center gap-5">
+            <p>⬅️</p>
+            <div className="bg-stone-200 h-12 w-12 rounded-full flex items-center justify-center">
+              Pic
+            </div>
+            <div className="bg-stone-300 h-16 w-16 rounded-full flex items-center justify-center">
+              Pic
+            </div>
+            <div className="bg-stone-200 h-12 w-12 rounded-full items-center justify-center flex">
+              Pic
+            </div>
+            <p>➡️</p>
+          </div>
+        </div>
       </div>
     </div>
   );
