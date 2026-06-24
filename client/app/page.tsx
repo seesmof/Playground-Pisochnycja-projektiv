@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface Question {
   n: number;
   q: string;
@@ -17,9 +19,15 @@ const questions: Question[] = [
 ];
 
 export default function Page() {
+  const [isStarted,setIsStarted]=useState<boolean>(false);
+  const [selectedQuestion,setSelectedQuestion]=useState<number>(1);
+
   return (
     <div className="bg-sky-50 min-h-screen">
       <div className="flex mx-auto max-w-3xl p-3">
+        {!isStarted ? <></> : selectedQuestion===1 ? <></> : <></>} 
+
+        {!isStarted ? 
         <div className="bg-white p-3 md:p-7 w-full">
           <h1 className="font-bold text-3xl">Bible Quiz</h1>
           <p className="my-4">
@@ -27,6 +35,14 @@ export default function Page() {
           </p>
           <button className="btn btn-primary w-full">Start</button>
         </div>
+        : (
+          selectedQuestion===1 ? <div className="bg-white p-3 md:p-7 w-full">
+            <h2 className="font-bold">
+              {questions[0].q}
+            </h2>
+          </div>
+        ) : <></>
+        }
       </div>
     </div>
   );
