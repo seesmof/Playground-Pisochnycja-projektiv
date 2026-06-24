@@ -1,51 +1,33 @@
-"use client";
+interface Question {
+  n: number;
+  q: string;
+  a: string;
+}
 
-import { useState } from "react";
-import { FaCookieBite } from "react-icons/fa";
-import { RxCross1 } from "react-icons/rx";
+const questions: Question[] = [
+  { n: 1, q: "Хто був у череві риби три дні та три ночі?", a: "Йона" },
+  {
+    n: 2,
+    q: "Хто нагодував 5 тисяч людей хлібом і рибками?",
+    a: "Ісус Христос",
+  },
+  { n: 3, q: "Хто відрікся Господа Ісуса три рази?", a: "Петро" },
+  { n: 4, q: "Хто бачив Господа у видінні з неба?", a: "Павло" },
+  { n: 5, q: "Хто був першим Християнським мученником?", a: "Степан" },
+];
 
 export default function Page() {
-  const [isHidden, setIsHidden] = useState<boolean>(false);
-
   return (
-    <div className="min-h-screen bg-sky-50">
+    <div className="bg-sky-50 min-h-screen">
       <div className="flex mx-auto max-w-3xl p-3">
-        <Button onClick={() => setIsHidden(!isHidden)}>
-          {isHidden ? "Show" : "Hide"}
-        </Button>
-      </div>
-      {!isHidden && (
-        <div className="fixed bottom-3 right-3 bg-stone-900 text-stone-50 p-6 max-w-52 rounded-xl flex flex-col gap-3">
-          <div className="flex justify-between items-center mb-4">
-            <FaCookieBite />
-            <button
-              className="cursor-pointer"
-              onClick={() => setIsHidden((isHidden) => !isHidden)}
-            >
-              <RxCross1 />
-            </button>
-          </div>
-          <p>We use cookies to imporove your user experience.</p>
-          <Button>I like Cookies</Button>
+        <div className="bg-white p-3 md:p-7 w-full">
+          <h1 className="font-bold text-3xl">Bible Quiz</h1>
+          <p className="my-4">
+            This is a quiz about the Holy Bible. Press Start to begin.
+          </p>
+          <button className="btn btn-primary w-full">Start</button>
         </div>
-      )}
+      </div>
     </div>
   );
 }
-
-const Button = ({
-  children,
-  onClick,
-}: {
-  children: React.ReactNode;
-  onClick?: any;
-}) => {
-  return (
-    <button
-      className="bg-stone-50 text-stone-900 w-full rounded-md py-2 cursor-pointer duration-150 hover:bg-stone-100 active:scale-95"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
