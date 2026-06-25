@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 interface Question {
@@ -42,8 +44,11 @@ export default function Page() {
             </button>
           </div>
         ) : selectedQuestion === 1 ? (
-          <div className="bg-white p-3 md:p-7 w-full">
-            <h2 className="font-bold">{questions[0].q}</h2>
+          <div className="flex flex-col gap-3">
+            <Navbar />
+            <div className="bg-white p-3 md:p-7 w-full">
+              <h2 className="font-bold">{questions[0].q}</h2>
+            </div>
           </div>
         ) : (
           <></>
@@ -52,3 +57,13 @@ export default function Page() {
     </div>
   );
 }
+
+const Navbar = ({ selected }: { selected: string }) => {
+  return (
+    <nav className="flex justify-between bg-white">
+      {questions.map((q, index) => (
+        <button key={index}>{q.n}</button>
+      ))}
+    </nav>
+  );
+};
