@@ -45,9 +45,33 @@ export default function Page() {
           </div>
         ) : selectedQuestion === 1 ? (
           <div className="flex flex-col gap-3">
-            <Navbar />
+            <Navbar selected={1} />
             <div className="bg-white p-3 md:p-7 w-full">
               <h2 className="font-bold">{questions[0].q}</h2>
+              <ul>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        ) : selectedQuestion === 2 ? (
+          <div className="flex flex-col gap-3">
+            <Navbar selected={2} />
+            <div className="bg-white p-3 md:p-7 w-full">
+              <h2 className="font-bold">{questions[1].q}</h2>
+            </div>
+          </div>
+        ) : selectedQuestion === 3 ? (
+          <div className="flex flex-col gap-3">
+            <Navbar selected={3} />
+            <div className="bg-white p-3 md:p-7 w-full">
+              <h2 className="font-bold">{questions[1].q}</h2>
+            </div>
+          </div>
+        ) : selectedQuestion === 4 ? (
+          <div className="flex flex-col gap-3">
+            <Navbar selected={2} />
+            <div className="bg-white p-3 md:p-7 w-full">
+              <h2 className="font-bold">{questions[1].q}</h2>
             </div>
           </div>
         ) : (
@@ -58,11 +82,16 @@ export default function Page() {
   );
 }
 
-const Navbar = ({ selected }: { selected: string }) => {
+const Navbar = ({ selected }: { selected: number }) => {
   return (
     <nav className="flex justify-between bg-white">
       {questions.map((q, index) => (
-        <button key={index}>{q.n}</button>
+        <button
+          key={index}
+          className={`${selected === q.n ? "underline" : ""} underline-offset-4`}
+        >
+          {q.n}
+        </button>
       ))}
     </nav>
   );
