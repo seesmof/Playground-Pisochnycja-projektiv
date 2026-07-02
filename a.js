@@ -1,19 +1,6 @@
-/**
- * @param {integer} init
- * @return { increment: Function, decrement: Function, reset: Function }
- */
-var createCounter = function (init) {
-  const original = init;
-  return {
-    increment: (init) => init++,
-    decrement: (init) => init--,
-    reset: (init) => original,
-  };
-};
+const data = {
+  "1": "In the beginning God created the heavens and the earth.",
+  "2": "And the earth was formless and void, and the Spirit of God was brooding over the waters."
+}
 
-/**
- * const counter = createCounter(5)
- * counter.increment(); // 6
- * counter.reset(); // 5
- * counter.decrement(); // 4
- */
+console.log(data["1"])
