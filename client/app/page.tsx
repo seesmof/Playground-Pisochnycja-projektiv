@@ -22,6 +22,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[0][0] === "X" || newGrid[0][0] === "O") return;
             newGrid[0][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -33,6 +34,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[0][1] === "X" || newGrid[0][1] === "O") return;
             newGrid[0][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -44,6 +46,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[0][2] === "X" || newGrid[0][2] === "O") return;
             newGrid[0][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -56,6 +59,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[1][0] === "X" || newGrid[1][0] === "O") return;
             newGrid[1][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -67,6 +71,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[1][1] === "X" || newGrid[1][1] === "O") return;
             newGrid[1][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -78,6 +83,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[1][2] === "X" || newGrid[1][2] === "O") return;
             newGrid[1][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -90,6 +96,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[2][0] === "X" || newGrid[2][0] === "O") return;
             newGrid[2][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -101,6 +108,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[2][1] === "X" || newGrid[2][1] === "O") return;
             newGrid[2][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
@@ -112,6 +120,7 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (newGrid[2][2] === "X" || newGrid[2][2] === "O") return;
             newGrid[2][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
