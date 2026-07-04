@@ -46,11 +46,23 @@ export default function Page() {
       return true;
     if (grid[0][2] === "O" && grid[1][2] === "O" && grid[2][2] === "O")
       return true;
+
+    // Diagonals X
+    if (grid[0][0] === "X" && grid[1][1] === "X" && grid[2][2] === "X")
+      return true;
+    if (grid[0][2] === "X" && grid[1][1] === "X" && grid[2][0] === "X")
+      return true;
+
+    // Diagonals O
+    if (grid[0][0] === "O" && grid[1][1] === "O" && grid[2][2] === "O")
+      return true;
+    if (grid[0][2] === "O" && grid[1][1] === "O" && grid[2][0] === "O")
+      return true;
   };
 
   return (
     <div className="p-3">
-      <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
+      <h1 className="text-3xl font-bold mt-4">Tic Tac Toe</h1>
       <p className="my-4">This is a simple tic tac toe game app.</p>
       <div className="grid grid-cols-3 grid-rows-3 gap-3">
         <button
@@ -218,9 +230,8 @@ export default function Page() {
           {grid[2][2]}
         </button>
       </div>
-      {isWon && (
-        <p className="mt-6">Winner is {nextStep === "X" ? "O" : "X"}</p>
-      )}
+      <p className="my-4">Next step is for {nextStep}.</p>
+      {isWon && <p>Winner is {nextStep === "X" ? "O" : "X"}</p>}
     </div>
   );
 }
