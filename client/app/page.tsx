@@ -12,9 +12,44 @@ export default function Page() {
     ["", "", ""],
     ["", "", ""],
   ]);
+  const [isWon, setIsWon] = useState<boolean>(false);
+
+  const checkWin = () => {
+    // Rows X
+    if (grid[0][0] === "X" && grid[0][1] === "X" && grid[0][2] === "X")
+      return true;
+    if (grid[1][0] === "X" && grid[1][1] === "X" && grid[1][2] === "X")
+      return true;
+    if (grid[2][0] === "X" && grid[2][1] === "X" && grid[2][2] === "X")
+      return true;
+
+    // Rows O
+    if (grid[0][0] === "O" && grid[0][1] === "O" && grid[0][2] === "O")
+      return true;
+    if (grid[1][0] === "O" && grid[1][1] === "O" && grid[1][2] === "O")
+      return true;
+    if (grid[2][0] === "O" && grid[2][1] === "O" && grid[2][2] === "O")
+      return true;
+
+    // Cols X
+    if (grid[0][0] === "X" && grid[1][0] === "X" && grid[2][0] === "X")
+      return true;
+    if (grid[0][1] === "X" && grid[1][1] === "X" && grid[2][1] === "X")
+      return true;
+    if (grid[0][2] === "X" && grid[1][2] === "X" && grid[2][2] === "X")
+      return true;
+
+    // Cols O
+    if (grid[0][0] === "O" && grid[1][0] === "O" && grid[2][0] === "O")
+      return true;
+    if (grid[0][1] === "O" && grid[1][1] === "O" && grid[2][1] === "O")
+      return true;
+    if (grid[0][2] === "O" && grid[1][2] === "O" && grid[2][2] === "O")
+      return true;
+  };
 
   return (
-    <div className="p-3 gap-3">
+    <div className="p-3">
       <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
       <p className="my-4">This is a simple tic tac toe game app.</p>
       <div className="grid grid-cols-3 grid-rows-3 gap-3">
@@ -22,10 +57,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[0][0] === "X" || newGrid[0][0] === "O") return;
             newGrid[0][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[0][0]}
@@ -34,10 +75,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[0][1] === "X" || newGrid[0][1] === "O") return;
             newGrid[0][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[0][1]}
@@ -46,10 +93,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[0][2] === "X" || newGrid[0][2] === "O") return;
             newGrid[0][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[0][2]}
@@ -59,10 +112,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[1][0] === "X" || newGrid[1][0] === "O") return;
             newGrid[1][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[1][0]}
@@ -71,10 +130,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[1][1] === "X" || newGrid[1][1] === "O") return;
             newGrid[1][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[1][1]}
@@ -83,10 +148,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[1][2] === "X" || newGrid[1][2] === "O") return;
             newGrid[1][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[1][2]}
@@ -96,10 +167,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[2][0] === "X" || newGrid[2][0] === "O") return;
             newGrid[2][0] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[2][0]}
@@ -108,10 +185,16 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[2][1] === "X" || newGrid[2][1] === "O") return;
             newGrid[2][1] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[2][1]}
@@ -120,15 +203,24 @@ export default function Page() {
           className={buttonClasses}
           onClick={() => {
             const newGrid = grid;
+            if (isWon) return;
             if (newGrid[2][2] === "X" || newGrid[2][2] === "O") return;
             newGrid[2][2] = nextStep;
             setGrid(newGrid);
             setNextStep(nextStep === "X" ? "O" : "X");
+            if (checkWin()) {
+              console.log(`${nextStep} Won`);
+              setIsWon(true);
+              return;
+            }
           }}
         >
           {grid[2][2]}
         </button>
       </div>
+      {isWon && (
+        <p className="mt-6">Winner is {nextStep === "X" ? "O" : "X"}</p>
+      )}
     </div>
   );
 }
