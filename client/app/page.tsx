@@ -8,13 +8,13 @@ export default function Page() {
   );
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowUp") {
+    if (event.key == "ArrowUp") {
       setDirection("Up");
-    } else if (event.key === "ArrowRight") {
+    } else if (event.key == "ArrowRight") {
       setDirection("Right");
-    } else if (event.key === "ArrowDown") {
+    } else if (event.key == "ArrowDown") {
       setDirection("Down");
-    } else if (event.key === "ArrowLeft") {
+    } else if (event.key == "ArrowLeft") {
       setDirection("Left");
     }
   };
@@ -26,15 +26,15 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="p-3">
+    <div className="p-3 text-3xl">
       {direction === "Up" ? (
         <p>/\</p>
       ) : direction === "Right" ? (
-        <p>&lt;</p>
+        <p>&gt;</p>
       ) : direction === "Down" ? (
         <p>\/</p>
       ) : direction === "Left" ? (
-        <p>&gt;</p>
+        <p>&lt;</p>
       ) : (
         "Invalid direction."
       )}
