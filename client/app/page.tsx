@@ -1,43 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+const categories: string[] = ["Flat", "House", "Duplex"];
 
 export default function Page() {
-  const [direction, setDirection] = useState<"Up" | "Right" | "Down" | "Left">(
-    "Up",
-  );
-
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key == "ArrowUp") {
-      setDirection("Up");
-    } else if (event.key == "ArrowRight") {
-      setDirection("Right");
-    } else if (event.key == "ArrowDown") {
-      setDirection("Down");
-    } else if (event.key == "ArrowLeft") {
-      setDirection("Left");
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   return (
-    <div className="p-3 text-3xl">
-      {direction === "Up" ? (
-        <p>/\</p>
-      ) : direction === "Right" ? (
-        <p>&gt;</p>
-      ) : direction === "Down" ? (
-        <p>\/</p>
-      ) : direction === "Left" ? (
-        <p>&lt;</p>
-      ) : (
-        "Invalid direction."
-      )}
+    <div className="p-3 mx-auto max-w-md w-full">
+      <div className="flex gap-1">
+        <button
+          className="px-2 rounded-md bg-stone-200 hover:bg-stone-300 duration-300 cursor-pointer"
+          onClick={() => setSelectedCategory("")}
+        >
+          None
+        </button>
+        {categories.map((category, index) => (
+          <button
+            className="px-2 rounded-md bg-stone-200 hover:bg-stone-300 duration-300 cursor-pointer"
+            key={index}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      <p>{selectedCategory}</p>
     </div>
   );
 }
