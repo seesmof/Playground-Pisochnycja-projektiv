@@ -31,17 +31,11 @@ const listings: Listing[] = [
 ];
 
 export default function Page() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Flat");
 
   return (
     <div className="p-3 mx-auto max-w-md w-full flex flex-col gap-3">
       <div className="flex gap-1">
-        <button
-          className="px-2 rounded-md bg-stone-200 hover:bg-stone-300 duration-300 cursor-pointer"
-          onClick={() => setSelectedCategory("")}
-        >
-          None
-        </button>
         {categories.map((category, index) => (
           <button
             className="px-2 rounded-md bg-stone-200 hover:bg-stone-300 duration-300 cursor-pointer"
@@ -53,16 +47,18 @@ export default function Page() {
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-        {listings.map((listing, index) => (
-          <div
-            className="rounded-md border flex flex-col w-full p-3 gap-3"
-            key={index}
-          >
-            <h2 className="text-lg">{listing.name}</h2>
-            <p>{listing.description}</p>
-            <span className="italic">{listing.category}</span>
-          </div>
-        ))}
+        {listings
+          .filter((listing) => listing.category === selectedCategory)
+          .map((listing, index) => (
+            <div
+              className="rounded-md border flex flex-col w-full p-3 gap-3"
+              key={index}
+            >
+              <h2 className="text-lg">{listing.name}</h2>
+              <p>{listing.description}</p>
+              <span className="italic">{listing.category}</span>
+            </div>
+          ))}
       </div>
     </div>
   );
