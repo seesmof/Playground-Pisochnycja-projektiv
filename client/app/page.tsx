@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 export interface CartItem {
@@ -18,14 +18,7 @@ export default function IndexPage() {
 
   return (
     <div className="min-h-screen bg-sky-50">
-      <nav className="outline outline-sky-600 bg-white">
-        <div className="max-w-md mx-auto p-3 flex justify-between">
-          <Link className="hover:underline underline-offset-4" href={"/"}>
-            Shopper
-          </Link>
-          <Link href={"/cart"}>Cart has {cartItems.length} items</Link>
-        </div>
-      </nav>
+      <Navbar cartItems={cartItems} />
       <div className="mx-auto max-w-md w-full gap-3 p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (
           <div
