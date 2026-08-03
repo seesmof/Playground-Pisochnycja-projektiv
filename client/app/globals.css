@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@use "pico";
 
 :root {
   --background: #ffffff;
