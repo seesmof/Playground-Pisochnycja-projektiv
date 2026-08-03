@@ -30,10 +30,22 @@ export default function IndexPage() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="rounded-md bg-white p-3 outline outline-sky-600 flex flex-col"
+            className="rounded-md bg-white p-3 outline outline-sky-600 flex flex-col gap-1"
           >
-            <h2>{item.name}</h2>
+            <h2 className="text-lg">{item.name}</h2>
             <p>$ {item.price}</p>
+            <button
+              className="bg-sky-600 text-white rounded-md mt-3 active:scale-95 cursor-pointer hover:bg-sky-700"
+              onClick={() => {
+                const newItem: CartItem = {
+                  name: item.name,
+                  price: item.price,
+                };
+                setCartItems([...cartItems, newItem]);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         ))}
       </div>
