@@ -2,42 +2,32 @@
 
 import { useState } from "react";
 
-export interface Item {
+export interface CartItem {
   name: string;
   price: number;
 }
 
-export default function Page() {
-  const [items, setItems] = useState<Item[]>([]);
-
-  const addNewItem = () => {
-    const newItem: Item = { name: "iPhone 15 Max", price: 1000 };
-    setItems([...items, newItem]);
-  };
+export default function IndexPage() {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>([
+    { name: "iPhone 15 Max", price: 1000 },
+    { name: "MacBook Air", price: 1500 },
+    { name: "Air Pods Pro", price: 500 },
+  ]);
 
   return (
-    <div className="p-3">
-      <div className="flex gap-3">
-        <button
-          className="bg-sky-600 cursor-pointer active:scale-95 hover:bg-sky-700 text-white p-3 rounded-md"
-          onClick={addNewItem}
-        >
-          Add
-        </button>
-        <button
-          className="bg-red-600 cursor-pointer active:scale-95 hover:bg-red-700 text-white p-3 rounded-md"
-          onClick={() => setItems([])}
-        >
-          Clear
-        </button>
-      </div>
-      <ul className="list-inside pl-1 list-disc mt-3">
+    <div className="min-h-screen bg-sky-50">
+      <div className="mx-auto max-w-md w-full gap-3 p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (
-          <li key={index}>
-            {item.name} costs ${item.price}.
-          </li>
+          <div
+            key={index}
+            className="rounded-md bg-white p-3 outline outline-sky-600 flex flex-col"
+          >
+            <h2>{item.name}</h2>
+            <p>$ {item.price}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
