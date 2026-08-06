@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send-message", (data) => {
-    socket.broadcast.emit("recieve-message", {
+    socket.broadcast.emit("receive-message", {
       username: users[socket.id] || "Anonymous",
       message: data.message,
       time: new Date().toLocaleTimeString([], {
@@ -34,6 +34,7 @@ io.on("connection", (socket) => {
         username: users[socket.id],
         status: "left",
       });
+      delete users[socket.id];
     }
   });
 });

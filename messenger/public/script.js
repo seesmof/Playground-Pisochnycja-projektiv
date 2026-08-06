@@ -1,5 +1,3 @@
-const { text, application } = require("express");
-
 const socket = io();
 
 const loginScreen = document.getElementById("login-screen");
