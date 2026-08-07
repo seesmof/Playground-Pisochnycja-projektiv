@@ -1,2 +1,2 @@
-Is it possible to worship in vain?
-What is a web server?
+What platforms can there be ? desktop, mobile, web
+What platform should i use ?
