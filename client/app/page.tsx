@@ -2,6 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   Table,
   TableBody,
   TableCell,
@@ -51,9 +59,16 @@ export default function IndexPage() {
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.price}</TableCell>
                 <TableCell className="space-x-3">
-                  <Button variant="ghost" onClick={() => remove(item.id)}>
-                    Edit
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger
+                      render={<Button variant="ghost">Edit</Button>}
+                    />
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Edit the item</DialogTitle>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                   <Button variant="destructive" onClick={() => remove(item.id)}>
                     Remove
                   </Button>
