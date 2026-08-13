@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export type Item = {
-  id: number;
+  id: string;
   name: string;
   price: number;
 };
@@ -9,7 +9,7 @@ export type Item = {
 export type CartState = {
   items: Item[];
   add: (item: Item) => void;
-  remove: (id: number) => void;
+  remove: (id: string) => void;
 };
 
 export const useCart = create<CartState>((set) => ({
