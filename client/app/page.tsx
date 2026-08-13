@@ -12,7 +12,7 @@ import {
 import { Item, useCart } from "@/store/cart";
 
 export default function IndexPage() {
-  const { items, add, remove } = useCart();
+  const { items, add, remove, update } = useCart();
 
   return (
     <div className="min-h-screen flex overflow-hidden">
@@ -50,7 +50,10 @@ export default function IndexPage() {
                 <TableCell>{item.id}</TableCell>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.price}</TableCell>
-                <TableCell>
+                <TableCell className="space-x-3">
+                  <Button variant="ghost" onClick={() => remove(item.id)}>
+                    Edit
+                  </Button>
                   <Button variant="destructive" onClick={() => remove(item.id)}>
                     Remove
                   </Button>
