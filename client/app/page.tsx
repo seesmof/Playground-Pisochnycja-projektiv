@@ -1,6 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Item, useCart } from "@/store/cart";
 
 export default function IndexPage() {
@@ -27,18 +35,30 @@ export default function IndexPage() {
             Add
           </Button>
         </div>
-        <div className="flex flex-col gap-3">
-          {items.map((item) => (
-            <div key={item.id} className="flex gap-3 items-center">
-              <Button variant={"destructive"} onClick={() => remove(item.id)}>
-                Remove
-              </Button>
-              <div>
-                {item.id}. {item.name} costs {item.price}
-              </div>
-            </div>
-          ))}
-        </div>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>ID</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {items.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.id}</TableCell>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.price}</TableCell>
+                <TableCell>
+                  <Button variant="destructive" onClick={() => remove(item.id)}>
+                    Remove
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </main>
     </div>
   );
