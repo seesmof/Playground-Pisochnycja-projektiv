@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Item, useCart } from "@/store/cart";
 
 export default function IndexPage() {
-  const { items, add } = useCart();
+  const { items, add, remove } = useCart();
 
   return (
     <div className="min-h-screen flex overflow-hidden">
@@ -27,11 +27,18 @@ export default function IndexPage() {
             Add
           </Button>
         </div>
-        {items.map((item) => (
-          <div key={item.id}>
-            {item.name} costs {item.price}
-          </div>
-        ))}
+        <div className="flex flex-col gap-3">
+          {items.map((item) => (
+            <div key={item.id} className="flex gap-3 items-center">
+              <Button variant={"destructive"} onClick={() => remove(item.id)}>
+                Remove
+              </Button>
+              <div>
+                {item.id}. {item.name} costs {item.price}
+              </div>
+            </div>
+          ))}
+        </div>
       </main>
     </div>
   );

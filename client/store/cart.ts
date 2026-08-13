@@ -6,7 +6,7 @@ export type Item = {
   price: number;
 };
 
-export type CartState = {
+type CartState = {
   items: Item[];
   add: (item: Item) => void;
   remove: (id: string) => void;
