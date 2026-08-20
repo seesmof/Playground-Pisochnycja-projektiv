@@ -1,34 +1,43 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+export type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  makerCompany: string;
+};
+
+export const products: Product[] = [
+  { name: "iPhone 15", price: 1000, quantity: 312, makerCompany: "Apple" },
+  { name: "MacBook Pro", price: 3200, quantity: 12, makerCompany: "Apple" },
+  { name: "Air Pods", price: 500, quantity: 250, makerCompany: "Apple" },
+];
 
 export default function IndexPage() {
-  const [isDark, setIsDark] = useState<boolean>(false);
-
   return (
-    <div
-      className={`min-h-screen ${isDark ? "bg-slate-700 text-white" : "bg-stone-50"}`}
-    >
-      <nav
-        className={`sticky top-0 border-b-2 ${isDark ? "bg-slate-800 border-slate-900" : "bg-white"}`}
-      >
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <h1 className="font-bold hover:underline underline-offset-4">
-            <Link href={"/"}>Where in the world?</Link>
-          </h1>
-          <button
-            className={`cursor-pointer p-3 rounded-md flex gap-3 ${isDark ? "hover:bg-slate-700" : "hover:bg-stone-100"}`}
-            onClick={() => setIsDark((isDark) => !isDark)}
-          >
-            {isDark ? <Sun /> : <Moon />}
-            <p className="hidden sm:block">
-              {isDark ? "Light Mode" : "Dark Mode"}
-            </p>
-          </button>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-stone-50">
+      <div className="container mx-auto px-4 py-2">
+        <table className="bg-white rounded-md overflow-hidden w-full">
+          <thead>
+            <tr>
+              <th className="text-start p-3">Name</th>
+              <th className="text-start p-3">Price</th>
+              <th className="text-start p-3">Quantity</th>
+              <th className="text-start p-3">Company Maker</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, index) => (
+              <tr key={index}>
+                <td className="p-3">{product.name}</td>
+                <td className="p-3">{product.price}</td>
+                <td className="p-3">{product.quantity}</td>
+                <td className="p-3">{product.makerCompany}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
