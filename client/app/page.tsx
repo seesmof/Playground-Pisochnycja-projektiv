@@ -11,11 +11,16 @@ export default function IndexPage() {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors, isSubmitting },
+    setValue,
+    formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+
+    setValue("username", "");
+    setValue("password", "");
+  };
 
   return (
     <div className="min-h-screen bg-sky-50">
@@ -33,9 +38,10 @@ export default function IndexPage() {
                 className="input w-full"
                 placeholder="Your username here..."
                 {...register("username", {
-                  minLength: {
-                    value: 4,
-                    message: "The username must be at least 4 characters long.",
+                  validate: {
+                    isNotShort: (value) =>
+                      value.length >= 4 ||
+                      "The username must be at least 4 characters long.",
                   },
                 })}
               />
@@ -49,9 +55,10 @@ export default function IndexPage() {
                 type="password"
                 className="input w-full"
                 {...register("password", {
-                  minLength: {
-                    value: 8,
-                    message: "The password must be at least 8 characters long.",
+                  validate: {
+                    minLength: (value) =>
+                      value.length >= 8 ||
+                      "The password must be at least 8 characters long.",
                   },
                 })}
               />
