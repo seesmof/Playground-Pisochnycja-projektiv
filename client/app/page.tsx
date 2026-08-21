@@ -1,42 +1,43 @@
 "use client";
 
-export type Product = {
-  name: string;
-  price: number;
-  quantity: number;
-  makerCompany: string;
+import { useState } from "react";
+
+export type Post = {
+  message: string;
+  author: string;
 };
 
-export const products: Product[] = [
-  { name: "iPhone 15", price: 1000, quantity: 312, makerCompany: "Apple" },
-  { name: "MacBook Pro", price: 3200, quantity: 12, makerCompany: "Apple" },
-  { name: "Air Pods", price: 500, quantity: 250, makerCompany: "Apple" },
-];
-
 export default function IndexPage() {
+  const [input, setInput] = useState<string>("");
+  const [posts, setPosts] = useState<Post[]>([
+    { message: "Hey there! Jesus is LORD.", author: "Oleh" },
+    { message: "Hello. Christ is KING", author: "Seesm" },
+  ]);
+
   return (
     <div className="min-h-screen bg-stone-50">
-      <div className="container mx-auto px-4 py-2">
-        <table className="bg-white rounded-md overflow-hidden w-full">
-          <thead>
-            <tr>
-              <th className="text-start p-3">Name</th>
-              <th className="text-start p-3">Price</th>
-              <th className="text-start p-3">Quantity</th>
-              <th className="text-start p-3">Company Maker</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product, index) => (
-              <tr key={index}>
-                <td className="p-3">{product.name}</td>
-                <td className="p-3">{product.price}</td>
-                <td className="p-3">{product.quantity}</td>
-                <td className="p-3">{product.makerCompany}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="container mx-auto px-4 py-5 flex flex-col gap-5">
+        {/* Input Field */}
+        <form className="bg-white rounded-md p-5 shadow outline outline-stone-200">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="input w-full"
+            placeholder="Type your comment here..."
+          />
+        </form>
+
+        {/* Output Field */}
+        {posts.map((post, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-md p-5 shadow outline outline-stone-200"
+          >
+            <p>{post.message}</p>
+            <cite className="">{post.author}</cite>
+          </div>
+        ))}
       </div>
     </div>
   );
