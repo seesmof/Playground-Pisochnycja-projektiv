@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div className="bg-sky-50 min-h-screen">
       <div className="container mx-auto px-4 py-2">
-        <table>
+        <table className="table bg-white">
           <thead>
             <tr>
               <th>Name</th>
@@ -28,7 +28,16 @@ export default function Page() {
               <th>Salary</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {initialData.map((data, index) => (
+              <tr key={index}>
+                <td>{data.name}</td>
+                <td>{data.email}</td>
+                <td>{data.age}</td>
+                <td>{data.salary}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
