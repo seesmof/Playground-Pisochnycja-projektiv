@@ -23,6 +23,9 @@ export default function Page() {
   const [sortedColumn, setSortedColumn] = useState<
     "name" | "email" | "age" | "salary" | null
   >(null);
+  const [direction, setDirection] = useState<"ascending" | "descending">(
+    "ascending",
+  );
 
   return (
     <div className="bg-sky-50 min-h-screen">
@@ -32,25 +35,45 @@ export default function Page() {
             <tr>
               <th
                 className={`${sortedColumn === "name" ? "underline underline-offset-4" : ""} cursor-pointer`}
-                onClick={() => setSortedColumn("name")}
+                onClick={() => {
+                  setDirection((direction) =>
+                    direction === "ascending" ? "descending" : "ascending",
+                  );
+                  setSortedColumn("name");
+                }}
               >
                 Name
               </th>
               <th
                 className={`${sortedColumn === "email" ? "underline underline-offset-4" : ""} cursor-pointer`}
-                onClick={() => setSortedColumn("email")}
+                onClick={() => {
+                  setDirection((direction) =>
+                    direction === "ascending" ? "descending" : "ascending",
+                  );
+                  setSortedColumn("email");
+                }}
               >
                 Email
               </th>
               <th
                 className={`${sortedColumn === "age" ? "underline underline-offset-4" : ""} cursor-pointer`}
-                onClick={() => setSortedColumn("age")}
+                onClick={() => {
+                  setDirection((direction) =>
+                    direction === "ascending" ? "descending" : "ascending",
+                  );
+                  setSortedColumn("age");
+                }}
               >
                 Age
               </th>
               <th
                 className={`${sortedColumn === "salary" ? "underline underline-offset-4" : ""} cursor-pointer`}
-                onClick={() => setSortedColumn("salary")}
+                onClick={() => {
+                  setDirection((direction) =>
+                    direction === "ascending" ? "descending" : "ascending",
+                  );
+                  setSortedColumn("salary");
+                }}
               >
                 Salary
               </th>
@@ -58,15 +81,29 @@ export default function Page() {
           </thead>
           <tbody>
             {(sortedColumn === "name"
-              ? initialData.sort((one, two) => one.name.localeCompare(two.name))
+              ? initialData.sort((one, two) =>
+                  direction === "ascending"
+                    ? one.name.localeCompare(two.name)
+                    : two.name.localeCompare(one.name),
+                )
               : sortedColumn === "email"
                 ? initialData.sort((one, two) =>
-                    one.email.localeCompare(two.email),
+                    direction === "ascending"
+                      ? one.email.localeCompare(two.email)
+                      : two.email.localeCompare(one.email),
                   )
                 : sortedColumn === "age"
-                  ? initialData.sort((one, two) => one.age - two.age)
+                  ? initialData.sort((one, two) =>
+                      direction === "ascending"
+                        ? one.age - two.age
+                        : two.age - one.age,
+                    )
                   : sortedColumn === "salary"
-                    ? initialData.sort((one, two) => one.salary - two.salary)
+                    ? initialData.sort((one, two) =>
+                        direction === "ascending"
+                          ? one.salary - two.salary
+                          : two.salary - one.salary,
+                      )
                     : initialData
             ).map((data, index) => (
               <tr key={index}>
