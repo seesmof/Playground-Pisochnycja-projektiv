@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 export type Data = {
   name: string;
   email: string;
@@ -16,20 +20,55 @@ const initialData: Data[] = [
 ];
 
 export default function Page() {
+  const [sortedColumn, setSortedColumn] = useState<
+    "name" | "email" | "age" | "salary" | null
+  >(null);
+
   return (
     <div className="bg-sky-50 min-h-screen">
       <div className="container mx-auto px-4 py-2">
         <table className="table bg-white">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Salary</th>
+              <th
+                className={`${sortedColumn === "name" ? "underline underline-offset-4" : ""} cursor-pointer`}
+                onClick={() => setSortedColumn("name")}
+              >
+                Name
+              </th>
+              <th
+                className={`${sortedColumn === "email" ? "underline underline-offset-4" : ""} cursor-pointer`}
+                onClick={() => setSortedColumn("email")}
+              >
+                Email
+              </th>
+              <th
+                className={`${sortedColumn === "age" ? "underline underline-offset-4" : ""} cursor-pointer`}
+                onClick={() => setSortedColumn("age")}
+              >
+                Age
+              </th>
+              <th
+                className={`${sortedColumn === "salary" ? "underline underline-offset-4" : ""} cursor-pointer`}
+                onClick={() => setSortedColumn("salary")}
+              >
+                Salary
+              </th>
             </tr>
           </thead>
           <tbody>
-            {initialData.map((data, index) => (
+            {(sortedColumn === "name"
+              ? initialData.sort((one, two) => one.name.localeCompare(two.name))
+              : sortedColumn === "email"
+                ? initialData.sort((one, two) =>
+                    one.email.localeCompare(two.email),
+                  )
+                : sortedColumn === "age"
+                  ? initialData.sort((one, two) => one.age - two.age)
+                  : sortedColumn === "salary"
+                    ? initialData.sort((one, two) => one.salary - two.salary)
+                    : initialData
+            ).map((data, index) => (
               <tr key={index}>
                 <td>{data.name}</td>
                 <td>{data.email}</td>
