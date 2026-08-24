@@ -1,192 +1,74 @@
 "use client";
 
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 
-export type Inputs = {
-  username: string;
-  email: string;
-  password: string;
-  passwordConfirm: string;
+type Category = "Todo" | "Doing" | "Done";
+
+type Todo = {
+  title: string;
+  isDone: boolean;
+  category: Category;
 };
 
+const initialData: Todo[] = [
+  { title: "Finish this app", isDone: false, category: "Todo" },
+  { title: "Writing this app", isDone: false, category: "Doing" },
+  { title: "Research network hardware", isDone: true, category: "Done" },
+];
+
 export default function Page() {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    getValues,
-    formState: { errors },
-  } = useForm<Inputs>({
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      passwordConfirm: "",
-    },
-  });
-  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
-  const [passwordConfirmVisible, setPasswordConfirmVisible] =
-    useState<boolean>(false);
-
-  const handleReset = () => {
-    setValue("username", "");
-    setValue("email", "");
-    setValue("password", "");
-    setValue("passwordConfirm", "");
-    setPasswordVisible(false);
-    setPasswordConfirmVisible(false);
-  };
-
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    handleReset();
-  };
+  const [data, setData] = useState<Todo[]>(initialData);
 
   return (
-    <div className="bg-sky-50 min-h-screen">
-      <div className="container mx-auto p-5">
-        <form
-          className="bg-white flex flex-col gap-5 p-5 rounded-md"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          {/* Username */}
-          <fieldset className="flex flex-col gap-1">
-            <label className="font-bold select-none" htmlFor="usernameInput">
-              Username
-            </label>
-            <input
-              id="usernameInput"
-              className={`outline ${errors.username ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md`}
-              placeholder="Your username here..."
-              type="text"
-              {...register("username", {
-                validate: {
-                  isNotShort: (value) =>
-                    value.length >= 7 ||
-                    "The username must be at least 7 characters long.",
-                  containsLetter: (value) =>
-                    /[A-Za-z]/.test(value) ||
-                    "The username must contain at least one letter.",
-                },
-              })}
-            />
-            {errors.username && (
-              <p className="text-error text-sm">{errors.username?.message}</p>
-            )}
-          </fieldset>
-
-          {/* Email */}
-          <fieldset className="flex flex-col gap-1">
-            <label className="font-bold select-none" htmlFor="emailInput">
-              Email
-            </label>
-            <input
-              id="emailInput"
-              className={`outline ${errors.email ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md`}
-              placeholder="Your email address here..."
-              type="email"
-              {...register("email", {
-                validate: {
-                  isValidEmail: (value) =>
-                    /\S+@\S+\.\S/.test(value) ||
-                    "The email must be a valid address.",
-                },
-              })}
-            />
-            {errors.email && (
-              <p className="text-error text-sm">{errors.email?.message}</p>
-            )}
-          </fieldset>
-
-          {/* Password */}
-          <fieldset className="flex flex-col gap-1">
-            <label className="font-bold select-none" htmlFor="passwordInput">
-              Password
-            </label>
-            <div className="flex flex-row gap-3">
-              <input
-                id="passwordInput"
-                className={`outline ${errors.password ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md flex-1`}
-                type={`${passwordVisible ? "text" : "password"}`}
-                {...register("password", {
-                  validate: {
-                    isNotShort: (value) =>
-                      value.length >= 7 ||
-                      "The password must be at least 7 characters long.",
-                    containsLetters: (value) =>
-                      /[A-Za-z]/.test(value) ||
-                      "The password must contain at least one letter.",
-                    containsNumber: (value) =>
-                      /[\d]/.test(value) ||
-                      "The password must contain at least one number.",
-                  },
-                })}
-              />
-              <button
-                className="bg-sky-600 hover:bg-sky-700 rounded-md p-2"
-                onClick={() => setPasswordVisible((visible) => !visible)}
-                title={`${passwordVisible ? "Hide" : "Show"}`}
-              >
-                {passwordVisible ? "❌" : "✅"}
-              </button>
-            </div>
-            {errors.password && (
-              <p className="text-error text-sm">{errors.password?.message}</p>
-            )}
-          </fieldset>
-
-          {/* Password Confirm */}
-          <fieldset className="flex flex-col gap-1">
-            <label
-              className="font-bold select-none"
-              htmlFor="passwordConfirmInput"
-            >
-              Password Confirm
-            </label>
-            <div className="flex flex-row gap-3">
-              <input
-                id="passwordConfirmInput"
-                className={`outline ${errors.passwordConfirm ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md flex-1`}
-                type={`${passwordConfirmVisible ? "text" : "password"}`}
-                {...register("passwordConfirm", {
-                  validate: {
-                    isNotShort: (value) =>
-                      value.length >= 7 ||
-                      "The password must be at least 7 characters long.",
-                    containsLetters: (value) =>
-                      /[A-Za-z]/.test(value) ||
-                      "The password must contain at least one letter.",
-                    containsNumber: (value) =>
-                      /[\d]/.test(value) ||
-                      "The password must contain at least one number.",
-                    confirms: (value) =>
-                      getValues("password") === getValues("passwordConfirm") ||
-                      "The password must be the same as you entered above.",
-                  },
-                })}
-              />
-              <button
-                className="bg-sky-600 hover:bg-sky-700 rounded-md p-2"
-                onClick={() => setPasswordConfirmVisible((visible) => !visible)}
-                title={`${passwordConfirmVisible ? "Hide" : "Show"}`}
-              >
-                {passwordConfirmVisible ? "❌" : "✅"}
-              </button>
-            </div>
-            {errors.passwordConfirm && (
-              <p className="text-error text-sm">
-                {errors.passwordConfirm?.message}
-              </p>
-            )}
-          </fieldset>
-          <button
-            type="submit"
-            className="w-full bg-sky-600 text-white px-4 py-2 rounded-md hover:bg-sky-700 cursor-pointer select-none"
-          >
-            Submit
-          </button>
-        </form>
+    <div className="min-h-screen bg-sky-50">
+      <div className="container mx-auto px-4 py-2">
+        <div className="bg-white shadow flex gap-3 p-5">
+          <div className="border-2 border-sky-600 flex-1 p-3 rounded-md">
+            <h2 className="font-bold">Todo</h2>
+            {data
+              .filter((point) => point.category === "Todo")
+              .map((item, index) => (
+                <div className="flex items-center gap-1" key={index}>
+                  <input
+                    type="checkbox"
+                    checked={item.isDone}
+                    readOnly
+                    value={item.title}
+                  />
+                </div>
+              ))}
+          </div>
+          <div className="border-2 border-sky-600 flex-1 p-3 rounded-md">
+            <h2 className="font-bold">Doing</h2>
+            {data
+              .filter((point) => point.category === "Doing")
+              .map((item, index) => (
+                <div className="flex items-center gap-1" key={index}>
+                  <input
+                    type="checkbox"
+                    checked={item.isDone}
+                    readOnly
+                    value={item.title}
+                  />
+                </div>
+              ))}
+          </div>
+          <div className="border-2 border-sky-600 flex-1 p-3 rounded-md">
+            <h2 className="font-bold">Done</h2>
+            {data
+              .filter((point) => point.category === "Done")
+              .map((item, index) => (
+                <div className="flex items-center gap-1" key={index}>
+                  <input
+                    type="checkbox"
+                    checked={item.isDone}
+                    readOnly
+                    value={item.title}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );
