@@ -16,7 +16,7 @@ export default function Page() {
     handleSubmit,
     setValue,
     getValues,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<Inputs>({
     defaultValues: {
       username: "",
@@ -65,6 +65,9 @@ export default function Page() {
                   isNotShort: (value) =>
                     value.length >= 7 ||
                     "The username must be at least 7 characters long.",
+                  containsLetter: (value) =>
+                    /[A-Za-z]/.test(value) ||
+                    "The username must contain at least one letter.",
                 },
               })}
             />
@@ -80,7 +83,7 @@ export default function Page() {
             </label>
             <input
               id="emailInput"
-              className={`outline ${errors.username ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md`}
+              className={`outline ${errors.email ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md`}
               placeholder="Your email address here..."
               type="email"
               {...register("email", {
@@ -144,10 +147,9 @@ export default function Page() {
             <div className="flex flex-row gap-3">
               <input
                 id="passwordConfirmInput"
-                className={`outline ${errors.username ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md flex-1`}
-                placeholder="Your username here..."
-                type="text"
-                {...register("username", {
+                className={`outline ${errors.passwordConfirm ? "outline-red-600" : "outline-stone-300"} p-2 rounded-md flex-1`}
+                type={`${passwordConfirmVisible ? "text" : "password"}`}
+                {...register("passwordConfirm", {
                   validate: {
                     isNotShort: (value) =>
                       value.length >= 7 ||
@@ -158,19 +160,24 @@ export default function Page() {
                     containsNumber: (value) =>
                       /[\d]/.test(value) ||
                       "The password must contain at least one number.",
+                    confirms: (value) =>
+                      getValues("password") === getValues("passwordConfirm") ||
+                      "The password must be the same as you entered above.",
                   },
                 })}
               />
               <button
                 className="bg-sky-600 hover:bg-sky-700 rounded-md p-2"
-                onClick={() => setPasswordVisible((visible) => !visible)}
-                title={`${passwordVisible ? "Hide" : "Show"}`}
+                onClick={() => setPasswordConfirmVisible((visible) => !visible)}
+                title={`${passwordConfirmVisible ? "Hide" : "Show"}`}
               >
-                {passwordVisible ? "❌" : "✅"}
+                {passwordConfirmVisible ? "❌" : "✅"}
               </button>
             </div>
-            {errors.username && (
-              <p className="text-error text-sm">{errors.username?.message}</p>
+            {errors.passwordConfirm && (
+              <p className="text-error text-sm">
+                {errors.passwordConfirm?.message}
+              </p>
             )}
           </fieldset>
           <button
