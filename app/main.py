@@ -31,3 +31,27 @@ model.add(layers.Flatten())
 model.add(layers.Dense(64, activation="relu"))
 model.add(layers.Dense(10))
 model.summary()
+
+model.compile(
+    optimizer="adam",
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    metrics=["accuracy"],
+)
+history = model.fit(
+    train_images,
+    train_labels,
+    epochs=10,
+    steps_per_epoch=100,
+    validation_data=(test_images, test_labels),
+)
+
+plt.plot(history.history["accuracy"], label="Accuracy")
+plt.plot(history.history["val_accuracy"], label="Value Accuracy")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
+plt.ylim([0.5, 1])
+plt.legend(loc="lower right")
+plt.show()
+
+test_loss, test_accuracy = model.evaluate(test_images, test_labels, verbose=2)
+print(f"Точність моделі на тестових даних: {test_accuracy}")

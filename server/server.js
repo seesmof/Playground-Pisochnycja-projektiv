@@ -1,21 +1,21 @@
 const express = require("express");
 const cors = require("cors");
-const app = express();
-const PORT = 8080;
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
-const userRouter = require("./userRouter");
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 8080;
+
 app.use(cors());
+app.use(express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   return res.status(200).json({ message: "Jesus is LORD" });
 });
 
-app.use("/user", userRouter);
-
-app.post("/users", (req, res) => {
-  const { name, email, age } = req.body;
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on ${port}: http://localhost:${port}`);
 });
