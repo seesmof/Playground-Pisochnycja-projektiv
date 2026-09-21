@@ -115,17 +115,13 @@ function renderChapter(highlightVerse) {
     const p = document.createElement("p");
     p.className = "verse";
     p.id = `v${v}`;
+    p.title = "Натисніть, щоб скопіювати вірш";
     const n = document.createElement("span");
-    n.className = "n"; n.textContent = v; n.title = "Копіювати вірш";
-    n.onclick = () => {
-      const ref = `${refName(state.book)} ${state.chapter}:${v} — ${t}`;
-      navigator.clipboard?.writeText(ref);
-      n.textContent = "✓";
-      setTimeout(() => (n.textContent = v), 900);
-    };
+    n.className = "n"; n.textContent = v;
     const s = document.createElement("span");
     s.textContent = t;
     p.append(n, s);
+    p.onclick = () => copyVerse(state.book, state.chapter, v, t, p);
     readerEl.appendChild(p);
   }
   statsLineEl.textContent = `${Object.keys(bible).length} книг · ${totalVerses.toLocaleString("uk-UA")} віршів · ${refName(state.book)} ${state.chapter} (${verses.length} віршів)`;
@@ -195,7 +191,10 @@ function doSearch(q) {
     const sp = document.createElement("span");
     sp.innerHTML = escapeHtml(r.t).replace(
       new RegExp("(" + escapeRegExp(q) + ")", "ig"), "<mark>$1</mark>");
-    div.append(ref, sp);
+    const cp = document.createElement("button");
+    cp.className = "copy-btn"; cp.textContent = "📋"; cp.title = "Копіювати вірш";
+    cp.onclick = e => { e.stopPropagation(); copyVerse(r.code, r.ch, r.v, r.t, null); };
+    div.append(ref, sp, cp);
     div.onclick = () => {
       state.book = r.code; state.chapter = r.ch; savePos();
       renderAll(); renderChapter(r.v);
@@ -237,6 +236,43 @@ function parseReference(q) {
 
 function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+// --- copy verse to clipboard (click on a verse) ---
+async function copyText(text) {
+  try {
+    if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(text); return true; }
+  } catch {}
+  // fallback for file:// and non-secure contexts where navigator.clipboard is unavailable
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch { return false; }
+}
+
+async function copyVerse(code, ch, v, t, el) {
+  const ref = `${refName(code)} ${ch}:${v} — ${t}`;
+  const ok = await copyText(ref);
+  if (el) {
+    el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+    setTimeout(() => el.classList.remove("flash"), 1200);
+  }
+  toast(ok ? `Скопійовано: ${refName(code)} ${ch}:${v}` : "Не вдалося скопіювати");
+}
+
+let toastTimer = null;
+function toast(msg) {
+  const el = $("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 1800);
+}
 
 function savePos() { try { localStorage.setItem("bible-pos", JSON.stringify({ b: state.book, c: state.chapter })); } catch {} }
 function loadPos() {
