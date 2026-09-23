@@ -1,9 +1,15 @@
+import pandas as pd
 import streamlit as st
 
-title = "Ферма"
-icon = "🐮"
+title = "Математика"
+icon = "🔢"
 st.set_page_config(page_title=title, page_icon=icon)
 
-farm_name = st.text_input(label="Назва ферми", value="Ферма")
-cows_number = st.slider(label="Кількість корів", min_value=0, max_value=12)
-st.write(f"Ферма називається '{farm_name}' і має {cows_number} корівок.")
+df = pd.DataFrame(
+    {
+        "Імена": ["Зойка", "Бура", "Майка"],
+        "Вік": [7, 9, 8],
+        "Скільки принесла молока (літрів)": [32, 76, 35],
+    }
+)
+st.dataframe(df)
