@@ -1,8 +1,9 @@
 import streamlit as st
 
-number = st.slider("Оберіть номер", 0, 10)
+title = "Ферма"
+icon = "🐮"
+st.set_page_config(page_title=title, page_icon=icon)
 
-st.write(f"Ви обрали: {number}")
-st.write(f"Номер в квадраті: {number*number}")
-
-st.set_page_config(page_title="Номер", page_icon="🔢")
+farm_name = st.text_input(label="Назва ферми", value="Ферма")
+cows_number = st.slider(label="Кількість корів", min_value=0, max_value=12)
+st.write(f"Ферма називається '{farm_name}' і має {cows_number} корівок.")
