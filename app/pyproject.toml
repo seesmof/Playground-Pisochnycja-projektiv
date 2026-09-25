@@ -5,5 +5,5 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "peewee>=4.5.1",
+    "streamlit>=1.64.0",
 ]
