@@ -1,7 +1,7 @@
 """Ukrainian Text-to-Video app.
 
 User pastes Ukrainian text -> natural Ukrainian TTS (Edge Neural, gTTS fallback)
-is synthesized, and an MP4 is rendered with the same text BIG, BOLD and CENTERED.
+is synthesized, and an MP4 is rendered with the same text BIG, REGULAR and CENTERED.
 
 Run as UI:
     streamlit run main.py
@@ -40,18 +40,20 @@ FORMATS = {
 }
 
 DEFAULT_FONT_CANDIDATES = [
-    r"C:\Windows\Fonts\arialbd.ttf",  # Arial Bold, has Ukrainian Cyrillic
-    r"C:\Windows\Fonts\arial.ttf",
-    r"C:\Windows\Fonts\DejaVuSans-Bold.ttf",
-    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    r"C:\Windows\Fonts\arial.ttf",  # Arial Regular, has Ukrainian Cyrillic
+    r"C:\Windows\Fonts\DejaVuSans.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
 ]
 
 
-def find_bold_font() -> str | None:
+def find_font() -> str | None:
     for p in DEFAULT_FONT_CANDIDATES:
         if os.path.exists(p):
             return p
     return None
+
+
+find_bold_font = find_font  # alias for backwards compatibility
 
 
 # --------------------------------------------------------------------------
@@ -99,12 +101,12 @@ def audio_duration_sec(mp3_path: Path) -> float:
 
 
 # --------------------------------------------------------------------------
-# Frame rendering (PIL) — big bold centered text
+# Frame rendering (PIL) — big regular-weight centered text
 # --------------------------------------------------------------------------
 
 
 def _load_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    path = find_bold_font()
+    path = find_font()
     if path:
         return ImageFont.truetype(path, size)
     return ImageFont.load_default()
@@ -147,7 +149,7 @@ def wrap_text_to_width(
 def fit_font_size(
     text: str, width: int, height: int, max_font_size: int
 ) -> tuple[ImageFont.FreeTypeFont, list[str]]:
-    """Find the largest bold font size so wrapped text fits the safe area."""
+    """Find the largest regular font size so wrapped text fits the safe area."""
     probe = Image.new("RGB", (width, height))
     draw = ImageDraw.Draw(probe)
     max_w = int(width * 0.86)
@@ -191,7 +193,7 @@ def render_frame(
     font_color: str,
     max_font_size: int,
 ) -> np.ndarray:
-    """Render one BGR frame (OpenCV-ready) with big bold centered text."""
+    """Render one BGR frame (OpenCV-ready) with big regular centered text."""
     img = make_background(width, height, top_hex, bottom_hex)
     draw = ImageDraw.Draw(img)
     font, lines = fit_font_size(text, width, height, max_font_size)
@@ -200,7 +202,7 @@ def render_frame(
     block_h = line_h * len(lines)
     y = (height - block_h) // 2
 
-    stroke_w = max(2, font.size // 28)
+    stroke_w = max(1, font.size // 60)
     for line in lines:
         line_w = draw.textlength(line, font=font)
         x = (width - line_w) / 2  # centered horizontally
@@ -331,7 +333,7 @@ def run_ui() -> None:
     )
     st.title("🎬 Українське текст-у-відео")
     st.caption(
-        "Введіть текст → природний український голос (TTS) + великі жирні титри по центру. Все автоматично."
+        "Введіть текст → природний український голос (TTS) + великі титри по центру. Все автоматично."
     )
 
     text = st.text_area(
@@ -401,7 +403,7 @@ def run_ui() -> None:
 
 def run_cli(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        description="Ukrainian text -> video with natural TTS + big bold centered text."
+        description="Ukrainian text -> video with natural TTS + big regular centered text."
     )
     ap.add_argument(
         "--text", "-t", required=False, help="Ukrainian text to speak and display."
