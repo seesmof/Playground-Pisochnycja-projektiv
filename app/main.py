@@ -10,7 +10,8 @@ for line in lines:
     ref = f"{book} {reference}"
     texts[ref] = text.strip()
 
-from fuzzywuzzy import process
+from thefuzz import process
 
 incoming_text = input("> ")
-result = process.extractBests(query=incoming_text, choices=texts.values())
+result = process.extract(incoming_text, texts.values())
+print(result)
