@@ -9,3 +9,8 @@ for line in lines:
     book, reference, text = line.split(" ", 2)
     ref = f"{book} {reference}"
     texts[ref] = text.strip()
+
+from fuzzywuzzy import process
+
+incoming_text = input("> ")
+result = process.extractBests(query=incoming_text, choices=texts.values())
