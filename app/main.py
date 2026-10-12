@@ -2,12 +2,14 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Generate data
 period = 24 * 2
 idx = pd.date_range("2026-10-01", periods=period, freq="h")
 s = pd.Series(15 + np.random.randn(period), index=idx, name="temperature")
 s.index.name = "datetime"
 print(s)
 
+# Plot the data
 plt.figure(figsize=(15, 10))
 plt.title("Вимірювання температури за два дні")
 s.plot()
@@ -15,3 +17,6 @@ plt.grid()
 plt.xlabel("Дата")
 plt.ylabel("Температура, градуси Цельсія")
 plt.show()
+
+# Split into train, validation, test
+train, val, test = s[:33], s[33:40], s[40:]
