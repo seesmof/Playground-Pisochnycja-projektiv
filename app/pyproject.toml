@@ -6,9 +6,13 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fuzzywuzzy>=0.18.0",
+    "maigret>=0.6.6",
     "matplotlib>=3.11.2",
     "numpy>=2.5.4",
     "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "statsmodels>=0.15.0",
+    "streamlit>=1.65.0",
     "thefuzz>=0.22.1",
     "torch>=2.14.1",
 ]
