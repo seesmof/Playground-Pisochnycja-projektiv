@@ -1,0 +1,13 @@
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.31.70:3000
+✓ Ready in 507ms
+✓ Running next.config.ts took 38ms
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  ✓ agentFeedback
+
+✓ Generated agent feedback instructions in AGENTS.md. Set `experimental.agentFeedback: false` in next.config to disable.
+ GET / 200 in 324ms (next.js: 193ms, application-code: 131ms)
+[?25h
