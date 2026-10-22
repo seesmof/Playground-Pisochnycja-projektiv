@@ -5,14 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "edge-tts>=7.3.1",
     "fuzzywuzzy>=0.18.0",
     "maigret>=0.6.6",
     "matplotlib>=3.11.2",
+    "moviepy>=2.2.1",
     "numpy>=2.5.4",
+    "opencv-python>=5.0.0.93",
     "pandas>=3.0.6",
+    "pillow>=11.3.0",
     "scikit-learn>=1.9.1",
     "statsmodels>=0.15.0",
     "streamlit>=1.65.0",
     "thefuzz>=0.22.1",
     "torch>=2.14.1",
+    "transformers>=5.20.2",
 ]
