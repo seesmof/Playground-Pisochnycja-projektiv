@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import torch
 from transformers import pipeline
 
 MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
