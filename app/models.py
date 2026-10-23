@@ -16,26 +16,10 @@ def _utc_now_naive() -> datetime:
     return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
-class Chat(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    title: str = Field(default="New chat")
-    created_at: datetime = Field(
-        default_factory=_utc_now_naive, sa_column=Column(DateTime, nullable=False)
-    )
-
-    messages: List["Message"] = Relationship(
-        back_populates="chat",
-        cascade_delete=True,
-    )
-
-
 class Message(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    chat_id: int = Field(foreign_key="chat.id", index=True)
     role: Role = Field(...)
     content: str = Field(...)
     created_at: datetime = Field(
         default_factory=_utc_now_naive, sa_column=Column(DateTime, nullable=False)
     )
-
-    chat: Optional[Chat] = Relationship(back_populates="messages")
