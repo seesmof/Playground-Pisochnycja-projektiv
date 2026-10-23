@@ -1,24 +1,34 @@
-"""CLI: assess hardcoded dummy generated data with MAE."""
+import streamlit as st
 
-import numpy as np
+st.set_page_config(page_title="Chat", page_icon="💭", layout="centered")
+st.title("💭 Chat")
 
-# Hardcoded dummy ground truth and generated (predicted) values.
-y_true = np.array([3.0, 5.2, 7.1, 2.0, 8.5, 4.4, 6.0, 1.5, 9.2, 3.8])
-y_pred = np.array([3.3, 4.9, 7.6, 2.4, 8.0, 4.8, 5.5, 2.1, 8.7, 4.2])
+# Mock conversation state
+if "messages" not in st.session_state:
+    st.session_state.messages = [
+        {
+            "role": "ai",
+            "content": "Hi! This is mock data. Type something and I'll echo it.",
+        },
+        {"role": "user", "content": "Hello"},
+        {"role": "ai", "content": "Hello back! (mock reply)"},
+    ]
 
-errors = np.abs(y_true - y_pred)
-mae = float(np.mean(errors))
-rmse = float(np.sqrt(np.mean((y_true - y_pred) ** 2)))
-max_err = float(np.max(errors))
+# Render chat history
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-print("y_true :", y_true)
-print("y_pred :", y_pred)
-print("errors :", errors)
-print(f"MAE    : {mae:.4f}")
-print(f"RMSE   : {rmse:.4f}")
-print(f"MaxErr : {max_err:.4f}")
+# User's input
+prompt = st.chat_input("Type a message...")
+if prompt:
+    # append users's message
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
-if mae <= 1.0:
-    print("OK: MAE within threshold 1.0")
-else:
-    print("FAIL: MAE exceeds threshold 1.0")
+    # mock ai reply
+    reply = f"You said: **{prompt}** (mock reply #{len(st.session_state.messages)})"
+    st.session_state.messages.append({"role": "ai", "content": reply})
+    with st.chat_message("ai"):
+        st.markdown(reply)
