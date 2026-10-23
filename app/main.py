@@ -11,6 +11,17 @@ st.title("💭 Чат")
 with Session(engine) as s:
     messages = s.exec(select(Message).order_by(col(Message.created_at))).all()
 
+if messages:
+    if st.button("🗑️ Очистити чат"):
+        with Session(engine) as s:
+            rows = s.exec(select(Message)).all()
+            for r in rows:
+                s.delete(r)
+            s.commit()
+        st.rerun()
+
+if not messages:
+    st.info("Напишіть щось у полі нижче щоби почати розмову...")
 for m in messages:
     with st.chat_message(m.role):
         st.markdown(m.content)
