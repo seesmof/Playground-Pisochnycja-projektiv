@@ -1,7 +1,7 @@
 import streamlit as st
 from sqlmodel import Session, col, select
 
-from llm import generate_reply, load_model
+from llm import generate_reply, get_pipe
 from db import engine, init_db
 from models import Message, Role
 
@@ -9,14 +9,8 @@ init_db()
 
 st.title("💭 Чат")
 
-
-@st.cache_resource
-def get_model():
-    return load_model()
-
-
 with st.spinner("Завантаження моделі (лише у перший раз)..."):
-    tokenizer, model = get_model()
+    get_pipe()
 
 with Session(engine) as s:
     rows = s.exec(select(Message).order_by(col(Message.created_at))).all()
@@ -50,7 +44,7 @@ if prompt:
 
     with st.chat_message("assistant"):
         with st.spinner("Думаю..."):
-            reply = generate_reply(tokenizer, model, history_for_llm)
+            reply = generate_reply(history_for_llm)
         st.markdown(reply)
 
     with Session(engine) as s:
