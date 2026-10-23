@@ -7,11 +7,11 @@ st.title("💭 Chat")
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
-            "role": "ai",
+            "role": "assistant",
             "content": "Hi! This is mock data. Type something and I'll echo it.",
         },
         {"role": "user", "content": "Hello"},
-        {"role": "ai", "content": "Hello back! (mock reply)"},
+        {"role": "assistant", "content": "Hello back! (mock reply)"},
     ]
 
 # Render chat history
@@ -30,5 +30,5 @@ if prompt:
     # mock ai reply
     reply = f"You said: **{prompt}** (mock reply #{len(st.session_state.messages)})"
     st.session_state.messages.append({"role": "ai", "content": reply})
-    with st.chat_message("ai"):
+    with st.chat_message("assistant"):
         st.markdown(reply)

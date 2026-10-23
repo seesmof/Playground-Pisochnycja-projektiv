@@ -15,6 +15,7 @@ dependencies = [
     "pandas>=3.0.6",
     "pillow>=11.3.0",
     "scikit-learn>=1.9.1",
+    "sqlmodel>=0.0.48",
     "statsmodels>=0.15.0",
     "streamlit>=1.65.0",
     "thefuzz>=0.22.1",
