@@ -1,7 +1,9 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from typing import List, Optional
 
+from pydantic import NaiveDatetime
+from sqlalchemy import Column, DateTime
 from sqlmodel import Field, Relationship, SQLModel
 
 
@@ -10,10 +12,16 @@ class Role(str, Enum):
     ai = "ai"
 
 
+def _utc_now_naive() -> datetime:
+    return datetime.now(timezone.utc).replace(tzinfo=None)
+
+
 class Chat(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     title: str = Field(default="New chat")
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(
+        default_factory=_utc_now_naive, sa_column=Column(DateTime, nullable=False)
+    )
 
     messages: List["Message"] = Relationship(
         back_populates="chat",
@@ -26,6 +34,8 @@ class Message(SQLModel, table=True):
     chat_id: int = Field(foreign_key="chat.id", index=True)
     role: Role = Field(...)
     content: str = Field(...)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(
+        default_factory=_utc_now_naive, sa_column=Column(DateTime, nullable=False)
+    )
 
     chat: Optional[Chat] = Relationship(back_populates="messages")
