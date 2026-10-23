@@ -5,18 +5,14 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
 
-SYSTEM_PROMPT = (
-    "Ти — корисний україномовний асистент. "
-    "Відповідай коротко, ввічливо і по суті. "
-    "Якщо не знаєш відповіді — чесно скажи про це."
-)
+SYSTEM_PROMPT = "Answer briefly and factually in a Christian way."
 
 
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID,
-        torch_dtype=torch.float32,
+        dtype=torch.float32,
     )
     model.eval()
     return tokenizer, model
