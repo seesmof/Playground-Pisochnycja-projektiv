@@ -81,23 +81,23 @@ const BIBLE_BOOK_NUMBER_TO_HOMENKO_BIBLE_NAME: Record<number, string> = {
 export default function Page() {
   const [verses, setVerses] = useState<RandomVerse[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+
+  const fetchVerses = async (count = 5) => {
+    const requests = Array.from({ length: count }, async () => {
+      const response = await fetch("https://bolls.life/get-random-verse/UBIO/");
+      if (!response.ok) {
+        throw new Error("Failed to fetch a verse.");
+      }
+      return (await response.json()) as RandomVerse;
+    });
+    return Promise.all(requests);
+  };
 
   useEffect(() => {
-    async function fetchVerses() {
+    async function init() {
       try {
-        const requests = Array.from({ length: 5 }, async () => {
-          const response = await fetch(
-            "https://bolls.life/get-random-verse/UBIO/",
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to fetch a verse.");
-          }
-
-          return (await response.json()) as RandomVerse;
-        });
-
-        const data = await Promise.all(requests);
+        const data = await fetchVerses(5);
         setVerses(data);
       } catch (error) {
         console.error(error);
@@ -105,9 +105,21 @@ export default function Page() {
         setLoading(false);
       }
     }
-
-    fetchVerses();
+    init();
   }, []);
+
+  const loadMore = async () => {
+    if (loadingMore) return;
+    setLoadingMore(true);
+    try {
+      const moreVerses = await fetchVerses(5);
+      setVerses((prev) => [...prev, ...moreVerses]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -127,37 +139,47 @@ export default function Page() {
 
   return (
     <main className="h-dvh snap-y snap-mandatory overflow-y-auto bg-white text-black">
-      {verses.map((verse, index) => (
-        <section
-          key={`${verse.book}-${verse.chapter}-${verse.verse}-${index}`}
-          className="relative flex h-dvh snap-start items-center justify-center px-8 py-16"
-        >
-          <a
-            href="https://bolls.life/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute right-6 top-6 text-sm text-black/60 underline underline-offset-4 hover:text-black"
+      {verses.map((verse, index) => {
+        // Automatically load more when reaching the second to last verse
+        if (index === verses.length - 2) {
+          loadMore();
+        }
+
+        return (
+          <section
+            key={`${verse.book}-${verse.chapter}-${verse.verse}-${index}`}
+            className="relative flex h-dvh snap-start items-center justify-center px-8 py-16"
           >
-            Bolls.life
-          </a>
+            <a
+              href="https://bolls.life/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute right-6 top-6 text-sm text-black/60 underline underline-offset-4 hover:text-black"
+            >
+              Bolls.life
+            </a>
 
-          <article className="mx-auto max-w-3xl text-center">
-            <p className="text-3xl leading-relaxed font-medium sm:text-4xl md:text-5xl">
-              {verse.text.replace(/<[^>]*>/g, "")}
+            <article className="mx-auto max-w-3xl text-center">
+              <p className="text-3xl leading-relaxed font-medium sm:text-4xl md:text-5xl">
+                {verse.text.replace(/<[^>]*>/g, "")}
+              </p>
+
+              <p className="mt-8 text-sm text-black/50">
+                {BIBLE_BOOK_NUMBER_TO_HOMENKO_BIBLE_NAME[verse.book] ??
+                  "Невідома книга"}{" "}
+                {verse.chapter}:{verse.verse}
+              </p>
+            </article>
+
+            <p className="absolute bottom-8 text-xs text-black/40">
+              {index === verses.length - 1 && loadingMore
+                .
+                ? "Завантаження..."
+                : "Гортай, щоб читати далі"}
             </p>
-
-            <p className="mt-8 text-sm text-black/50">
-              {BIBLE_BOOK_NUMBER_TO_HOMENKO_BIBLE_NAME[verse.book] ??
-                "Невідома книга"}{" "}
-              {verse.chapter}:{verse.verse}
-            </p>
-          </article>
-
-          <p className="absolute bottom-8 text-xs text-black/40">
-            Гортай, щоб читати далі
-          </p>
-        </section>
-      ))}
+          </section>
+        );
+      })}
     </main>
   );
 }
