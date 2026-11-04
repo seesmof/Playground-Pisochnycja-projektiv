@@ -1,0 +1,15 @@
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.GeneratedMSBuildEditorConfig.editorconfig
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.AssemblyInfoInputs.cache
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.AssemblyInfo.cs
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.csproj.CoreCompileInputs.cache
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.sourcelink.json
+C:\work\Playground-Pisochnycja-projektiv\app\bin\Debug\net10.0\app.exe
+C:\work\Playground-Pisochnycja-projektiv\app\bin\Debug\net10.0\app.deps.json
+C:\work\Playground-Pisochnycja-projektiv\app\bin\Debug\net10.0\app.runtimeconfig.json
+C:\work\Playground-Pisochnycja-projektiv\app\bin\Debug\net10.0\app.dll
+C:\work\Playground-Pisochnycja-projektiv\app\bin\Debug\net10.0\app.pdb
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.dll
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\refint\app.dll
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.pdb
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\app.genruntimeconfig.cache
+C:\work\Playground-Pisochnycja-projektiv\app\obj\Debug\net10.0\ref\app.dll
