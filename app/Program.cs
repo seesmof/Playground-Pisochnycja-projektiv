@@ -1,8 +1,7 @@
-﻿for (int i = 0; i < 10; i++)
-{
-  Console.Write($"I is {i}, ");
-}
-int[] array = new int[10];
-Console.WriteLine(array.Length);
-Console.WriteLine(array.ElementAtOrDefault(9));
-Console.WriteLine(array);
+﻿int[] data = { 20, 90, 67, 3, 16, 23, 2 };
+double mean = data.Average();
+Console.WriteLine($"Array mean: {mean}");
+Console.WriteLine($"Array length: {data.Length}");
+
+var result = data.Where(number => number >= mean);
+Console.WriteLine(string.Join(", ", result));
