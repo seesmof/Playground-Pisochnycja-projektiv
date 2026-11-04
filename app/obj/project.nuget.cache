@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "p7CrKQ6J5mY=",
+  "dgSpecHash": "DjKbervu78k=",
   "success": true,
   "projectFilePath": "C:\\work\\Playground-Pisochnycja-projektiv\\app\\app.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\seesm\\.nuget\\packages\\spectre.console\\0.57.2\\spectre.console.0.57.2.nupkg.sha512",
+    "C:\\Users\\seesm\\.nuget\\packages\\spectre.console.ansi\\0.57.2\\spectre.console.ansi.0.57.2.nupkg.sha512"
+  ],
   "logs": []
 }
