@@ -10,9 +10,12 @@ var students = new List<Student>
 };
 var sortedStudents = students.OrderByDescending(n => n.Age).ToArray();
 var studentsTable = new Table();
-studentsTable.AddColumn("Name");
-studentsTable.AddColumn("Age");
-foreach (var student in students)
+var properties = typeof(Student).GetProperties();
+foreach (var property in properties)
+{
+  studentsTable.AddColumn(property.Name);
+}
+foreach (var student in sortedStudents)
 {
   studentsTable.AddRow(student.Name, student.Age.ToString());
 }
