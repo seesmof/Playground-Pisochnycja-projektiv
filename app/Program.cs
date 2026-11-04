@@ -12,14 +12,15 @@ Console.WriteLine($"More than mean: {string.Join(", ", moreThanMean)}");
 var doubledArray = data.Select(n => n * 2);
 Console.WriteLine($"Doubled: {string.Join(", ", doubledArray)}");
 
-var students = new[]
+var students = new List<Student>
 {
-  new { Name = "Theodore Collier", Age = 60},
-  new { Name = "Ruth Dennis", Age = 60},
-  new { Name = "Elmer Carpenter", Age = 50},
-  new { Name = "Jeremiah Warner", Age = 35},
-  new { Name = "Alex Parks", Age = 45},
+  new Student { Name="Ella Haynes", Age=31,Email="oz@ed.ro"},
+  new Student { Name="Marian Saunders", Age=59,Email="nilha@uzauho.sb"},
+  new Student { Name="Francis Flowers", Age=42,Email="fozse@siskoate.co.uk"},
+  new Student { Name="Harriett Mendez", Age=59,Email="mono@tuk.mk"},
+  new Student { Name="Lucille Gill", Age=58,Email="aj@ecac.kw"},
 };
+
 var sortedStudents = students.OrderByDescending(n => n.Age).ToArray();
 Console.WriteLine("Ordered students:");
 var sortedStudentsTable = new Table();
