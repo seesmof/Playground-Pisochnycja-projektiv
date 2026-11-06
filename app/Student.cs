@@ -1,1 +1,0 @@
-public record Student(string Name, int Age);
