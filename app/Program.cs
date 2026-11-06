@@ -1,13 +1,18 @@
-﻿Console.Write("Please add a number: ");
-var input = Console.ReadLine();
+﻿Console.Write($"Please write the first number: ");
+string? firstNumberInput = Console.ReadLine();
 
-bool success = int.TryParse(input, out var result);
+Console.Write($"Please enter the second number: ");
+string? secondNumberInput = Console.ReadLine();
 
-if (success)
+bool firstSuccess = int.TryParse(firstNumberInput, out int firstNumber);
+bool secondSuccess = int.TryParse(secondNumberInput, out int secondNumber);
+
+if (!firstSuccess || !secondSuccess)
 {
-  Console.WriteLine($"The input parsed is: {result}");
+  Console.WriteLine("ERROR: Some of the two numbers was not a real number. Please try again.");
 }
-else
+else if (firstSuccess && secondSuccess)
 {
-  Console.WriteLine($"The parsing failed...");
+  long sum = (long)firstNumber + (long)secondNumber;
+  Console.WriteLine($"The sum of the two numbers is {sum}.");
 }
