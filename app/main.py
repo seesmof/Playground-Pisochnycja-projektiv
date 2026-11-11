@@ -14,14 +14,24 @@ SQLModel.metadata.create_all(engine)
 
 # Insert
 with Session(engine) as session:
-    new_user = User(name="Laura Olson", email="lulius@mon.tc")
-    session.add(new_user)
-    session.commit()
+    got_that_name = "Laura Olson"
+    statement = select(User).where(User.name == got_that_name)
+    found_user = session.exec(statement).first()
+    if not found_user:
+        new_user = User(name="Laura Olson", email="lulius@mon.tc")
+        session.add(new_user)
+        session.commit()
 
 # Query
-with Session(engine) as s:
+with Session(engine) as session:
     statement = select(User)
-    print(f"{statement = }")
     users = session.exec(statement)
     for user in users:
         print(f"{user.id}. {user.name} has {user.email}")
+
+# Update
+with Session(engine) as session:
+    statement = select(User).where(User.id == 1)
+    found_user = session.exec(statement).first()
+    found_user.name = "Shane Dawson"
+    session.commit()
