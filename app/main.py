@@ -1,4 +1,4 @@
-from sqlmodel import SQLModel, Field, create_engine, Session, select
+from sqlmodel import SQLModel, Field, create_engine, Session, select, col
 
 
 class User(SQLModel, table=True):
@@ -7,12 +7,9 @@ class User(SQLModel, table=True):
     email: str
 
 
-# Create a database
 engine = create_engine("sqlite:///./database.db")
-# Create all tables
 SQLModel.metadata.create_all(engine)
 
-# Insert
 with Session(engine) as session:
     got_that_name = "Laura Olson"
     statement = select(User).where(User.name == got_that_name)
@@ -22,16 +19,18 @@ with Session(engine) as session:
         session.add(new_user)
         session.commit()
 
-# Query
 with Session(engine) as session:
     statement = select(User)
     users = session.exec(statement)
     for user in users:
         print(f"{user.id}. {user.name} has {user.email}")
 
-# Update
 with Session(engine) as session:
-    statement = select(User).where(User.id == 1)
-    found_user = session.exec(statement).first()
-    found_user.name = "Shane Dawson"
-    session.commit()
+    user = session.get(User, 1)
+    if user:
+        user.name = "Shane Dawson"
+        session.commit()
+
+users = session.exec(select(User).where(col(User.name).is_not(None)))
+for user in users:
+    print(f"{user.id}. {user.name}, email: {user.email}")
