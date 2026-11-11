@@ -1,36 +1,53 @@
 from sqlmodel import SQLModel, Field, create_engine, Session, select, col
 
 
-class User(SQLModel, table=True):
+def display_tasks(tasks):
+    if not tasks:
+        print("No tasks found.")
+        return
+    for task in tasks:
+        print(
+            f'{task.id}. {task.title} is {"completed" if task.isCompleted else "NOT completed"}.'
+        )
+
+
+class Task(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
-    name: str
-    email: str
+    title: str
+    isCompleted: bool = False
 
 
 engine = create_engine("sqlite:///./database.db")
 SQLModel.metadata.create_all(engine)
 
+# Create
 with Session(engine) as session:
-    got_that_name = "Laura Olson"
-    statement = select(User).where(User.name == got_that_name)
-    found_user = session.exec(statement).first()
-    if not found_user:
-        new_user = User(name="Laura Olson", email="lulius@mon.tc")
-        session.add(new_user)
+    given_task_name = "Complete this tutorial"
+    given_task = session.exec(select(Task).where(Task.title == given_task_name)).first()
+    if not given_task:
+        new_task = Task(title=given_task_name)
+        session.add(new_task)
         session.commit()
 
+# Read
 with Session(engine) as session:
-    statement = select(User)
-    users = session.exec(statement)
-    for user in users:
-        print(f"{user.id}. {user.name} has {user.email}")
+    tasks = session.exec(select(Task)).all()
+    display_tasks(tasks)
 
+# Update
 with Session(engine) as session:
-    user = session.get(User, 1)
-    if user:
-        user.name = "Shane Dawson"
+    given_task = session.exec(select(Task).where(Task.title == given_task_name)).first()
+    if given_task:
+        given_task.isCompleted = not given_task.isCompleted
         session.commit()
+    tasks = session.exec(select(Task)).all()
+    display_tasks(tasks)
 
-users = session.exec(select(User).where(col(User.name).is_not(None)))
-for user in users:
-    print(f"{user.id}. {user.name}, email: {user.email}")
+# Delete
+with Session(engine) as session:
+    given_task = session.exec(select(Task).where(Task.title == given_task_name)).first()
+    if given_task:
+        session.delete(given_task)
+        session.commit()
+    tasks = session.exec(select(Task)).all()
+    display_tasks(tasks)
