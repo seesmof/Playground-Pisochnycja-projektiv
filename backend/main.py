@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlmodel import Field, SQLModel, create_engine, Session, select
@@ -29,14 +29,40 @@ engine = create_engine("sqlite:///./database.db")
 SQLModel.metadata.create_all(engine)
 
 
-@app.post("/")
-def create_task(task: TaskCreate):
-    with Session(engine) as s:
-        new_task = Task(content=task.content, is_completed=task.is_completed)
+def get_session():
+    with Session(engine) as session:
+        yield session
 
-        s.add(new_task)
-        s.commit()
-        s.refresh(new_task)
 
-        return {"status": "success", "task": new_task}
-    return {"status": "failed"}
+@app.post("/tasks")
+def create_task(task_in: TaskCreate, session: Session = Depends(get_session)):
+    new_task = Task.model_validate(task_in)
+    session.add(new_task)
+    session.commit()
+    session.refresh(new_task)
+    return new_task
+
+
+@app.get("/tasks")
+def list_tasks(session: Session = Depends(get_session)):
+    all_tasks = session.exec(select(Task)).all()
+    return all_tasks
+
+
+class TaskUpdate(BaseModel):
+    is_completed: bool
+
+
+@app.patch("/tasks/{task_id}")
+def update_task_status(
+    task_id: int, task_in: TaskUpdate, session: Session = Depends(get_session)
+):
+    task = session.get(Task, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+
+    task.is_completed = task_in.is_completed
+    session.add(task)
+    session.commit()
+    session.refresh(task)
+    return task
