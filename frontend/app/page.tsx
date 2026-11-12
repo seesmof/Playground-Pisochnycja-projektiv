@@ -53,7 +53,18 @@ export default function Page() {
     fetchTasks();
   }, []);
 
-  const toggleStatus = (task: Task) => {};
+  const toggleStatus = async (task: Task) => {
+    const response = await fetch(`${BACKEND_URL}/tasks/${task.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ is_completed: !task.is_completed }),
+    });
+    const updatedTask = await response.json();
+
+    setTasks((prev) =>
+      prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)),
+    );
+  };
 
   return (
     <div className="bg-sky-50 min-h-screen flex items-center justify-center p-24">
@@ -68,11 +79,11 @@ export default function Page() {
               <input
                 id={`task_${task.id}`}
                 type="checkbox"
-                onClick={() => toggleStatus(task)}
+                checked={task.is_completed}
+                onChange={() => toggleStatus(task)}
               />
               <label htmlFor={`task_${task.id}`}>
-                {task.id}. {task.content} is{" "}
-                {task.is_completed ? "completed" : "NOT completed"}.
+                {task.id}. {task.content}
               </label>
             </div>
           ))}
