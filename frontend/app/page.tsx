@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import React, { useEffect, useState } from "react";
 
 const BACKEND_URL = "http://127.0.0.1:8000";
@@ -34,7 +31,7 @@ export default function Page() {
       });
       const data = await response.json();
       setOutput(`Successfully created an object: ${data.content}`);
-      console.log(`Successfully created an object: ${data.content}`);
+      setTasks((prev) => [...prev, data]);
     } catch (error) {
       setOutput("Failed to connect to FastAPI backend.");
       console.error(error);
@@ -67,13 +64,22 @@ export default function Page() {
   };
 
   return (
-    <div className="bg-sky-50 min-h-screen flex items-center justify-center p-24">
+    <div className="bg-sky-50 min-h-screen flex items-center justify-center">
       <div className="bg-white rounded-md p-4">
         <form onSubmit={handleSubmit} className="flex gap-1">
-          <Input value={input} onChange={(e) => setInput(e.target.value)} />
-          <Button type="submit">Add</Button>
+          <input
+            className="outline-1"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            className="bg-sky-700 text-white font-bold rounded-md p-2"
+            type="submit"
+          >
+            Add
+          </button>
         </form>
-        <div className="pt-12">
+        <div className="pt-4">
           {tasks.map((task) => (
             <div className="flex gap-1" key={task.id}>
               <input
