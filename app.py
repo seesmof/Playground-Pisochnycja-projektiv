@@ -2,9 +2,12 @@
 Streamlit дашборд: синтетичні погодні дані + прогноз SARIMA.
 
 Прогноз виконується "на льоту" (on the go) при натисканні кнопки.
+Можна обрати початкову дату й час — від цієї точки будується прогноз.
 
 Запуск:  uv run streamlit run app.py
 """
+
+from datetime import timedelta
 
 import streamlit as st
 import pandas as pd
@@ -41,8 +44,18 @@ HORIZON = 24  # прогноз на 24 години
 ORDER = (1, 1, 0)
 SEASONAL_ORDER = (1, 0, 0, 24)
 
+
 # ----------------------------------------------------------------------
-# Бічна панель
+# Завантаження даних (кешоване)
+# ----------------------------------------------------------------------
+@st.cache_data(ttl=600)
+def load_history(city: str) -> pd.DataFrame:
+    df = pd.read_csv(f"data/{city}.csv", parse_dates=["timestamp"])
+    return df.set_index("timestamp")
+
+
+# ----------------------------------------------------------------------
+# Бічна панель: вибір міста, показника, початкової дати й часу
 # ----------------------------------------------------------------------
 city = st.sidebar.selectbox(
     "Місто",
@@ -55,17 +68,28 @@ var = st.sidebar.selectbox(
     format_func=lambda v: VARIABLE_NAMES[v],
 )
 
-
-# ----------------------------------------------------------------------
-# Завантаження даних (кешоване)
-# ----------------------------------------------------------------------
-@st.cache_data(ttl=600)
-def load_history(city: str) -> pd.DataFrame:
-    df = pd.read_csv(f"data/{city}.csv", parse_dates=["timestamp"])
-    return df.set_index("timestamp")
-
-
 hist = load_history(city)
+
+# Діапазон доступних дат: щоб вистачило історії для навчання (30 днів)
+min_date = (hist.index.min() + pd.Timedelta(days=30)).date()
+max_date = hist.index.max().date()
+
+st.sidebar.markdown("### Початкова точка прогнозу")
+start_date = st.sidebar.date_input(
+    "Дата",
+    value=max_date,
+    min_value=min_date,
+    max_value=max_date,
+)
+start_time = st.sidebar.time_input(
+    "Час",
+    value=pd.Timestamp("23:00").time(),
+    step=timedelta(hours=1),
+)
+
+# Обрана точка відліку: останнє спостереження, від якого будуємо прогноз
+cutoff = pd.Timestamp.combine(start_date, start_time)
+st.sidebar.caption(f"Точка відліку: {cutoff:%Y-%m-%d %H:%M}")
 
 
 # ----------------------------------------------------------------------
@@ -92,17 +116,20 @@ def run_sarima(series: pd.Series) -> pd.Series:
     return pd.Series(forecast.values, index=future_idx, name="prediction")
 
 
-forecast_key = f"pred__{city}_{var}"
+# Історія до обраної точки (включно)
+observable = hist.loc[:cutoff, var]
+
+forecast_key = f"pred__{city}_{var}_{cutoff:%Y%m%d%H%M}"
 if st.sidebar.button("🔮 Прогнозувати на 24 год"):
     with st.spinner("Навчання моделі SARIMA…"):
-        st.session_state[forecast_key] = run_sarima(hist[var])
+        st.session_state[forecast_key] = run_sarima(observable)
     st.success("Прогноз готовий!")
 
 # ----------------------------------------------------------------------
-# Побудова графіка: останні 168 год історії + прогноз (якщо є)
+# Побудова графіка: останні 168 год історії до обраної дати + прогноз
 # ----------------------------------------------------------------------
 lookback = 168  # годин (7 днів)
-recent = hist[var].iloc[-lookback:]
+recent = observable.iloc[-lookback:]
 
 fig = go.Figure()
 
@@ -112,7 +139,7 @@ fig.add_trace(
         x=recent.index,
         y=recent.values,
         mode="lines",
-        name="Історія (останні 7 днів)",
+        name="Історія (7 днів до обраної дати)",
         line=dict(color="#1f77b4", width=1.5),
     )
 )
