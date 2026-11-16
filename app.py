@@ -4,6 +4,7 @@ Streamlit дашборд: синтетичні погодні дані + про�
 Використовує тільки температуру, вологість та тиск.
 Прогноз виконується "на льоту" (on the go) при натисканні кнопки.
 Можна обрати початкову дату й час — від цієї точки будується прогноз.
+Можна обрати горизонт прогнозу (24/48/72/168 годин) та завантажити його у CSV.
 
 Запуск:  uv run streamlit run app.py
 """
@@ -48,10 +49,8 @@ VARIABLES = list(VARIABLE_NAMES)
 
 # Параметри моделі SARIMA
 TRAIN_WINDOW = 720  # останні 720 год (30 днів) для навчання
-HORIZON = 24  # прогноз на 24 години
 ORDER = (1, 1, 0)
 SEASONAL_ORDER = (1, 0, 0, 24)
-
 
 # ----------------------------------------------------------------------
 # Завантаження даних (кешоване)
@@ -63,7 +62,7 @@ def load_history(city: str) -> pd.DataFrame:
 
 
 # ----------------------------------------------------------------------
-# Бічна панель: вибір міста, показника, початкової дати й часу
+# Бічна панель: вибір міста, показника, горизонту, дати й часу
 # ----------------------------------------------------------------------
 city = st.sidebar.selectbox(
     "Місто",
@@ -74,6 +73,13 @@ var = st.sidebar.selectbox(
     "Показник",
     VARIABLES,
     format_func=lambda v: VARIABLE_NAMES[v],
+)
+
+horizon = st.sidebar.selectbox(
+    "Горизонт прогнозу (годин)",
+    options=[24, 48, 72, 168],
+    index=0,  # за замовчуванням 24
+    format_func=lambda h: f"{h} годин",
 )
 
 hist = load_history(city)
@@ -104,8 +110,8 @@ st.sidebar.caption(f"Точка відліку: {cutoff:%Y-%m-%d %H:%M}")
 # Прогноз "на льоту" (SARIMA) при натисканні кнопки
 # ----------------------------------------------------------------------
 @st.cache_data(ttl=600, show_spinner=False)
-def run_sarima(series: pd.Series) -> pd.Series:
-    """Навчає SARIMA на останніх TRAIN_WINDOW годинах і прогнозує HORIZON."""
+def run_sarima(series: pd.Series, horizon: int) -> pd.Series:
+    """Навчає SARIMA на останніх TRAIN_WINDOW годинах і прогнозує horizon годин."""
     train = series.astype(float).iloc[-TRAIN_WINDOW:]
     model = SARIMAX(
         train,
@@ -115,11 +121,11 @@ def run_sarima(series: pd.Series) -> pd.Series:
         enforce_invertibility=False,
     )
     fitted = model.fit(disp=False, maxiter=50)
-    forecast = fitted.forecast(steps=HORIZON)
+    forecast = fitted.forecast(steps=horizon)
 
     last_ts = train.index[-1]
     future_idx = pd.date_range(
-        start=last_ts + pd.Timedelta(hours=1), periods=HORIZON, freq="h"
+        start=last_ts + pd.Timedelta(hours=1), periods=horizon, freq="h"
     )
     return pd.Series(forecast.values, index=future_idx, name="prediction")
 
@@ -127,11 +133,12 @@ def run_sarima(series: pd.Series) -> pd.Series:
 # Історія до обраної точки (включно)
 observable = hist.loc[:cutoff, var]
 
-forecast_key = f"pred__{city}_{var}_{cutoff:%Y%m%d%H%M}"
-if st.sidebar.button("🔮 Прогнозувати на 24 год"):
+forecast_key = f"pred__{city}_{var}_{cutoff:%Y%m%d%H%M}_{horizon}"
+if st.sidebar.button("🔮 Прогнозувати"):
     with st.spinner("Навчання моделі SARIMA…"):
-        st.session_state[forecast_key] = run_sarima(observable)
+        st.session_state[forecast_key] = run_sarima(observable, horizon)
     st.success("Прогноз готовий!")
+
 
 # ----------------------------------------------------------------------
 # Побудова графіка: останні 168 год історії до обраної дати + прогноз
@@ -147,7 +154,7 @@ fig.add_trace(
         x=recent.index,
         y=recent.values,
         mode="lines",
-        name="Історія (7 днів до обраної дати)",
+        name="Історія (7 днів дообраної дати)",
         line=dict(color=SOL_BLUE, width=1.5),
     )
 )
@@ -160,7 +167,7 @@ if forecast_key in st.session_state:
             x=pred.index,
             y=pred.values,
             mode="lines+markers",
-            name="Прогноз (наступні 24 год)",
+            name=f"Прогноз ({horizon} годин)",
             line=dict(color=SOL_ORANGE, width=2, dash="dash"),
             marker=dict(size=5),
         )
@@ -182,3 +189,27 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
+# ----------------------------------------------------------------------
+# Кнопка завантаження прогнозу
+# ----------------------------------------------------------------------
+if forecast_key in st.session_state:
+    pred = st.session_state[forecast_key]
+    csv = pd.DataFrame(
+        {
+            "Час": pred.index.strftime("%Y-%m-%d %H:%M"),
+            "Прогноз": pred.values,
+        }
+    )
+    st.download_button(
+        label="📥 Завантажити прогноз у CSV",
+        data=csv.to_csv(index=False).encode("utf-8"),
+        file_name=f"{city}_{var}_forecast_{horizon}h.csv",
+        mime="text/csv",
+    )
+
+
+# ----------------------------------------------------------------------
+# Ключові показники (MINIMAL: тільки останнє спостереження)
+# ----------------------------------------------------------------------
+st.metric("Останнє спостереження", f"{recent.iloc[-1]:.1f}")
