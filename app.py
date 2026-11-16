@@ -1,5 +1,5 @@
 """
-Streamlit дашборд: синтетичні погодні дані + прогноз SARIMA.
+Streamlit дашборд: синтетичні погодні дані + прогноз SARIMA (тема Solarized).
 
 Використовує тільки температуру, вологість та тиск.
 Прогноз виконується "на льоту" (on the go) при натисканні кнопки.
@@ -14,6 +14,15 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+# ----------------------------------------------------------------------
+# Палітра Solarized (light)
+# ----------------------------------------------------------------------
+SOL_BASE3 = "#fdf6e3"   # фон
+SOL_BASE2 = "#eee8d5"   # сітка / другорядний фон
+SOL_BASE01 = "#586e75"  # основний текст
+SOL_BLUE = "#268bd2"    # історія
+SOL_ORANGE = "#cb4b16"  # прогноз
 
 # ----------------------------------------------------------------------
 # Конфігурація сторінки
@@ -139,7 +148,7 @@ fig.add_trace(
         y=recent.values,
         mode="lines",
         name="Історія (7 днів до обраної дати)",
-        line=dict(color="#1f77b4", width=1.5),
+        line=dict(color=SOL_BLUE, width=1.5),
     )
 )
 
@@ -152,7 +161,7 @@ if forecast_key in st.session_state:
             y=pred.values,
             mode="lines+markers",
             name="Прогноз (наступні 24 год)",
-            line=dict(color="#ff7f0e", width=2, dash="dash"),
+            line=dict(color=SOL_ORANGE, width=2, dash="dash"),
             marker=dict(size=5),
         )
     )
@@ -164,43 +173,12 @@ fig.update_layout(
     hovermode="x unified",
     height=500,
     template="plotly_white",
+    paper_bgcolor=SOL_BASE3,
+    plot_bgcolor=SOL_BASE3,
+    font=dict(color=SOL_BASE01),
+    xaxis=dict(gridcolor=SOL_BASE2, zerolinecolor=SOL_BASE2),
+    yaxis=dict(gridcolor=SOL_BASE2, zerolinecolor=SOL_BASE2),
     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
 )
 
 st.plotly_chart(fig, use_container_width=True)
-
-# ----------------------------------------------------------------------
-# Ключові показники
-# ----------------------------------------------------------------------
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric("Останнє спостереження", f"{recent.iloc[-1]:.1f}")
-with col2:
-    if forecast_key in st.session_state:
-        pred = st.session_state[forecast_key]
-        st.metric("Середнє значення прогнозу (24 год)", f"{pred.mean():.1f}")
-    else:
-        st.metric("Середнє значення прогнозу (24 год)", "—")
-with col3:
-    if forecast_key in st.session_state:
-        pred = st.session_state[forecast_key]
-        st.metric("Діапазон прогнозу", f"{pred.min():.1f} – {pred.max():.1f}")
-    else:
-        st.metric("Діапазон прогнозу", "—")
-
-# ----------------------------------------------------------------------
-# Таблиця прогнозу (розгорнути за потреби)
-# ----------------------------------------------------------------------
-with st.expander("Показати прогноз на 24 год"):
-    if forecast_key in st.session_state:
-        pred = st.session_state[forecast_key]
-        st.dataframe(
-            pd.DataFrame(
-                {
-                    "Час": pred.index.strftime("%Y-%m-%d %H:%M"),
-                    "Прогноз": pred.values,
-                }
-            )
-        )
-    else:
-        st.info("Натисніть «Прогнозувати на 24 год» вище, щоб згенерувати прогноз.")
