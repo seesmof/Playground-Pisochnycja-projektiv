@@ -29,7 +29,7 @@ SOL_ORANGE = "#cb4b16"  # прогноз
 # Конфігурація сторінки
 # ----------------------------------------------------------------------
 st.set_page_config(page_title="Погодний дашборд", layout="wide")
-st.title("☀️ Синтетичні погодні дані + Прогноз SARIMA")
+st.title("Погодний дашборд")
 
 # ----------------------------------------------------------------------
 # Словники для відображення (українською)
@@ -134,10 +134,9 @@ def run_sarima(series: pd.Series, horizon: int) -> pd.Series:
 observable = hist.loc[:cutoff, var]
 
 forecast_key = f"pred__{city}_{var}_{cutoff:%Y%m%d%H%M}_{horizon}"
-if st.sidebar.button("🔮 Прогнозувати"):
+if st.sidebar.button("✝️ Прогнозувати"):
     with st.spinner("Навчання моделі SARIMA…"):
         st.session_state[forecast_key] = run_sarima(observable, horizon)
-    st.success("Прогноз готовий!")
 
 
 # ----------------------------------------------------------------------
