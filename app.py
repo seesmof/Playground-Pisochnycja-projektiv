@@ -1,6 +1,7 @@
 """
 Streamlit дашборд: синтетичні погодні дані + прогноз SARIMA.
 
+Використовує тільки температуру, вологість та тиск.
 Прогноз виконується "на льоту" (on the go) при натисканні кнопки.
 Можна обрати початкову дату й час — від цієї точки будується прогноз.
 
@@ -32,8 +33,6 @@ VARIABLE_NAMES = {
     "temperature_c": "Температура (°C)",
     "humidity_pct": "Вологість (%)",
     "pressure_hpa": "Тиск (гПа)",
-    "wind_speed_ms": "Швидкість вітру (м/с)",
-    "precipitation_mm": "Опади (мм)",
 }
 CITIES = list(CITY_NAMES)
 VARIABLES = list(VARIABLE_NAMES)
@@ -87,7 +86,7 @@ start_time = st.sidebar.time_input(
     step=timedelta(hours=1),
 )
 
-# Обрана точка відліку: останнє спостереження, від якого будуємо прогноз
+# Обрана точка відліку
 cutoff = pd.Timestamp.combine(start_date, start_time)
 st.sidebar.caption(f"Точка відліку: {cutoff:%Y-%m-%d %H:%M}")
 
