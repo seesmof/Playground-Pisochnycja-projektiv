@@ -1,4 +1,0 @@
-streamlit>=1.64
-edge-tts>=7.3
-moviepy>=2.2
-Pillow>=11.3
