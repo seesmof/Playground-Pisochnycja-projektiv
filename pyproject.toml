@@ -1,0 +1,10 @@
+[project]
+name = "playground-pisochnycja-projektiv"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "nicegui>=4.0.0",
+    "sqlmodel>=0.0.50",
+]
