@@ -10,6 +10,11 @@ count: int = 0
 def update_count_label(count: int) -> None:
     count_label.set_text(str(count))
 
+    if count == 0:
+        count_label.classes(remove="text-green-700", add="text-red-700")
+    else:
+        count_label.classes(add="text-green-700", remove="text-red-700")
+
 
 def handle_decrement():
     global count
@@ -37,4 +42,8 @@ with ui.row().classes("flex flex-row gap-3 items-center"):
 
 reset_button = ui.button(text="Reset", on_click=handle_reset)
 
-ui.run()
+"""
+Okay, so conditionally applying classes don't work for some reason but applying it in the update on click events works. Why?
+"""
+
+ui.run(title="Clicker", favicon="📎")
