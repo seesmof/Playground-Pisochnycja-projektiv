@@ -1,5 +1,5 @@
 from nicegui import ui, app
-from sqlmodel import SQLModel, Session, create_engine
+from sqlmodel import SQLModel, Session, Field, create_engine, select
 
 
 def create_db_and_tables():
@@ -13,10 +13,10 @@ create_db_and_tables()
 app.colors(primary="#4E7D3A")
 
 
-def navbar():
-    with ui.header().classes("flex items-center justify-between"):
-        ui.link(text="Ферменеджер", target="/").classes("text-white no-underline")
-        # ui.button(icon="menu")
+class Land(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    name: str
+    area_hectares: float
 
 
 def sidebar():
@@ -28,15 +28,13 @@ def sidebar():
 
 @ui.page("/")
 def main_page():
-    navbar()
     sidebar()
 
 
 @ui.page("/fields")
 def fields_page():
-    navbar()
     sidebar()
     ui.label("Fields")
 
 
-ui.run(title="Ферменеджер", favicon="🐴")
+ui.run(title="Ферменеджер", favicon="🐑")
