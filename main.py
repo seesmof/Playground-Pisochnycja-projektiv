@@ -83,18 +83,27 @@ def main_page():
 
 @ui.page("/fields")
 def fields_page():
+    def update_contents():
+        list_lands.refresh()
+        show_stats.refresh()
+
     def add_land():
-        if not name_input.value:
+        if not add_name_input.value:
             ui.notify("Введіть назву поля", color="negative")
             return
-        if area_input.value is None:
+        if add_area_input.value is None:
             ui.notify("Введіть площу поля", color="negative")
 
-        create_land(name=name_input.value, area=float(area_input.value or 0.0))
+        create_land(name=add_name_input.value, area=float(add_area_input.value or 0.0))
 
         ui.notify("Поле додано", color="positive")
-        d.close()
-        list_lands.refresh()
+        add_dialog.close()
+        update_contents()
+
+    """
+    def edit_land(land: Land):
+        update_land(land_id=land.id,edit_name_input)
+    """
 
     @ui.refreshable
     def list_lands():
@@ -106,10 +115,28 @@ def fields_page():
             for land in lands:
                 with ui.card():
                     ui.label(f'Поле "{land.name}"').classes("font-medium")
-                    ui.label(str(land.area)).classes("text-green-700")
+                    ui.label(f"Площа: {land.area} га")
                     with ui.row().classes("gap-3"):
-                        ui.button("Змінити", color="primary")
-                        ui.button("Видалити", color="negative")
+                        ui.button(
+                            "Змінити",
+                            color="primary",
+                            on_click=lambda l=land: (edit_dialog.open(), edit_land(l)),
+                        ).props("flat")
+                        ui.button("Видалити", color="negative").props("flat")
+                with ui.dialog() as edit_dialog, ui.card():
+                    edit_name_input = ui.input(
+                        label="Назва поля", value=land.name
+                    ).classes("w-full")
+                    edit_area_input = ui.number(
+                        label="Площа поля (га)", value=float(land.area)
+                    ).classes("w-full")
+                    with ui.row().classes("flex justify-end w-full"):
+                        ui.button("Відмінити", on_click=add_dialog.close).props("flat")
+                        ui.button(
+                            "Додати",
+                            icon="check",
+                            on_click=add_land,
+                        )
 
     @ui.refreshable
     def show_stats():
@@ -131,13 +158,13 @@ def fields_page():
                 ui.label(f'Поле "{largest_field.name}"').classes("font-bold text-lg")
 
     sidebar()
-    with ui.dialog() as d, ui.card():
-        name_input = ui.input(
+    with ui.dialog() as add_dialog, ui.card():
+        add_name_input = ui.input(
             label="Назва (або номер)",
         ).classes("w-full")
-        area_input = ui.number(label="Площа поля (га)").classes("w-full")
+        add_area_input = ui.number(label="Площа поля (га)").classes("w-full")
         with ui.row().classes("flex justify-end w-full"):
-            ui.button("Відмінити", on_click=d.close).props("flat")
+            ui.button("Відмінити", on_click=add_dialog.close).props("flat")
             ui.button(
                 "Додати",
                 icon="check",
@@ -147,7 +174,7 @@ def fields_page():
     ui.label("Статистика").classes("text-lg")
     show_stats()
     ui.label("Поля").classes("text-lg mt-7")
-    ui.button(text="Додати нове поле", icon="add", on_click=d.open)
+    ui.button(text="Додати нове поле", icon="add", on_click=add_dialog.open)
     list_lands()
 
 
