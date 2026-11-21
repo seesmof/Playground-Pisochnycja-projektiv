@@ -102,13 +102,14 @@ def fields_page():
         if not lands:
             ui.label("Жодного поля не додано 🌱").classes("text-gray-600 text-lg")
             return
-        columns = [
-            {"name": "name", "label": "Назва", "field": "name"},
-            {"name": "area", "label": "Площа (га)", "field": "area"},
-            {"name": "actions", "label": "Дії", "field": "actions"},
-        ]
-        rows = [{"id": land.id, "name": land.name, "area": land.area} for land in lands]
-        ui.table(columns=columns, rows=rows, row_key="id")
+        with ui.row().classes("gap-3"):
+            for land in lands:
+                with ui.card():
+                    ui.label(f'Поле "{land.name}"').classes("font-medium")
+                    ui.label(str(land.area)).classes("text-green-700")
+                    with ui.row().classes("gap-3"):
+                        ui.button("Змінити", color="primary")
+                        ui.button("Видалити", color="negative")
 
     sidebar()
     with ui.dialog() as d, ui.card():
