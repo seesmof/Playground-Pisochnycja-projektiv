@@ -1,26 +1,23 @@
-import os
-from sqlmodel import Session, SQLModel, Field, create_engine
 from nicegui import ui
 
+users = [
+    {"id": 1, "name": "Elmer Lucas"},
+    {"id": 2, "name": "Fannie Morales"},
+    {"id": 3, "name": "Alex Waters"},
+]
 
-class Task(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    content: str
-    is_completed: bool = False
+columns = [
+    {"name": "id", "label": "ID", "field": "id"},
+    {"name": "name", "label": "Full Name", "field": "name"},
+]
+
+table = ui.table(columns=columns, rows=users).classes("w-full")
 
 
-sqlite_file_name = "sqlite:///database.db"
-engine = create_engine(sqlite_file_name)
+def filter_users(event):
+    query = event.value.lower()
+    table.rows = [u for u in users if query in u["name"].lower()]
 
 
-def create_database_and_tables():
-    SQLModel.metadata.create_all(engine)
-
-
-create_database_and_tables()
-
-with ui.column().classes("max-w-3xl mx-auto p-3 w-full"):
-    ui.label("Task Manager")
-    ui.button("Click")
-
+ui.input(label="Search users", on_change=filter_users)
 ui.run()
