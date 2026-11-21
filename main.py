@@ -19,11 +19,18 @@ class Land(SQLModel, table=True):
     area_hectares: float
 
 
+def create_sidebar_button(text: str, icon_name: str, route: str):
+    return (
+        ui.button(text=text, icon=icon_name, on_click=lambda: ui.navigate.to(route))
+        .classes("w-full")
+        .props("flat align=left")
+    )
+
+
 def sidebar():
     with ui.left_drawer().classes("bg-green-50"):
-        ui.button(
-            text="Поля", icon="grass", on_click=lambda: ui.navigate.to("/fields")
-        ).classes("w-full").props("flat align=left")
+        create_sidebar_button("Головна", "home", "/")
+        create_sidebar_button("Поля", "grass", "/fields")
 
 
 @ui.page("/")
