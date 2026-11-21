@@ -1,23 +1,18 @@
 from nicegui import ui
 
-users = [
-    {"id": 1, "name": "Elmer Lucas"},
-    {"id": 2, "name": "Fannie Morales"},
-    {"id": 3, "name": "Alex Waters"},
-]
+"""
+Okay, so what do I want? I want ultimately a farm management app that will have reactivity. For this I need to learn events like how events work in nicegui and how the UI is updated.
+"""
 
-columns = [
-    {"name": "id", "label": "ID", "field": "id"},
-    {"name": "name", "label": "Full Name", "field": "name"},
-]
-
-table = ui.table(columns=columns, rows=users).classes("w-full")
+count: int = 0
 
 
-def filter_users(event):
-    query = event.value.lower()
-    table.rows = [u for u in users if query in u["name"].lower()]
+def handle_increment():
+    global count
+    count += 1
+    increment_button.set_text(f"Increment: {count}")
 
 
-ui.input(label="Search users", on_change=filter_users)
+increment_button = ui.button(text=f"Increment: {count}", on_click=handle_increment)
+
 ui.run()
