@@ -111,6 +111,25 @@ def fields_page():
                         ui.button("Змінити", color="primary")
                         ui.button("Видалити", color="negative")
 
+    @ui.refreshable
+    def show_stats():
+        lands = get_lands()
+
+        total_lands = len(lands)
+        average_area = sum(land.area for land in lands) / total_lands
+        largest_field = max(lands, key=lambda l: l.area)
+
+        with ui.row().classes("w-full gap-3"):
+            with ui.card().classes("flex-1 min-w-64"):
+                ui.label("Загалом полів")
+                ui.label(str(total_lands)).classes("font-bold text-lg")
+            with ui.card().classes("flex-1 min-w-64"):
+                ui.label("Середня площа поля")
+                ui.label(f"{average_area:.2f} га").classes("font-bold text-lg")
+            with ui.card().classes("flex-1 min-w-64"):
+                ui.label("Найбільше поле")
+                ui.label(f'Поле "{largest_field.name}"').classes("font-bold text-lg")
+
     sidebar()
     with ui.dialog() as d, ui.card():
         name_input = ui.input(
@@ -125,7 +144,9 @@ def fields_page():
                 on_click=add_land,
             )
 
-    ui.label("Поля").classes("font-bold text-3xl")
+    ui.label("Статистика").classes("text-lg")
+    show_stats()
+    ui.label("Поля").classes("text-lg mt-7")
     ui.button(text="Додати нове поле", icon="add", on_click=d.open)
     list_lands()
 
