@@ -1,29 +1,19 @@
-from nicegui import ui
+from nicegui import ui, app
+from sqlmodel import SQLModel, Session, create_engine
 
-with ui.header().classes("items-center flex justify-between"):
-    ui.label("This Farm").classes("text-xl font-bold")
 
-    ui.button(icon="menu", on_click=lambda: drawer.toggle())
+def create_db_and_tables():
+    SQLModel.metadata.create_all(engine)
 
-with ui.left_drawer().classes("bg-gray-100") as drawer:
-    ui.label("Navigation".upper()).classes("text-gray-500")
 
-    ui.button(
-        "Dashboard", icon="dashboard", on_click=lambda: ui.navigate.to("/")
-    ).props(add="flat align=left").classes("w-full")
+# Configurations
+DATABASE_URL = "sqlite:///database.db"
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+create_db_and_tables()
+app.colors(primary="#4E7D3A")
 
-    ui.button(
-        "Fields", icon="landscape", on_click=lambda: ui.navigate.to("/fields")
-    ).props(add="flat align=left").classes("w-full")
 
-    ui.button(
-        "Animals", icon="pets", on_click=lambda: ui.navigate.to("/animals")
-    ).props("flat align=left").classes("w-full")
+ui.label("Jesus is LORD")
+ui.button("CLick")
 
-    ui.button("Tasks", icon="task", on_click=lambda: ui.navigate.to("/tasks")).props(
-        add="flat align=left"
-    ).classes("w-full")
-
-ui.label("Dashboard")
-
-ui.run()
+ui.run(title="Ферменеджер", favicon="🐴")
