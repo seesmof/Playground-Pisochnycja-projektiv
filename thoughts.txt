@@ -1,1 +1,0 @@
-Add a category to each book. On search match both the title, the author or the category. In recommendation show items with the same category.
